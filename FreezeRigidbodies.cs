@@ -18,11 +18,10 @@ namespace TheLibraryElectric
             GameObject rm = GameObject.Find("[RigManager (Blank)]");
             rigManager = rm;
             Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-
             foreach (Rigidbody rb in allRigidbodies)
             {
                 // Check if the GameObject has the KinematicRB component
-                if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                if (rb.GetComponent<KinematicRB>() != null)
                 {
                     continue; // Skip this if it already somehow has KinematicRB
                 }
@@ -37,16 +36,15 @@ namespace TheLibraryElectric
             if (rigManager != null)
             {
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                    if (rb.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
+                    if (rb.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
@@ -63,17 +61,16 @@ namespace TheLibraryElectric
             if (rigManager != null)
             {
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                    if (rb.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
 
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
+                    if (rb.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
