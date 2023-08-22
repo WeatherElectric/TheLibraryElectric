@@ -16,6 +16,10 @@ A library for a BONELAB SDK thing I'm doing
 
    A dummy component to mark what is already kinematic.
 
+* DoNotFreeze
+
+  Prevents FreezeRigidbodies from freezing the object. Must be on the same object as the rigidbody.
+
 * DeleteOnCollision
 
   Destroys anything it touches, besides anything that's on the static layer and your rigmanager.
