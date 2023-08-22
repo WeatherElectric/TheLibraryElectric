@@ -6,16 +6,16 @@ using UnityEditor;
 
 namespace TheLibraryElectric
 {
-    #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Do Not Freeze")]
-    #endif
     [RegisterTypeInIl2Cpp]
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Do Not Freeze")]
+#endif
     public class DoNotFreeze : MonoBehaviour
     {
-        #if UNITY_EDITOR
+		#if UNITY_EDITOR
 		[SerializeField]
         [TextArea(3, 10)] // Allows for multiline input in the Inspector
-        private string usageNote = "This component must be on the same GameObject as the Rigidbody.";
-        #endif
+        private const string usageNote = "This component must be on the same GameObject as the Rigidbody.";
+		#endif
     }
 }

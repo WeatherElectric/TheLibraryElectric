@@ -6,5 +6,6 @@ namespace TheLibraryElectric
     [RegisterTypeInIl2Cpp]
     internal class KinematicRB : MonoBehaviour
     {
+
     }
 }

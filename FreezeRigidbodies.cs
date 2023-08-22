@@ -7,9 +7,9 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
     [RegisterTypeInIl2Cpp]
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Freeze Rigidbodies")]
-    #endif
+#endif
     public class FreezeRigidbodies : MonoBehaviour
     {
         private GameObject rigManager;
@@ -22,12 +22,11 @@ namespace TheLibraryElectric
             foreach (Rigidbody rb in allRigidbodies)
             {
                 // Check if the GameObject has the KinematicRB component
-                if (rb.gameObject.GetComponent<KinematicRB>() !=null)
+                if (rb.gameObject.GetComponent<KinematicRB>() != null)
                 {
                     continue; // Skip this if it already somehow has KinematicRB
                 }
-
-                if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
+                if (!rb.transform.IsChildOf(rigManager.transform))
                 {
                     rb.gameObject.AddComponent<KinematicRB>();
                 }
@@ -46,14 +45,13 @@ namespace TheLibraryElectric
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
-
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
 
-                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
+                    if (!rb.transform.IsChildOf(rigManager.transform))
                     {
                         rb.isKinematic = true;
                     }
@@ -79,8 +77,7 @@ namespace TheLibraryElectric
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
-
-                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
+                    if (!rb.transform.IsChildOf(rigManager.transform))
                     {
                         rb.isKinematic = false;
                     }
