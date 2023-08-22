@@ -11,6 +11,7 @@ namespace TheLibraryElectric
 #endif
     public class CubeBreak : MonoBehaviour
     {
+		public int amount = 5;
         public float force = 10f;
         Vector3[] offsets = { new Vector3(0.25f, 0.25f, 0.25f), new Vector3(-0.25f, 0.25f, 0.25f), new Vector3(0.25f, 0.25f, -0.25f), new Vector3(-0.25f, 0.25f, -0.25f),
                             new Vector3(0.25f, -0.25f, 0.25f), new Vector3(-0.25f, -0.25f, 0.25f), new Vector3(0.25f, -0.25f, -0.25f), new Vector3(-0.25f, -0.25f, -0.25f),};
@@ -19,12 +20,13 @@ namespace TheLibraryElectric
 #endif
         public void Break()
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < amount; i++)
             {
                 var smallerCopy = Instantiate(gameObject, transform.position, transform.rotation);
                 foreach (var grip in smallerCopy.GetComponents<Grip>())
                 {
                     grip.ForceDetach();
+                    grip.enabled = true;
                 }
                 try
                 {
