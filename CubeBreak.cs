@@ -1,5 +1,6 @@
 using SLZ.Interaction;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -44,7 +45,9 @@ namespace TheLibraryElectric
                 body.mass /= 2;
                 Destroy(gameObject);
             }
-
         }
+#if !UNITY_EDITOR
+        public CubeBreak(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }
