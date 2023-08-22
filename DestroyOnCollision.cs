@@ -11,6 +11,11 @@ namespace TheLibraryElectric
 #endif
     public class DestroyOnCollision : MonoBehaviour
     {
+#if UNITY_EDITOR
+[Header("Destroy Sound Audio Src")]
+[SerializeField]
+#endif
+        public AudioSource audioSource;
         private Transform rigManager;
         private void Start()
         {
@@ -21,6 +26,7 @@ namespace TheLibraryElectric
             // Check if the colliding GameObject is not a child of the excluded object
             if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
             {
+                audioSource.Play();
                 // Destroy the colliding GameObject
                 Destroy(collision.gameObject);
             }
