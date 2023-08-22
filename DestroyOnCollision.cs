@@ -35,7 +35,7 @@ namespace TheLibraryElectric
                 }
                 if (blip != null)
                 {
-                    blip.Despawn();
+                    blip.CallSpawnEffect();
                 }
                 audioSource.Play();
                 // Destroy the colliding GameObject
