@@ -22,7 +22,7 @@ namespace TheLibraryElectric
             foreach (Rigidbody rb in allRigidbodies)
             {
                 // Check if the GameObject has the KinematicRB component
-                if (rb.gameObject.TryGetComponent(out KinematicRB _))
+                if (rb.gameObject.GetComponent<KinematicRB>() !=null)
                 {
                     continue; // Skip this if it already somehow has KinematicRB
                 }
@@ -42,13 +42,13 @@ namespace TheLibraryElectric
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.TryGetComponent(out KinematicRB _))
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
 
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.gameObject.TryGetComponent(out DoNotFreeze _))
+                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
@@ -69,13 +69,13 @@ namespace TheLibraryElectric
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.TryGetComponent(out KinematicRB _))
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
 
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.gameObject.TryGetComponent(out DoNotFreeze _))
+                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
