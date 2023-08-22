@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="CubeBreak.cs" />
     <Compile Include="DestroyOnCollision.cs" />
+    <Compile Include="DoNotDestroy.cs" />
     <Compile Include="DoNotFreeze.cs" />
     <Compile Include="FreezeRigidbodies.cs" />
     <Compile Include="KinematicRB.cs" />

@@ -17,6 +17,7 @@ namespace TheLibraryElectric
 [SerializeField]
 #endif
         public AudioSource audioSource;
+        public GameObject[] excludedObjects;
         private Transform rigManager;
         private Blip blip;
         private void Start()
@@ -26,7 +27,7 @@ namespace TheLibraryElectric
         private void OnCollisionEnter(Collision collision)
         {
             // Check if the colliding GameObject is not a child of the excluded object
-            if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
+            if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13 && !IsObjectExcluded(collision.gameObject) && !collision.gameObject.GetComponent<DoNotDestroy>())
             {
                 Rigidbody rb = collision.transform.GetComponentInParent<Rigidbody>();
                 if (rb != null)
@@ -45,5 +46,17 @@ namespace TheLibraryElectric
 #if !UNITY_EDITOR
         public DestroyOnCollision(IntPtr ptr) : base(ptr) { }
 #endif
+        private bool IsObjectExcluded(GameObject obj)
+        {
+            foreach (GameObject excludedObject in excludedObjects)
+            {
+                if (obj == excludedObject)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
+
 }
