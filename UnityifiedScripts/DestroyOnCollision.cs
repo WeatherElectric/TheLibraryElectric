@@ -27,6 +27,11 @@ namespace TheLibraryElectric
             // Check if the colliding GameObject is not a child of the excluded object
             if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
             {
+                Rigidbody rb = collision.transform.GetComponentInParent<Rigidbody>();
+                if (rb != null)
+                {
+                    blip = rb.transform.GetComponent<Blip>();
+                }
                 blip.Despawn();
                 audioSource.Play();
                 // Destroy the colliding GameObject
