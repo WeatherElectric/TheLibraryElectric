@@ -16,6 +16,7 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
+            FieldInjector.SerialisationHandler.Inject<CubeBreak>();
         }
     }
 }

@@ -36,6 +36,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CubeBreak.cs" />
     <Compile Include="DestroyOnCollision.cs" />
     <Compile Include="DoNotFreeze.cs" />
     <Compile Include="FreezeRigidbodies.cs" />
