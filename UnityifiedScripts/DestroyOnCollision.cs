@@ -32,7 +32,10 @@ namespace TheLibraryElectric
                 {
                     blip = rb.transform.GetComponent<Blip>();
                 }
-                blip.Despawn();
+                if (blip != null)
+                {
+                    blip.Despawn();
+                }
                 audioSource.Play();
                 // Destroy the colliding GameObject
                 Destroy(collision.gameObject);
