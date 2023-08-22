@@ -48,9 +48,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\GlobalReferences\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="BoneLib">
-      <HintPath>..\GlobalReferences\BoneLib.dll</HintPath>
-    </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>..\GlobalReferences\Il2Cppmscorlib.dll</HintPath>
     </Reference>
