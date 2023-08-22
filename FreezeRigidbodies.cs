@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using MelonLoader;
+using SLZ.Rig;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,7 +22,7 @@ namespace TheLibraryElectric
             foreach (Rigidbody rb in allRigidbodies)
             {
                 // Check if the GameObject has the KinematicRB component
-                if (rb.GetComponent<KinematicRB>() != null)
+                if (rb.gameObject.GetComponent<KinematicRB>() != null)
                 {
                     continue; // Skip this if it already somehow has KinematicRB
                 }
@@ -39,12 +40,12 @@ namespace TheLibraryElectric
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.GetComponent<KinematicRB>() != null)
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.GetComponent<DoNotFreeze>() != null)
+                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
@@ -64,13 +65,13 @@ namespace TheLibraryElectric
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the KinematicRB component
-                    if (rb.GetComponent<KinematicRB>() != null)
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
                     {
                         continue; // Skip freezing if the KinematicRB component is present
                     }
 
                     // Check if the GameObject has the DoNotFreeze component
-                    if (rb.GetComponent<DoNotFreeze>() != null)
+                    if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }

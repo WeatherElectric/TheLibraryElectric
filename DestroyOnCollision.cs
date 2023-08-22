@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using MelonLoader;
+using SLZ.Rig;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,15 +13,15 @@ namespace TheLibraryElectric
     [RegisterTypeInIl2Cpp]
     public class DestroyOnCollision : MonoBehaviour
     {
-        private Transform excludedObject;
+        private Transform rigManager;
         private void Start()
         {
-            excludedObject = GameObject.Find("[RigManager (Blank)]")?.transform;
+            rigManager = GameObject.Find("[RigManager (Blank)]")?.transform;
         }
         private void OnCollisionEnter(Collision collision)
         {
             // Check if the colliding GameObject is not a child of the excluded object
-            if (!collision.transform.IsChildOf(excludedObject) && collision.gameObject.layer != 13)
+            if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
             {
                 // Destroy the colliding GameObject
                 Destroy(collision.gameObject);

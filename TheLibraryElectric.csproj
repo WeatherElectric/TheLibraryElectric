@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GlobalReferences\Assembly-CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="BoneLib">
       <HintPath>..\GlobalReferences\BoneLib.dll</HintPath>
     </Reference>
@@ -53,6 +57,14 @@
     </Reference>
     <Reference Include="MelonLoader">
       <HintPath>..\GlobalReferences\MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="SLZ.Marrow, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GlobalReferences\SLZ.Marrow.dll</HintPath>
+    </Reference>
+    <Reference Include="SLZ.Marrow.SDK, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GlobalReferences\SLZ.Marrow.SDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="UnhollowerBaseLib">
