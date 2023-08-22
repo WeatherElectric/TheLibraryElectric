@@ -82,7 +82,11 @@ namespace TheLibraryElectric
         
         private void OnDestroy()
         {
-            Unfreeze();
+            KinematicRB[] kinematicRBs = FindObjectsOfType<KinematicRB>();
+            foreach (KinematicRB kinematicRB in kinematicRBs)
+            {
+                Destroy(kinematicRB.gameObject);
+            }
         }
     }
 }
