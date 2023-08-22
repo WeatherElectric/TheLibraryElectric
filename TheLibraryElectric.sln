@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheLibraryElectric", "TheLibraryElectric.csproj", "{0DEB755F-D57A-4285-9D70-C592E340CDB4}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {43246E89-D36C-460F-8F66-2FB03302E21A}
+		SolutionGuid = {DCC40616-DA99-4102-8E9B-0E7357A63E6F}
 	EndGlobalSection
 EndGlobal
