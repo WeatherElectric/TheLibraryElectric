@@ -48,19 +48,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\GlobalReferences\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="FieldInjector">
+      <HintPath>..\DynamicBonesBL\References\FieldInjector.dll</HintPath>
+    </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>..\GlobalReferences\Il2Cppmscorlib.dll</HintPath>
     </Reference>
     <Reference Include="MelonLoader">
       <HintPath>..\GlobalReferences\MelonLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="SLZ.Marrow, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GlobalReferences\SLZ.Marrow.dll</HintPath>
-    </Reference>
-    <Reference Include="SLZ.Marrow.SDK, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GlobalReferences\SLZ.Marrow.SDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="UnhollowerBaseLib">

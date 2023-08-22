@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using MelonLoader;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,7 +9,6 @@ namespace TheLibraryElectric
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Destroy On Collision")]
 #endif
-    [RegisterTypeInIl2Cpp]
     public class DestroyOnCollision : MonoBehaviour
     {
         private Transform rigManager;
@@ -26,5 +25,8 @@ namespace TheLibraryElectric
                 Destroy(collision.gameObject);
             }
         }
+#if !UNITY_EDITOR
+        public DestroyOnCollision(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }

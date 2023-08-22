@@ -12,7 +12,10 @@ namespace TheLibraryElectric
         internal const string DownloadLink = "null";
         public override void OnInitializeMelon()
         {
-
+            FieldInjector.SerialisationHandler.Inject<KinematicRB>();
+            FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
+            FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
+            FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
         }
     }
 }

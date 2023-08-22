@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using MelonLoader;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 namespace TheLibraryElectric
 {
-    [RegisterTypeInIl2Cpp]
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Freeze Rigidbodies")]
 #endif
@@ -81,10 +80,13 @@ namespace TheLibraryElectric
                 }
             }
         }
-        
+
         private void OnDestroy()
         {
             Unfreeze();
         }
+#if !UNITY_EDITOR
+        public FreezeRigidbodies(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }

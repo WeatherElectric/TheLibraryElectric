@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using MelonLoader;
+﻿using MelonLoader;
+using System.Reflection;
 
 [assembly: AssemblyTitle(TheLibraryElectric.Main.Description)]
 [assembly: AssemblyDescription(TheLibraryElectric.Main.Description)]

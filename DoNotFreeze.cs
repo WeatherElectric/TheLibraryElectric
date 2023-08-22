@@ -1,13 +1,11 @@
-﻿using MelonLoader;
+﻿using System;
 using UnityEngine;
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 namespace TheLibraryElectric
 {
-    [RegisterTypeInIl2Cpp]
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Do Not Freeze")]
 #endif

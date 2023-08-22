@@ -1,10 +1,8 @@
-﻿using MelonLoader;
+﻿using System;
 using UnityEngine;
-using System;
 
 namespace TheLibraryElectric
 {
-    [RegisterTypeInIl2Cpp]
     public class KinematicRB : MonoBehaviour
     {
 #if !UNITY_EDITOR
