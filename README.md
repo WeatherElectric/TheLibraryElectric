@@ -15,3 +15,7 @@ A library for a BONELAB SDK thing I'm doing
 * KinematicRB
 
    A dummy component to mark what is already kinematic.
+
+* DeleteOnCollision
+
+  Destroys anything it touches, besides anything that's on the static layer and your rigmanager.
