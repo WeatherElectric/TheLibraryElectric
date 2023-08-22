@@ -41,7 +41,7 @@ namespace TheLibraryElectric
                 body.ResetInertiaTensor();
                 body.velocity = GetComponent<Rigidbody>().velocity;
                 body.AddRelativeForce(transform.rotation * (offsets[i] * force), ForceMode.Impulse);
-                body.AddRelativeTorque(transform.rotation * (offsets[i] * force + Vector3.one * (Random.value / 3f)), ForceMode.Impulse);
+                body.AddRelativeTorque(transform.rotation * (offsets[i] * force + Vector3.one * (UnityEngine.Random.value / 3f)), ForceMode.Impulse);
                 body.mass /= 2;
                 Destroy(gameObject);
             }
