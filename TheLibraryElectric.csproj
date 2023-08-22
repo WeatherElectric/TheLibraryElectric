@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BuildInfo.cs" />
+    <Compile Include="DoNotFreeze.cs" />
     <Compile Include="FreezeRigidbodies.cs" />
     <Compile Include="KinematicRB.cs" />
     <Compile Include="Main.cs" />

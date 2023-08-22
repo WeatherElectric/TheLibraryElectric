@@ -24,9 +24,10 @@ namespace TheLibraryElectric
                 // Check if the GameObject has the KinematicRB component
                 if (rb.gameObject.TryGetComponent(out KinematicRB _))
                 {
-                    continue; // Skip freezing if the KinematicRB component is present
+                    continue; // Skip this if it already somehow has KinematicRB
                 }
-                if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject && !rb.isKinematic)
+
+                if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
                 {
                     rb.gameObject.AddComponent<KinematicRB>();
                 }
@@ -46,7 +47,13 @@ namespace TheLibraryElectric
                         continue; // Skip freezing if the KinematicRB component is present
                     }
 
-                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject && !rb.isKinematic)
+                    // Check if the GameObject has the DoNotFreeze component
+                    if (rb.gameObject.TryGetComponent(out DoNotFreeze _))
+                    {
+                        continue; // Skip freezing if the DoNotFreeze component is present
+                    }
+
+                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
                     {
                         rb.isKinematic = true;
                     }
@@ -61,6 +68,18 @@ namespace TheLibraryElectric
 
                 foreach (Rigidbody rb in allRigidbodies)
                 {
+                    // Check if the GameObject has the KinematicRB component
+                    if (rb.gameObject.TryGetComponent(out KinematicRB _))
+                    {
+                        continue; // Skip freezing if the KinematicRB component is present
+                    }
+
+                    // Check if the GameObject has the DoNotFreeze component
+                    if (rb.gameObject.TryGetComponent(out DoNotFreeze _))
+                    {
+                        continue; // Skip freezing if the DoNotFreeze component is present
+                    }
+
                     if (!rb.transform.IsChildOf(rigManager.transform) && rb.gameObject != gameObject)
                     {
                         rb.isKinematic = false;
