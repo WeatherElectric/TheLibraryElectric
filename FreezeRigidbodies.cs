@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using MelonLoader;
-using SLZ.Rig;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

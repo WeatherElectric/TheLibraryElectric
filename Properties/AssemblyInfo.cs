@@ -10,7 +10,7 @@ using MelonLoader;
 [assembly: AssemblyVersion(TheLibraryElectric.Main.Version)]
 [assembly: AssemblyFileVersion(TheLibraryElectric.Main.Version)]
 [assembly: MelonInfo(typeof(TheLibraryElectric.Main), TheLibraryElectric.Main.Name, TheLibraryElectric.Main.Version, TheLibraryElectric.Main.Author, TheLibraryElectric.Main.DownloadLink)]
-[assembly: MelonColor(System.ConsoleColor.White)]
+[assembly: MelonColor(System.ConsoleColor.Cyan)]
 
 // Create and Setup a MelonGame Attribute to mark a Melon as Universal or Compatible with specific Games.
 // If no MelonGame Attribute is found or any of the Values for any MelonGame Attribute on the Melon is null or empty it will be assumed the Melon is Universal.
