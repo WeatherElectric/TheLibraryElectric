@@ -19,3 +19,7 @@ A library for a BONELAB SDK thing I'm doing
 * DeleteOnCollision
 
   Destroys anything it touches, besides anything that's on the static layer and your rigmanager.
+
+* CubeBreak
+
+  Splits an object into many of itself with some force.
