@@ -6,7 +6,6 @@ namespace TheLibraryElectric
     {
         public override void OnInitializeMelon()
         {
-            base.OnInitializeMelon();
         }
     }
 }
