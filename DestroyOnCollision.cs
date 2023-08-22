@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using SLZ.VFX;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -17,6 +18,7 @@ namespace TheLibraryElectric
 #endif
         public AudioSource audioSource;
         private Transform rigManager;
+        private Blip blip;
         private void Start()
         {
             rigManager = GameObject.Find("[RigManager (Blank)]")?.transform;
@@ -26,6 +28,7 @@ namespace TheLibraryElectric
             // Check if the colliding GameObject is not a child of the excluded object
             if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
             {
+                blip.Despawn();
                 audioSource.Play();
                 // Destroy the colliding GameObject
                 Destroy(collision.gameObject);
