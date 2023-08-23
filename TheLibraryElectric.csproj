@@ -36,6 +36,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Scripts\Signals\RecieveSignal.cs" />
+    <Compile Include="Scripts\Signals\SendSignal.cs" />
     <Compile Include="Scripts\SpawnableStuff\CubeBreak.cs" />
     <Compile Include="Scripts\SpawnableStuff\DestroyOnCollision.cs" />
     <Compile Include="Scripts\Markers\DoNotDestroy.cs" />
@@ -68,6 +70,9 @@
       <HintPath>..\GlobalReferences\SLZ.Marrow.SDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="UltEvents">
+      <HintPath>..\GlobalReferences\UltEvents.dll</HintPath>
+    </Reference>
     <Reference Include="UnhollowerBaseLib">
       <HintPath>..\GlobalReferences\UnhollowerBaseLib.dll</HintPath>
     </Reference>
