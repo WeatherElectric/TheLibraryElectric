@@ -38,12 +38,11 @@
   <ItemGroup>
     <Compile Include="Scripts\Signals\RecieveSignal.cs" />
     <Compile Include="Scripts\Signals\SendSignal.cs" />
-    <Compile Include="Scripts\SpawnableStuff\CubeBreak.cs" />
+    <Compile Include="Scripts\SpawnableStuff\MrSplitter.cs" />
     <Compile Include="Scripts\SpawnableStuff\DestroyOnCollision.cs" />
     <Compile Include="Scripts\Markers\DoNotDestroy.cs" />
     <Compile Include="Scripts\Markers\DoNotFreeze.cs" />
     <Compile Include="Scripts\Rigidbody-Related\FreezeRigidbodies.cs" />
-    <Compile Include="Scripts\Rigidbody-Related\Monobehaviours\KinematicRB.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,18 +16,9 @@ namespace TheLibraryElectric
         private UltEventHolder ultEvent;
         private void Start()
         {
-            ultEvent = GetComponent<UltEventHolder>();
         }
         public void InvokeEvent()
-        {
-            if (ultEvent != null)
-            {
-                ultEvent.Invoke();
-            }
-            else
-            {
-                Debug.LogWarning("No ultevent present!");
-            }
+        {   
         }
     }
 }

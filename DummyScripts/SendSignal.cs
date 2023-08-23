@@ -13,14 +13,6 @@ namespace TheLibraryElectric
         public string activationKey = "";
         public void Broadcast()
         {
-            RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
-            foreach (RecieveSignal reciever in recievers)
-            {
-                if (reciever != null && reciever.activationKey == activationKey)
-                {
-                    reciever.InvokeEvent();
-                }
-            }
         }
     }
 }
