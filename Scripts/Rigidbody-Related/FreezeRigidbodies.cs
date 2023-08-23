@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -14,27 +12,21 @@ namespace TheLibraryElectric
     public class FreezeRigidbodies : MonoBehaviour
     {
         private GameObject rigManager;
-        private List<Rigidbody> kinematicRbs = new List<Rigidbody>();
-        private List<Rigidbody> frozenRbs = new List<Rigidbody>();
         private void Start()
         {
             GameObject rm = GameObject.Find("[RigManager (Blank)]");
             rigManager = rm;
             Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-            UpdateKinematicObjects(); // Update the list of kinematic rigidbodies
-        }
-        public void UpdateKinematicObjects()
-        {
-            Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-            foreach(Rigidbody rb in allRigidbodies)
+            foreach (Rigidbody rb in allRigidbodies)
             {
-                if(!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic && !kinematicRbs.Contains(rb)) //If the rb is kinematic and not in the list, add it
+                // Check if the GameObject has the KinematicRB component
+                if (rb.gameObject.GetComponent<KinematicRB>() != null)
                 {
-                    kinematicRbs.Add(rb);
+                    continue; // Skip this if it already somehow has KinematicRB
                 }
-                else if (!rb.isKinematic && kinematicRbs.Contains(rb)) //If the rb is not kinematic and in the list, remove it
+                if (!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic)
                 {
-                    kinematicRbs.Remove(rb);
+                    rb.gameObject.AddComponent<KinematicRB>();
                 }
             }
         }
@@ -42,32 +34,31 @@ namespace TheLibraryElectric
         {
             if (rigManager != null)
             {
-                UpdateKinematicObjects();
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
-                    // Check if the RB is in the list of kinematic rigidbodies
-                    if (kinematicRbs.Contains(rb))
+                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic)
                     {
-                        continue; // Skip freezing if the RB is in the list of kinematic rigidbodies
+                        rb.gameObject.AddComponent<KinematicRB>();
+                    }
+                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.GetComponent<KinematicRB>() == null && !rb.isKinematic)
+                    {
+                        Destroy(rb.GetComponent<KinematicRB>());
+                    }
+                    // Check if the GameObject has the KinematicRB component
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                    {
+                        continue; // Skip freezing if the KinematicRB component is present
                     }
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
-                    if(frozenRbs.Contains(rb))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        frozenRbs.Add(rb);
-                    }
 
                     if (!rb.transform.IsChildOf(rigManager.transform))
                     {
-                        rb.isKinematic = true; // Freeze the rigidbody
+                        rb.isKinematic = true;
                     }
                 }
             }
@@ -79,22 +70,32 @@ namespace TheLibraryElectric
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
+                    // Check if the GameObject has the KinematicRB component
+                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                    {
+                        continue; // Skip freezing if the KinematicRB component is present
+                    }
+
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
-                    if (!rb.transform.IsChildOf(rigManager.transform) && !kinematicRbs.Contains(rb))
+                    if (!rb.transform.IsChildOf(rigManager.transform))
                     {
-                        rb.isKinematic = false; // Unfreeze the rigidbody
+                        rb.isKinematic = false;
                     }
                 }
-                frozenRbs = new List<Rigidbody>();
             }
         }
 
         private void OnDestroy()
         {
+            KinematicRB[] kinematicRBs = FindObjectsOfType<KinematicRB>();
+            foreach (KinematicRB kinematicRB in kinematicRBs)
+            {
+                Destroy(kinematicRB.gameObject);
+            }
             Unfreeze();
         }
 #if !UNITY_EDITOR
