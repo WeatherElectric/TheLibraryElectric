@@ -37,10 +37,12 @@ namespace TheLibraryElectric
         }
         private void OnCollisionEnter(Collision collision)
         {
+			return;
         }
 		
         private bool IsObjectExcluded(GameObject obj)
         {
+			return default(bool);
         }
     }
 
