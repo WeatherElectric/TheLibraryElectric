@@ -24,6 +24,17 @@ namespace TheLibraryElectric
         public GameObject[] excludedObjects;
         private Transform rigManager;
         private Blip blip;
+
+        public void Disable()
+        {
+            activeState = false;
+        }
+
+        public void Enable()
+        {
+            activeState = true;
+        }
+
         private void Start()
         {
             rigManager = GameObject.Find("[RigManager (Blank)]")?.transform;
