@@ -23,7 +23,7 @@ namespace TheLibraryElectric
                 {
                     continue; // Skip this if it already somehow has KinematicRB
                 }
-                if (!rb.transform.IsChildOf(rigManager.transform))
+                if (!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic)
                 {
                     rb.gameObject.AddComponent<KinematicRB>();
                 }
@@ -82,11 +82,7 @@ namespace TheLibraryElectric
         
         private void OnDestroy()
         {
-            KinematicRB[] kinematicRBs = FindObjectsOfType<KinematicRB>();
-            foreach (KinematicRB kinematicRB in kinematicRBs)
-            {
-                Destroy(kinematicRB.gameObject);
-            }
+            Unfreeze();
         }
     }
 }

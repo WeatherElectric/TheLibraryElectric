@@ -12,10 +12,16 @@ namespace TheLibraryElectric
     public class DestroyOnCollision : MonoBehaviour
     {
 #if UNITY_EDITOR
+[Header("Is Allowed To Destroy?")]
+[SerializeField]
+#endif
+        public bool activeState;
+#if UNITY_EDITOR
 [Header("Destroy Sound Audio Src")]
 [SerializeField]
 #endif
         public AudioSource audioSource;
+        public GameObject[] excludedObjects;
         private Transform rigManager;
         private Blip blip;
         private void Start()
@@ -24,22 +30,37 @@ namespace TheLibraryElectric
         }
         private void OnCollisionEnter(Collision collision)
         {
-            // Check if the colliding GameObject is not a child of the excluded object
-            if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13)
+            if (activeState == true)
             {
-                Rigidbody rb = collision.transform.GetComponentInParent<Rigidbody>();
-                if (rb != null)
+                // Check if the colliding GameObject is not a child of the excluded object
+                if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13 && !IsObjectExcluded(collision.gameObject) && !collision.gameObject.GetComponent<DoNotDestroy>())
                 {
-                    blip = rb.transform.GetComponent<Blip>();
+                    Rigidbody rb = collision.transform.GetComponentInParent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        blip = rb.transform.GetComponent<Blip>();
+                    }
+                    if (blip != null)
+                    {
+                        blip.CallSpawnEffect();
+                    }
+                    audioSource.Play();
+                    // Destroy the colliding GameObject
+                    Destroy(collision.gameObject);
                 }
-                if (blip != null)
-                {
-                    blip.CallSpawnEffect();
-                }
-                audioSource.Play();
-                // Destroy the colliding GameObject
-                Destroy(collision.gameObject);
             }
         }
+        private bool IsObjectExcluded(GameObject obj)
+        {
+            foreach (GameObject excludedObject in excludedObjects)
+            {
+                if (obj == excludedObject)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
+
 }
