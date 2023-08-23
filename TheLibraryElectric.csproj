@@ -36,6 +36,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
     <Compile Include="Scripts\Signals\RecieveSignal.cs" />
     <Compile Include="Scripts\Signals\SendSignal.cs" />
     <Compile Include="Scripts\SpawnableStuff\MrSplitter.cs" />
