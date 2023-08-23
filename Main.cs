@@ -15,6 +15,8 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<KinematicRB>();
             FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
             FieldInjector.SerialisationHandler.Inject<DoNotDestroy>();
+            FieldInjector.SerialisationHandler.Inject<RecieveSignal>();
+            FieldInjector.SerialisationHandler.Inject<SendSignal>();
             FieldInjector.SerialisationHandler.Inject<CubeBreak>();
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
