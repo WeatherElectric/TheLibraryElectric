@@ -7,7 +7,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Explode But Better")]
+[AddComponentMenu("The Library Electric/Rigidbody Related/Explode But Better")]
 #endif
     public class ExplodeButBetter : MonoBehaviour
     {
@@ -34,14 +34,6 @@ namespace TheLibraryElectric
         {
             return;
         }
-		private void OnDrawGizmos()
-        {
-			if (useColliders)
-				return;
-			Gizmos.color = Color.blue;
-			Gizmos.DrawWireSphere(transform.position, explosionRadius);
-		}
-
 		private void OnDrawGizmosSelected()
 		{
 			if (useColliders)

@@ -8,7 +8,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Recieve Signal")]
+[AddComponentMenu("The Library Electric/Signals/Recieve Signal")]
 [RequireComponent(typeof(UltEventHolder))]
 #endif
     public class RecieveSignal : MonoBehaviour

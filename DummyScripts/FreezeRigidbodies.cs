@@ -6,7 +6,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Freeze Rigidbodies")]
+    [AddComponentMenu("The Library Electric/Rigidbody Related/Freeze Rigidbodies")]
 #endif
     public class FreezeRigidbodies : MonoBehaviour
     {

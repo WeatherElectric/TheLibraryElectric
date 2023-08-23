@@ -6,7 +6,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Send Signal")]
+[AddComponentMenu("The Library Electric/Signals/Send Signal")]
 #endif
     public class SendSignal : MonoBehaviour
     {
