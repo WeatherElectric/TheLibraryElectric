@@ -36,12 +36,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CubeBreak.cs" />
-    <Compile Include="DestroyOnCollision.cs" />
-    <Compile Include="DoNotDestroy.cs" />
-    <Compile Include="DoNotFreeze.cs" />
-    <Compile Include="FreezeRigidbodies.cs" />
-    <Compile Include="KinematicRB.cs" />
+    <Compile Include="Scripts\SpawnableStuff\CubeBreak.cs" />
+    <Compile Include="Scripts\SpawnableStuff\DestroyOnCollision.cs" />
+    <Compile Include="Scripts\Markers\DoNotDestroy.cs" />
+    <Compile Include="Scripts\Markers\DoNotFreeze.cs" />
+    <Compile Include="Scripts\Rigidbody-Related\FreezeRigidbodies.cs" />
+    <Compile Include="Scripts\Rigidbody-Related\Monobehaviours\KinematicRB.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
