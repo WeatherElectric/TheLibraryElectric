@@ -53,6 +53,7 @@ namespace TheLibraryElectric
         {
             if (ultEvent != null)
             {
+                MelonLogger.Msg("Signal recieved, invoking");
                 ultEvent.Invoke();
             }
             else

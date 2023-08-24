@@ -90,6 +90,9 @@
       <HintPath>..\GlobalReferences\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\Signals\Keys\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY "$(TargetPath)" "I:\Steam\steamapps\common\BONELAB\Mods"</PostBuildEvent>
