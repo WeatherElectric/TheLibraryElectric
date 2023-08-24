@@ -44,22 +44,12 @@ namespace TheLibraryElectric
         public ActivationKey activationKey;
         public void Broadcast()
         {
-            MelonLogger.Msg("Method was called");
-            MelonLogger.Msg("Getting all recievers");
             RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
-            MelonLogger.Msg("Foreach");
             foreach (RecieveSignal reciever in recievers)
             {
-                MelonLogger.Msg("Check if activation key is the same");
-                MelonLogger.Msg($"Reciever's gameobject is {reciever.gameObject.name}");
                 if ((int)activationKey == (int)reciever.activationKey)
                 {
-                    MelonLogger.Msg("Invoke");
                     reciever.InvokeEvent();
-                }
-                else
-                {
-                    MelonLogger.Msg("Key was not the same, or some other error");
                 }
             }
         }
