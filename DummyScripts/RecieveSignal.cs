@@ -7,27 +7,18 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Recieve Signal")]
+[AddComponentMenu("The Library Electric/Signals/Recieve Signal")]
 [RequireComponent(typeof(UltEventHolder))]
 #endif
     public class RecieveSignal : MonoBehaviour
     {
-        public string activationKey = "";
+		public string activationKey;
         private UltEventHolder ultEvent;
         private void Start()
         {
-            ultEvent = GetComponent<UltEventHolder>();
         }
         public void InvokeEvent()
-        {
-            if (ultEvent != null)
-            {
-                ultEvent.Invoke();
-            }
-            else
-            {
-                Debug.LogWarning("No ultevent present!");
-            }
+        {   
         }
     }
 }

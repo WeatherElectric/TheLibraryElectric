@@ -6,7 +6,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Do Not Destroy")]
+    [AddComponentMenu("The Library Electric/Markers/Do Not Destroy")]
 #endif
     public class DoNotDestroy : MonoBehaviour
     {

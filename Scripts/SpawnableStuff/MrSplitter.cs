@@ -1,5 +1,6 @@
 using SLZ.Interaction;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -7,11 +8,11 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Cube Break")]
+    [AddComponentMenu("The Library Electric/Mr Splitter")]
 #endif
-    public class CubeBreak : MonoBehaviour
+    public class MrSplitter : MonoBehaviour
     {
-		public int amount = 5;
+        public int amount = 5;
         public float force = 10f;
         Vector3[] offsets = { new Vector3(0.25f, 0.25f, 0.25f), new Vector3(-0.25f, 0.25f, 0.25f), new Vector3(0.25f, 0.25f, -0.25f), new Vector3(-0.25f, 0.25f, -0.25f),
                             new Vector3(0.25f, -0.25f, 0.25f), new Vector3(-0.25f, -0.25f, 0.25f), new Vector3(0.25f, -0.25f, -0.25f), new Vector3(-0.25f, -0.25f, -0.25f),};
@@ -41,11 +42,13 @@ namespace TheLibraryElectric
                 body.ResetInertiaTensor();
                 body.velocity = GetComponent<Rigidbody>().velocity;
                 body.AddRelativeForce(transform.rotation * (offsets[i] * force), ForceMode.Impulse);
-                body.AddRelativeTorque(transform.rotation * (offsets[i] * force + Vector3.one * (Random.value / 3f)), ForceMode.Impulse);
+                body.AddRelativeTorque(transform.rotation * (offsets[i] * force + Vector3.one * (UnityEngine.Random.value / 3f)), ForceMode.Impulse);
                 body.mass /= 2;
                 Destroy(gameObject);
             }
-
         }
+#if !UNITY_EDITOR
+        public MrSplitter(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }

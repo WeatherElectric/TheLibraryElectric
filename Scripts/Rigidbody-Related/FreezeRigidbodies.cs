@@ -7,7 +7,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Freeze Rigidbodies")]
+    [AddComponentMenu("The Library Electric/Rigidbody Related/Freeze Rigidbodies")]
 #endif
     public class FreezeRigidbodies : MonoBehaviour
     {
@@ -15,18 +15,21 @@ namespace TheLibraryElectric
         private void Start()
         {
             GameObject rm = GameObject.Find("[RigManager (Blank)]");
+            ModConsole.Msg("Got rigmanager", LoggingMode.DEBUG);
             rigManager = rm;
             Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
+            ModConsole.Msg("Got rigidbodies", LoggingMode.DEBUG);
             foreach (Rigidbody rb in allRigidbodies)
             {
-                // Check if the GameObject has the KinematicRB component
-                if (rb.gameObject.GetComponent<KinematicRB>() != null)
+                ModConsole.Msg("Giving existing kinematic RBs DoNotFreeze", LoggingMode.DEBUG);
+                // Check if the GameObject has the DoNotFreeze component
+                if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                 {
-                    continue; // Skip this if it already somehow has KinematicRB
+                    continue; // Skip this if it already DoNotFreeze
                 }
                 if (!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic)
                 {
-                    rb.gameObject.AddComponent<KinematicRB>();
+                    rb.gameObject.AddComponent<DoNotFreeze>();
                 }
             }
         }
@@ -34,48 +37,36 @@ namespace TheLibraryElectric
         {
             if (rigManager != null)
             {
+                ModConsole.Msg("Getting rigidbodies", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
-                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.isKinematic)
-                    {
-                        rb.gameObject.AddComponent<KinematicRB>();
-                    }
-                    if (!rb.transform.IsChildOf(rigManager.transform) && rb.GetComponent<KinematicRB>() == null && !rb.isKinematic)
-                    {
-                        Destroy(rb.GetComponent<KinematicRB>());
-                    }
-                    // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
-                    {
-                        continue; // Skip freezing if the KinematicRB component is present
-                    }
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
+                        ModConsole.Msg($"{rb.gameObject.name} has DoNotFreeze, skipping", LoggingMode.DEBUG);
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
-
                     if (!rb.transform.IsChildOf(rigManager.transform))
                     {
+                        ModConsole.Msg("Froze all RBs", LoggingMode.DEBUG);
                         rb.isKinematic = true;
                     }
                 }
+            }
+            else
+            {
+                ModConsole.Msg("Somehow, the rigmanager is null!", LoggingMode.NORMAL);
             }
         }
         public void Unfreeze()
         {
             if (rigManager != null)
             {
+                ModConsole.Msg("Getting all RBs", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
-                    // Check if the GameObject has the KinematicRB component
-                    if (rb.gameObject.GetComponent<KinematicRB>() != null)
-                    {
-                        continue; // Skip freezing if the KinematicRB component is present
-                    }
-
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
@@ -87,15 +78,14 @@ namespace TheLibraryElectric
                     }
                 }
             }
+            else
+            {
+                ModConsole.Msg("Somehow, the rigmanager is null!", LoggingMode.DEBUG);
+            }
         }
 
         private void OnDestroy()
         {
-            KinematicRB[] kinematicRBs = FindObjectsOfType<KinematicRB>();
-            foreach (KinematicRB kinematicRB in kinematicRBs)
-            {
-                Destroy(kinematicRB.gameObject);
-            }
             Unfreeze();
         }
 #if !UNITY_EDITOR

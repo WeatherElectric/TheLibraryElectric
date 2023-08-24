@@ -8,26 +8,29 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Recieve Signal")]
+[AddComponentMenu("The Library Electric/Signals/Recieve Signal")]
 [RequireComponent(typeof(UltEventHolder))]
 #endif
     public class RecieveSignal : MonoBehaviour
     {
-        public string activationKey = "";
+        public string activationKey;
         private UltEventHolder ultEvent;
         private void Start()
         {
+            ModConsole.Msg($"Reciever spawned, key is {activationKey}", LoggingMode.DEBUG);
             ultEvent = GetComponent<UltEventHolder>();
         }
         public void InvokeEvent()
         {
-            if (ultEvent != null)
+            UltEventHolder il2cppsucks = GetComponent<UltEventHolder>();
+            if (il2cppsucks != null)
             {
-                ultEvent.Invoke();
+                ModConsole.Msg("Signal recieved, invoking", LoggingMode.DEBUG);
+                il2cppsucks.Invoke();
             }
             else
             {
-                Debug.LogWarning("No ultevent present!");
+                ModConsole.Msg("No ultevent present!", LoggingMode.DEBUG);
             }
         }
 #if !UNITY_EDITOR

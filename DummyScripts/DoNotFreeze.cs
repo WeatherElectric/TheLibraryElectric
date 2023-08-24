@@ -6,7 +6,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Do Not Freeze")]
+    [AddComponentMenu("The Library Electric/Markers/Do Not Freeze")]
 #endif
     public class DoNotFreeze : MonoBehaviour
     {
