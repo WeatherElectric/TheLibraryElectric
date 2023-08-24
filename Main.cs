@@ -1,15 +1,17 @@
 ﻿using MelonLoader;
+using Jevil.ModStats;
+using System.Threading.Tasks;
 
 namespace TheLibraryElectric
 {
     public class Main : MelonMod
     {
         internal const string Name = "The Library Electric";
-        internal const string Description = "Condemn him to the IL2CPP.";
+        internal const string Description = "See how IL2CPP breaks the mod.";
         internal const string Author = "CarrionAndOn";
         internal const string Company = "Weather Electric";
-        internal const string Version = "0.0.0";
-        internal const string DownloadLink = "null";
+        internal const string Version = "0.0.1";
+        internal const string DownloadLink = "https://bonelab.thunderstore.io/package/CarrionAndOn/TheLibraryElectric/";
         public override void OnInitializeMelon()
         {
             ModConsole.Setup(LoggerInstance);
@@ -22,6 +24,13 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
             FieldInjector.SerialisationHandler.Inject<ExplodeButBetter>();
+        }
+        public static async Task Startup()
+        {
+            const string STATS_CATEGORY = "TheLibraryElectric";
+            string prefix = Jevil.Utilities.IsPlatformQuest() ? "quest" : "pcvr";
+            ModConsole.Msg($"Sending stats request for {prefix} platform launch!", LoggingMode.NORMAL);
+            bool success = await StatsEntry.IncrementValueAsync(STATS_CATEGORY, prefix + "Launches");
         }
     }
 }

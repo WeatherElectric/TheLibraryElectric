@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using static Ara.AraTrail;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -15,6 +16,7 @@ namespace TheLibraryElectric
         {
             if (timeScale >= 0.0f)
             {
+                ModConsole.Msg($"Setting timescale to {timeScale}", LoggingMode.DEBUG);
                 Time.timeScale = timeScale;
             }
             else
@@ -24,6 +26,7 @@ namespace TheLibraryElectric
         }
         public void IncreaseTimeScale()
         {
+            ModConsole.Msg("Increasing timeScale by 1", LoggingMode.DEBUG);
             ScaleTime(Time.timeScale + 1.0f);
         }
         public void DecreaseTimeScale()
@@ -31,6 +34,7 @@ namespace TheLibraryElectric
             float newTimeScale = Time.timeScale - 1.0f;
             if (newTimeScale >= 0.0f)
             {
+                ModConsole.Msg("Decreasing timeScale by 1", LoggingMode.DEBUG);
                 ScaleTime(newTimeScale);
             }
             else

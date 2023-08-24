@@ -65,6 +65,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Il2Cppmscorlib.dll</HintPath>
     </Reference>
+    <Reference Include="JeviLib">
+      <HintPath>References\JeviLib.dll</HintPath>
+    </Reference>
     <Reference Include="MelonLoader, Version=0.5.7.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\MelonLoader.dll</HintPath>
