@@ -7,7 +7,7 @@ using UnityEditor;
 namespace TheLibraryElectric
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Destroy On Collision")]
+    [AddComponentMenu("The Library Electric/Misc/Destroy On Collision")]
 #endif
     public class DestroyOnCollision : MonoBehaviour
     {

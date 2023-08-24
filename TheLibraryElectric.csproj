@@ -39,6 +39,7 @@
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
+    <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
     <Compile Include="Scripts\SpawnableStuff\TimescaleController.cs" />
     <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
     <Compile Include="Scripts\Signals\RecieveSignal.cs" />
