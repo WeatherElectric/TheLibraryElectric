@@ -12,10 +12,6 @@ A library for a BONELAB SDK thing I'm doing
 
   Once destroyed it unfreezes everything to make sure that if you despawn the trigger, anything you froze gets unfrozen.
 
-* KinematicRB
-
-   A dummy component to mark what is already kinematic.
-
 * DoNotFreeze
 
   Prevents FreezeRigidbodies from freezing the object. Must be on the same object as the rigidbody.
@@ -24,6 +20,26 @@ A library for a BONELAB SDK thing I'm doing
 
   Destroys anything it touches, besides anything that's on the static layer and your rigmanager.
 
-* CubeBreak
+* DoNotDestroy
 
-  Splits an object into many of itself with some force.
+  Prevents DeleteOnCollision from destroying the gameobject and any children. Put on root.
+
+* SendSignal
+
+  Finds any RecieveSignal components in the scene that have the same key as them, and then call their method.
+
+* RecieveSignal
+
+  When called, it invokes an ultevent on it's gameobject.
+
+* TimescaleController
+
+  Increments the timescale by 1, can decrease as well but can't go negative
+
+* ExplodeButBetter
+
+  SLZ's simple explosion force, but it constantly runs unless inactive
+
+* MrSplitter
+
+  Splits an object into smaller versions of itself, keeping any components and child gameobjects
