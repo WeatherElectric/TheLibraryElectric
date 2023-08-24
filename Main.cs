@@ -24,13 +24,15 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
             FieldInjector.SerialisationHandler.Inject<ExplodeButBetter>();
+            Startup();
         }
         public static async Task Startup()
         {
             const string STATS_CATEGORY = "TheLibraryElectric";
-            string prefix = Jevil.Utilities.IsPlatformQuest() ? "quest" : "pcvr";
+            string prefix = Jevil.Utilities.IsPlatformQuest() ? "Quest" : "PCVR";
             ModConsole.Msg($"Sending stats request for {prefix} platform launch!", LoggingMode.NORMAL);
             bool success = await StatsEntry.IncrementValueAsync(STATS_CATEGORY, prefix + "Launches");
+            ModConsole.Msg($"Sending stats request for {prefix} platform launch {(success ? "succeeded" : "failed")}", LoggingMode.NORMAL);
         }
     }
 }
