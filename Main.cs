@@ -12,6 +12,8 @@ namespace TheLibraryElectric
         internal const string DownloadLink = "null";
         public override void OnInitializeMelon()
         {
+            ModConsole.Setup(LoggerInstance);
+            Preferences.Setup();
             FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
             FieldInjector.SerialisationHandler.Inject<DoNotDestroy>();
             FieldInjector.SerialisationHandler.Inject<RecieveSignal>();

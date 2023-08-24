@@ -17,6 +17,10 @@ namespace TheLibraryElectric
             {
                 Time.timeScale = timeScale;
             }
+            else
+            {
+                ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
+            }
         }
         public void IncreaseTimeScale()
         {
@@ -28,6 +32,10 @@ namespace TheLibraryElectric
             if (newTimeScale >= 0.0f)
             {
                 ScaleTime(newTimeScale);
+            }
+            else
+            {
+                ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
             }
         }
 #if !UNITY_EDITOR

@@ -15,10 +15,13 @@ namespace TheLibraryElectric
         private void Start()
         {
             GameObject rm = GameObject.Find("[RigManager (Blank)]");
+            ModConsole.Msg("Got rigmanager", LoggingMode.DEBUG);
             rigManager = rm;
             Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
+            ModConsole.Msg("Got rigidbodies", LoggingMode.DEBUG);
             foreach (Rigidbody rb in allRigidbodies)
             {
+                ModConsole.Msg("Giving existing kinematic RBs DoNotFreeze", LoggingMode.DEBUG);
                 // Check if the GameObject has the DoNotFreeze component
                 if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                 {
@@ -34,25 +37,33 @@ namespace TheLibraryElectric
         {
             if (rigManager != null)
             {
+                ModConsole.Msg("Getting rigidbodies", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
                     {
+                        ModConsole.Msg($"{rb.gameObject.name} has DoNotFreeze, skipping", LoggingMode.DEBUG);
                         continue; // Skip freezing if the DoNotFreeze component is present
                     }
                     if (!rb.transform.IsChildOf(rigManager.transform))
                     {
+                        ModConsole.Msg("Froze all RBs", LoggingMode.DEBUG);
                         rb.isKinematic = true;
                     }
                 }
+            }
+            else
+            {
+                ModConsole.Msg("Somehow, the rigmanager is null!", LoggingMode.NORMAL);
             }
         }
         public void Unfreeze()
         {
             if (rigManager != null)
             {
+                ModConsole.Msg("Getting all RBs", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
                 foreach (Rigidbody rb in allRigidbodies)
                 {
@@ -66,6 +77,10 @@ namespace TheLibraryElectric
                         rb.isKinematic = false;
                     }
                 }
+            }
+            else
+            {
+                ModConsole.Msg("Somehow, the rigmanager is null!", LoggingMode.DEBUG);
             }
         }
 

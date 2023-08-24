@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System;
 using UltEvents;
-using MelonLoader;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -47,18 +46,19 @@ namespace TheLibraryElectric
         private UltEventHolder ultEvent;
         private void Start()
         {
+            ModConsole.Msg($"Reciever spawned, key is {activationKey}", LoggingMode.DEBUG);
             ultEvent = GetComponent<UltEventHolder>();
         }
         public void InvokeEvent()
         {
             if (ultEvent != null)
             {
-                MelonLogger.Msg("Signal recieved, invoking");
+                ModConsole.Msg("Signal recieved, invoking", LoggingMode.DEBUG);
                 ultEvent.Invoke();
             }
             else
             {
-                Debug.LogWarning("No ultevent present!");
+                ModConsole.Msg("No ultevent present!", LoggingMode.DEBUG);
             }
         }
 #if !UNITY_EDITOR

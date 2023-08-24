@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using MelonLoader;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -44,22 +43,22 @@ namespace TheLibraryElectric
         public ActivationKey activationKey;
         public void Broadcast()
         {
-            MelonLogger.Msg("Method called");
-            MelonLogger.Msg("Finding recievers");
+            ModConsole.Msg("Broadcasting", LoggingMode.DEBUG);
+            ModConsole.Msg("Finding recievers", LoggingMode.DEBUG);
             RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
-            MelonLogger.Msg("Got recievers");
+            ModConsole.Msg("Got recievers", LoggingMode.DEBUG);
             foreach (RecieveSignal reciever in recievers)
             {
-                MelonLogger.Msg($"Reciever gameobject is {reciever.gameObject.name}");
-                MelonLogger.Msg($"Sender key is {activationKey}, reciever key is {reciever.activationKey}");
+                ModConsole.Msg($"Reciever gameobject is {reciever.gameObject.name}", LoggingMode.DEBUG);
+                ModConsole.Msg($"Sender key is {activationKey}, reciever key is {reciever.activationKey}", LoggingMode.DEBUG);
                 if ((int)activationKey == (int)reciever.activationKey)
                 {
-                    MelonLogger.Msg("Calling reciever's invoke method");
+                    ModConsole.Msg("Calling reciever's invoke method", LoggingMode.DEBUG);
                     reciever.InvokeEvent();
                 }
                 else
                 {
-                    MelonLogger.Msg("Could not find reciever's key, or key was not the same as sender's");
+                    ModConsole.Msg("Could not find reciever's key, or key was not the same as sender's", LoggingMode.DEBUG);
                 }
             }
         }
