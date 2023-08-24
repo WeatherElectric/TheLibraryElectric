@@ -51,10 +51,11 @@ namespace TheLibraryElectric
         }
         public void InvokeEvent()
         {
-            if (ultEvent != null)
+            UltEventHolder il2cppsucks = GetComponent<UltEventHolder>();
+            if (il2cppsucks != null)
             {
                 ModConsole.Msg("Signal recieved, invoking", LoggingMode.DEBUG);
-                ultEvent.Invoke();
+                il2cppsucks.Invoke();
             }
             else
             {
