@@ -12,6 +12,7 @@ namespace TheLibraryElectric
 #endif
     public class TimescaleController : MonoBehaviour
     {
+        public float incrementValue = 0.5f;
         public void ScaleTime(float timeScale)
         {
             if (timeScale >= 0.0f)
@@ -26,16 +27,17 @@ namespace TheLibraryElectric
         }
         public void IncreaseTimeScale()
         {
-            ModConsole.Msg("Increasing timeScale by 1", LoggingMode.DEBUG);
-            ScaleTime(Time.timeScale + 1.0f);
+            float addTimeScale = Time.timeScale + incrementValue;
+            ModConsole.Msg($"Increasing timeScale by {incrementValue}, now {addTimeScale}", LoggingMode.DEBUG);
+            ScaleTime(addTimeScale);
         }
         public void DecreaseTimeScale()
         {
-            float newTimeScale = Time.timeScale - 1.0f;
-            if (newTimeScale >= 0.0f)
+            float subTimeScale = Time.timeScale - incrementValue;
+            if (subTimeScale >= 0.0f)
             {
-                ModConsole.Msg("Decreasing timeScale by 1", LoggingMode.DEBUG);
-                ScaleTime(newTimeScale);
+                ModConsole.Msg($"Decreasing timeScale by {incrementValue}, now {subTimeScale}", LoggingMode.DEBUG);
+                ScaleTime(subTimeScale);
             }
             else
             {

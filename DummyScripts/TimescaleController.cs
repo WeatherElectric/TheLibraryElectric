@@ -10,6 +10,7 @@ namespace TheLibraryElectric
 #endif
     public class TimescaleController : MonoBehaviour
     {
+        public float incrementValue = 0.5f;
         public void ScaleTime(float timeScale)
         {
 			return;
