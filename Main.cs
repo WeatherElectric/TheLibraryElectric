@@ -23,6 +23,7 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
             FieldInjector.SerialisationHandler.Inject<ExplodeButBetter>();
+            FieldInjector.SerialisationHandler.Inject<UpdateTMP>();
             ModConsole.Msg("Doing Jevillib Stuff", LoggingMode.DEBUG);
             ModStats.Increment();
         }
