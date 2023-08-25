@@ -14,6 +14,7 @@ namespace TheLibraryElectric
         public TextMeshPro textMeshPro;
         public float startingValue = 1.0f;
         public float incrementAmount = 0.5f;
+		public float minValue= 0.1f;
 
         private float currentValue;
 

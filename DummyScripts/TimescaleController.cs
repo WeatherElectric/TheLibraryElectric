@@ -11,10 +11,13 @@ namespace TheLibraryElectric
     public class TimescaleController : MonoBehaviour
     {
         public float incrementValue = 0.5f;
-        public void ScaleTime(float timeScale)
+		private float timeScale = 1.0f;
+        public void ScaleTime()
         {
-			return;
         }
+		private void FixedUpdate()
+		{
+		}
         public void IncreaseTimeScale()
         {
         }
