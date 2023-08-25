@@ -44,6 +44,10 @@ namespace TheLibraryElectric
                 ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
             }
         }
+        private void OnDestroy()
+        {
+            Time.timeScale = 1.0f;
+        }
 #if !UNITY_EDITOR
         public TimescaleController(IntPtr ptr) : base(ptr) { }
 #endif

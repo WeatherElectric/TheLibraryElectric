@@ -21,5 +21,8 @@ namespace TheLibraryElectric
         public void DecreaseTimeScale()
         {
         }
+        private void OnDestroy()
+        {
+        }
     }
 }
