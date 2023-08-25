@@ -14,7 +14,7 @@ namespace TheLibraryElectric
         {
             ModConsole.Setup(LoggerInstance);
             Preferences.Setup();
-            ModConsole.Msg("Injecting the fields with the fieldinjector which injects fields", LoggingMode.DEBUG);
+            ModConsole.Msg("Injecting the fields with the fieldinjector which injects fields, crazy isnt it", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
             FieldInjector.SerialisationHandler.Inject<DoNotDestroy>();
             FieldInjector.SerialisationHandler.Inject<RecieveSignal>();
@@ -24,7 +24,8 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
             FieldInjector.SerialisationHandler.Inject<ExplodeButBetter>();
             FieldInjector.SerialisationHandler.Inject<UpdateTMP>();
-            ModConsole.Msg("Doing Jevillib Stuff", LoggingMode.DEBUG);
+            ModConsole.Msg("Hopefully the fields injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
+            ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
             ModStats.Increment();
         }
     }

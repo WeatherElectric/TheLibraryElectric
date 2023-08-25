@@ -14,6 +14,7 @@ namespace TheLibraryElectric
         public string activationKey;
         public void Broadcast()
         {
+            ModConsole.Msg("Fun fact! Reciever is spelled wrong in every log bit, and in the component. I'm not fixing it.", LoggingMode.DEBUG);
             ModConsole.Msg("Broadcasting", LoggingMode.DEBUG);
             ModConsole.Msg("Finding recievers", LoggingMode.DEBUG);
             RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
