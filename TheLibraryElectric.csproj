@@ -41,13 +41,13 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="ModStats.cs" />
     <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
-    <Compile Include="Scripts\SpawnableStuff\AudioStreamPlayer.cs" />
-    <Compile Include="Scripts\SpawnableStuff\TimescaleController.cs" />
+    <Compile Include="Scripts\Misc\AudioStreamPlayer.cs" />
+    <Compile Include="Scripts\Misc\TimescaleController.cs" />
     <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
     <Compile Include="Scripts\Signals\RecieveSignal.cs" />
     <Compile Include="Scripts\Signals\SendSignal.cs" />
-    <Compile Include="Scripts\SpawnableStuff\MrSplitter.cs" />
-    <Compile Include="Scripts\SpawnableStuff\DestroyOnCollision.cs" />
+    <Compile Include="Scripts\Misc\MrSplitter.cs" />
+    <Compile Include="Scripts\Misc\DestroyOnCollision.cs" />
     <Compile Include="Scripts\Markers\DoNotDestroy.cs" />
     <Compile Include="Scripts\Markers\DoNotFreeze.cs" />
     <Compile Include="Scripts\Rigidbody-Related\FreezeRigidbodies.cs" />
