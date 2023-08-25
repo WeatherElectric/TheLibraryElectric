@@ -40,6 +40,7 @@
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Scripts\Misc\UpdateTMP.cs" />
     <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
     <Compile Include="Scripts\Misc\TimescaleController.cs" />
     <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
@@ -92,6 +93,9 @@
     <Reference Include="UnhollowerBaseLib, Version=0.4.18.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\UnhollowerBaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>References\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
