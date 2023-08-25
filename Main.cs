@@ -16,15 +16,26 @@ namespace TheLibraryElectric
             Preferences.Setup();
             ModConsole.Msg("Injecting the fields with the fieldinjector which injects fields, crazy isnt it", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DoNotFreeze>();
+            ModConsole.Msg("Hopefully injected DoNotFreeze", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DoNotDestroy>();
+            ModConsole.Msg("Hopefully injected DoNotDestroy", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<RecieveSignal>();
+            ModConsole.Msg("Hopefully injected RecieveSignal", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<SendSignal>();
+            ModConsole.Msg("Hopefully injected SendSignal", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<MrSplitter>();
+            ModConsole.Msg("Hopefully injected MrSplitter", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
+            ModConsole.Msg("Hopefully injected FreezeRigidbodies", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
+            ModConsole.Msg("Hopefully injected DestroyOnCollision", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<ExplodeButBetter>();
+            ModConsole.Msg("Hopefully injected ExplodeButBetter", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<TimescaleController>();
+            ModConsole.Msg("Hopefully injected TimescaleController", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<UpdateTMP>();
-            ModConsole.Msg("Hopefully the fields injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
+            ModConsole.Msg("Hopefully injected UpdateTMP", LoggingMode.DEBUG);
+            ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
             ModStats.Increment();
         }

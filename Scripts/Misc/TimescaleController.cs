@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using static Ara.AraTrail;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -13,11 +12,11 @@ namespace TheLibraryElectric
     public class TimescaleController : MonoBehaviour
     {
         public float incrementValue = 0.5f;
-        public void ScaleTime(float timeScale)
+        private float timeScale = 1.0f;
+        public void ScaleTime()
         {
-            if (timeScale >= 0.0f)
+            if (timeScale >= 0.1f)
             {
-                ModConsole.Msg($"Setting timescale to {timeScale}", LoggingMode.DEBUG);
                 Time.timeScale = timeScale;
             }
             else
@@ -25,19 +24,24 @@ namespace TheLibraryElectric
                 ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
             }
         }
+        private void FixedUpdate()
+        {
+            ScaleTime();
+        }
         public void IncreaseTimeScale()
         {
-            float addTimeScale = Time.timeScale + incrementValue;
-            ModConsole.Msg($"Increasing timeScale by {incrementValue}, now {addTimeScale}", LoggingMode.DEBUG);
-            ScaleTime(addTimeScale);
+            var currentTimeScale = timeScale;
+            timeScale = currentTimeScale + incrementValue;
+            ModConsole.Msg($"Increasing timeScale by {incrementValue}, now {timeScale}", LoggingMode.DEBUG);
         }
         public void DecreaseTimeScale()
         {
-            float subTimeScale = Time.timeScale - incrementValue;
-            if (subTimeScale >= 0.0f)
+            var currentTimeScale = timeScale;
+            var newTimeScale = currentTimeScale - incrementValue;
+            if (currentTimeScale >= 0.1f)
             {
-                ModConsole.Msg($"Decreasing timeScale by {incrementValue}, now {subTimeScale}", LoggingMode.DEBUG);
-                ScaleTime(subTimeScale);
+                timeScale = newTimeScale;
+                ModConsole.Msg($"Decreasing timeScale by {incrementValue}, now {newTimeScale}", LoggingMode.DEBUG);
             }
             else
             {

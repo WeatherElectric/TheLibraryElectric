@@ -15,11 +15,13 @@ namespace TheLibraryElectric
         public TextMeshPro textMeshPro;
         public float startingValue = 1.0f;
         public float incrementAmount = 0.5f;
+        public float minValue = 0.1f;
 
         private float currentValue;
 
         private void Start()
         {
+            ModConsole.Msg($"Starting value is {startingValue}", LoggingMode.DEBUG);
             currentValue = startingValue;
             UpdateTextValue();
         }
@@ -32,14 +34,17 @@ namespace TheLibraryElectric
         public void IncreaseValue()
         {
             currentValue += incrementAmount;
+            ModConsole.Msg($"Increasing value by {incrementAmount}, now {currentValue}", LoggingMode.DEBUG);
             UpdateTextValue();
         }
         public void DecreaseValue()
         {
             currentValue -= incrementAmount;
-            if (currentValue < 0.0f)
+            ModConsole.Msg($"Decreasing value by {incrementAmount}, now {currentValue}", LoggingMode.DEBUG);
+            if (currentValue < 0.1f)
             {
-                currentValue = 0.0f;
+                ModConsole.Msg("Value should not be lower than 0.1!", LoggingMode.DEBUG);
+                currentValue = minValue;
             }
             UpdateTextValue();
         }
