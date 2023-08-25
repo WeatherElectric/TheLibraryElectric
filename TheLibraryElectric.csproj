@@ -39,7 +39,9 @@
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
+    <Compile Include="ModStats.cs" />
     <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
+    <Compile Include="Scripts\SpawnableStuff\AudioStreamPlayer.cs" />
     <Compile Include="Scripts\SpawnableStuff\TimescaleController.cs" />
     <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
     <Compile Include="Scripts\Signals\RecieveSignal.cs" />
@@ -64,6 +66,10 @@
     <Reference Include="Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Il2CppSystem.dll</HintPath>
     </Reference>
     <Reference Include="JeviLib">
       <HintPath>References\JeviLib.dll</HintPath>
@@ -103,6 +109,18 @@
     <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -38,6 +38,7 @@ namespace TheLibraryElectric
                 Rigidbody rb = go.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
+                    ModConsole.Msg($"Adding force to {rb.gameObject.name}", LoggingMode.DEBUG);
                     rb.AddForce((go.transform.position - transform.position).normalized * explosionForce);
                 }
             }
@@ -51,16 +52,19 @@ namespace TheLibraryElectric
                 Rigidbody rb = col.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
+                    ModConsole.Msg($"Adding force to {rb.gameObject.name}", LoggingMode.DEBUG);
                     rb.AddForce((col.transform.position - transform.position).normalized * explosionForce);
                 }
             }
         }
         void OnTriggerEnter(Collider other)
         {
+            ModConsole.Msg($"Adding {other.gameObject.name} to list", LoggingMode.DEBUG);
             gameObjects.Add(other.gameObject); //When an object enters the trigger, add it to the list
         }
         void OnTriggerExit(Collider other)
         {
+            ModConsole.Msg($"Removing {other.gameObject.name} from list", LoggingMode.DEBUG);
             gameObjects.Remove(other.gameObject); //When an object leaves the trigger, remove it from the list
         }
 #if UNITY_EDITOR

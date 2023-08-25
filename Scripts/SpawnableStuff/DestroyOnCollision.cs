@@ -38,6 +38,7 @@ namespace TheLibraryElectric
         private void Start()
         {
             rigManager = GameObject.Find("[RigManager (Blank)]")?.transform;
+            ModConsole.Msg($"Rigmanager is {rigManager.gameObject.name}", LoggingMode.DEBUG);
         }
         private void OnCollisionEnter(Collision collision)
         {
@@ -57,6 +58,7 @@ namespace TheLibraryElectric
                     }
                     audioSource.Play();
                     // Destroy the colliding GameObject
+                    ModConsole.Msg($"Destroying {collision.gameObject.name}", LoggingMode.DEBUG);
                     Destroy(collision.gameObject);
                 }
             }
@@ -70,6 +72,7 @@ namespace TheLibraryElectric
             {
                 if (obj == excludedObject)
                 {
+                    ModConsole.Msg($"Ignoring {excludedObject}", LoggingMode.DEBUG);
                     return true;
                 }
             }
