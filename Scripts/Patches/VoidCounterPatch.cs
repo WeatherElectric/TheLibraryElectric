@@ -1,9 +1,6 @@
-﻿using MelonLoader;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using SLZ.Marrow.Pool;
-using SLZ.Bonelab;
-using TheLibraryElectric.Scripts.Misc;
 
 namespace TheLibraryElectric
 {
