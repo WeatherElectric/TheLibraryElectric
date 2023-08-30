@@ -34,6 +34,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected TimescaleController", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<UpdateTMP>();
             ModConsole.Msg("Hopefully injected UpdateTMP", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<VoidCounterObject>();
+            ModConsole.Msg("Hopefully injected VoidCounterObject", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
             ModStats.Increment();

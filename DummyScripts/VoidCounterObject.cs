@@ -1,4 +1,3 @@
-﻿using System;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,8 +10,5 @@ namespace TheLibraryElectric
 #endif
     public class VoidCounterObject : MonoBehaviour
     {
-#if !UNITY_EDITOR
-        public VoidCounterObject(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
