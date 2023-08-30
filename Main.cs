@@ -1,5 +1,4 @@
 ﻿using MelonLoader;
-
 namespace TheLibraryElectric
 {
     public class Main : MelonMod

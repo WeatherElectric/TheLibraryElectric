@@ -31,7 +31,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -42,6 +43,8 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="ModStats.cs" />
     <Compile Include="Scripts\Misc\UpdateTMP.cs" />
+    <Compile Include="Scripts\Markers\VoidCounterObject.cs" />
+    <Compile Include="Scripts\Patches\VoidCounterPatch.cs" />
     <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
     <Compile Include="Scripts\Misc\TimescaleController.cs" />
     <Compile Include="Scripts\Rigidbody-Related\ExplodeButBetter.cs" />
@@ -56,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Assembly-CSharp.dll</HintPath>
