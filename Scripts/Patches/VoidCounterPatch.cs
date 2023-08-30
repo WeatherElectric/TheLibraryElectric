@@ -17,7 +17,7 @@ namespace TheLibraryElectric
             [HarmonyPrefix]
             public static bool Prefix(AssetPoolee __instance, Collision c)
             {
-                if (c.gameObject.transform.root.GetComponent<VoidCounterObject>() != null) // Check if the colliding GameObject has the VoidCounterObject component
+                if (c.gameObject.GetComponentInParent<VoidCounterObject>() != null) // Check if the colliding GameObject has the VoidCounterObject component
                 {
                     PhysicMaterial dynamicMaterial = new PhysicMaterial
                     {
