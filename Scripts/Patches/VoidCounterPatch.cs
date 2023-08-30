@@ -27,7 +27,7 @@ namespace TheLibraryElectric
                     {
                         collider.material = dynamicMaterial;
                     }
-                    if (__instance.gameObject.GetComponent<Rigidbody>() == null)
+                    if (__instance.gameObject.GetComponent<Rigidbody>() != null)
                     {
                         __instance.gameObject.GetComponent<Rigidbody>().mass = 0.1f; // Set mass to 0.1f so it's easier to hit
                     }
