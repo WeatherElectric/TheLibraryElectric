@@ -51,3 +51,6 @@ You can use this in another code mod too, just reference the DLL.
 * MrSplitter
 
   Splits an object into smaller versions of itself, keeping any components and child gameobjects
+
+* VoidCounterObject
+  Deflects RigidbodyProjectiles (Void balls and such)

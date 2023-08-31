@@ -1,12 +1,14 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using SLZ.Marrow.Pool;
+using SLZ;
+using System.Collections;
+using MelonLoader;
 
 namespace TheLibraryElectric
 {
     public static class VoidCounterPatch
     {
-
         [HarmonyPatch(typeof(RigidbodyProjectile), "OnCollisionEnter")]
         public class VoidCounterPatch_Patch
         {
@@ -31,7 +33,12 @@ namespace TheLibraryElectric
                     {
                         __instance.gameObject.GetComponent<Rigidbody>().mass = 0.1f; // Set mass to 0.1f so it's easier to hit
                     }
-                   
+                    if (c.gameObject.GetComponentInParent<VoidCounterObject>().disableDespsawnDelay)
+                    {
+                        if (__instance.gameObject.GetComponent<DisableDelay>() != null) {
+                            UnityEngine.Object.Destroy(__instance.gameObject.GetComponent<DisableDelay>());
+                        }
+                    }
                     return false; // Prevent the ball from exploding by not running the original method
                 }
                 return true; // Run the original method, so it explodes

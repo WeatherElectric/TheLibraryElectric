@@ -11,6 +11,7 @@ namespace TheLibraryElectric
 #endif
     public class VoidCounterObject : MonoBehaviour
     {
+        public bool disableDespsawnDelay;
 #if !UNITY_EDITOR
         public VoidCounterObject(IntPtr ptr) : base(ptr) { }
 #endif
