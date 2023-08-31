@@ -36,7 +36,11 @@ namespace TheLibraryElectric
                     if (c.gameObject.GetComponentInParent<VoidCounterObject>().disableDespsawnDelay)
                     {
                         if (__instance.gameObject.GetComponent<DisableDelay>() != null) {
-                            UnityEngine.Object.Destroy(__instance.gameObject.GetComponent<DisableDelay>());
+                            DisableDelay[] disableDelays = __instance.gameObject.GetComponentsInChildren<DisableDelay>();
+                            foreach (DisableDelay disableDelay in disableDelays)
+                            {
+                                UnityEngine.Object.Destroy(disableDelay);
+                            }
                         }
                     }
                     return false; // Prevent the ball from exploding by not running the original method
