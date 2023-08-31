@@ -10,5 +10,6 @@ namespace TheLibraryElectric
 #endif
     public class VoidCounterObject : MonoBehaviour
     {
+        public bool disableDespsawnDelay;
     }
 }
