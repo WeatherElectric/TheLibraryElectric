@@ -43,6 +43,8 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="ModStats.cs" />
     <Compile Include="Scripts\Markers\VoidCounterObject.cs" />
+    <Compile Include="Scripts\Rigidbody-Related\GravityChamber.cs" />
+    <Compile Include="Scripts\Rigidbody-Related\RBGravityManager.cs" />
     <Compile Include="Scripts\Misc\UpdateTMP.cs" />
     <Compile Include="Scripts\Patches\VoidCounterPatch.cs" />
     <Compile Include="Scripts\Rigidbody-Related\PlungerButBetter.cs" />
