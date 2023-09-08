@@ -14,6 +14,7 @@ namespace TheLibraryElectric
             get { return gravityAmount; }
             set { gravityAmount = value; }
         }
+        public bool ignoreRigManager;
         void OnTriggerEnter(Collider other)
         {
 
