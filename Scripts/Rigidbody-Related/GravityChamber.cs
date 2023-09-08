@@ -24,12 +24,16 @@ namespace TheLibraryElectric
                     return;
                 }
                 other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RBGravityManager>().gravityAmount = gravityAmount; // Add the RBGravityManager component and set the gravity amount
-                Rigidbody[] childRbs = other.GetComponentsInChildren<Rigidbody>();
+                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
                 foreach(Rigidbody rb in childRbs)
                 {
-                    if(rb.isKinematic)
+                    if (rb.isKinematic)
                     {
-                        rb.gameObject.AddComponent<RBGravityManager>().gravityAmount = gravityAmount;
+                        if (rb.GetComponent<RBGravityManager>() == null)
+                        {
+                            rb.gameObject.AddComponent<RBGravityManager>().gravityAmount = gravityAmount;
+
+                        }
                     }
                 }
                 inTriggerCol.Add(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Add the colliding GameObject to the list
@@ -41,6 +45,18 @@ namespace TheLibraryElectric
             {
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Destroy the RBGravityManager component
+                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
+                foreach (Rigidbody rb in childRbs)
+                {
+                    if (rb.isKinematic)
+                    {
+                        if (rb.GetComponent<RBGravityManager>() != null)
+                        {
+                            UnityEngine.Object.Destroy(rb.GetComponent<RBGravityManager>());
+
+                        }
+                    }
+                }
                 inTriggerCol.Remove(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Remove the colliding GameObject from the list
             }
 
