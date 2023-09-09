@@ -30,8 +30,5 @@ namespace TheLibraryElectric.Rigidbodies
                 thisRb.AddForce(gravityAmount * thisRb.mass, ForceMode.Force); // Add the gravity force
             }
         }
-#if !UNITY_EDITOR
-        public RBGravityManager(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
