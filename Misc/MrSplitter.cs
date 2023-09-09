@@ -8,7 +8,7 @@ using UnityEditor;
 namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Mr Splitter")]
+    [AddComponentMenu("The Library Electric/Misc/Mr Splitter")]
 #endif
     public class MrSplitter : MonoBehaviour
     {

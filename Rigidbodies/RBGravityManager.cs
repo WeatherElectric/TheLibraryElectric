@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.Rigidbodies
 {
+#if UNITY_EDITOR
+    [HideInInspector]
+#endif
     public class RBGravityManager : MonoBehaviour
     {
         public Rigidbody thisRb;

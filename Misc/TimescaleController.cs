@@ -7,7 +7,7 @@ using UnityEditor;
 namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Spawnable Stuff/Timescale Controller")]
+    [AddComponentMenu("The Library Electric/Misc/Timescale Controller")]
 #endif
     public class TimescaleController : MonoBehaviour
     {

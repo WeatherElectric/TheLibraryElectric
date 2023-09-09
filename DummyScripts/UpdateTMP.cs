@@ -8,7 +8,7 @@ using UnityEditor;
 namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Update TextMeshPro")}
+    [AddComponentMenu("The Library Electric/Misc/Update TextMeshPro")]
 #endif
     public class UpdateTMP : MonoBehaviour
     {

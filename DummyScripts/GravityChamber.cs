@@ -11,6 +11,9 @@ namespace TheLibraryElectric.Rigidbodies
 #endif
     public class GravityChamber : MonoBehaviour
     {
+#if UNITY_EDITOR
+    [HideInInspector]
+#endif
         public List<RBGravityManager> inTriggerCol = new List<RBGravityManager>();
         public Vector3 gravityAmount;
         public bool ignoreRigManager;
