@@ -20,6 +20,4 @@ namespace TheLibraryElectric.Rigidbodies
         public localAxisLimit selectedLimits;
 
     }
-
 }
-

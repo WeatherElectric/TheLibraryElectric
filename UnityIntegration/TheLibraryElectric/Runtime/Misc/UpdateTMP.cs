@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using TMPro;
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,7 +20,7 @@ namespace TheLibraryElectric.Misc
 
         private void Start()
         {
-            
+           
         }
 
         private void UpdateTextValue()

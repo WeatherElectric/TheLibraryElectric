@@ -44,10 +44,10 @@ namespace TheLibraryElectric.Misc
         {
             return;
         }
+
         private bool IsObjectExcluded(GameObject obj)
         {
             return false;
         }
     }
-
 }

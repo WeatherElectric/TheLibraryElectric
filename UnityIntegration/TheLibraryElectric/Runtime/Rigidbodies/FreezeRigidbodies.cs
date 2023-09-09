@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using TheLibraryElectric.Markers;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -7,14 +8,14 @@ using UnityEditor;
 namespace TheLibraryElectric.Rigidbodies
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Rigidbody Related/Freeze Rigidbodies")]
+    [AddComponentMenu("The Library Electric/Rigidbodies/Freeze Rigidbodies")]
 #endif
     public class FreezeRigidbodies : MonoBehaviour
     {
         private GameObject rigManager;
         private void Start()
         {
-            
+           
         }
         public void Freeze()
         {
@@ -22,7 +23,7 @@ namespace TheLibraryElectric.Rigidbodies
         }
         public void Unfreeze()
         {
-            
+           
         }
 
         private void OnDestroy()

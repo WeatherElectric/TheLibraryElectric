@@ -8,6 +8,7 @@ namespace TheLibraryElectric.Markers
 {
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Markers/Do Not Freeze")]
+    [RequireComponent(typeof(Rigidbody))]
 #endif
     public class DoNotFreeze : MonoBehaviour
     {

@@ -17,11 +17,15 @@ namespace TheLibraryElectric.Signals
         private UltEventHolder ultEvent;
         private void Start()
         {
-
+            ultEvent = GetComponent<UltEventHolder>();
         }
         public void InvokeEvent()
         {
-           
+            UltEventHolder il2cppsucks = GetComponent<UltEventHolder>();
+            if (il2cppsucks != null)
+            {
+                il2cppsucks.Invoke();
+            }
         }
     }
 }

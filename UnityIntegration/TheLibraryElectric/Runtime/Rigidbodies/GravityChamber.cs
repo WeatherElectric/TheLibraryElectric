@@ -132,8 +132,5 @@ namespace TheLibraryElectric.Rigidbodies
             Gizmos.DrawWireSphere(position, radius);
         }
 #endif
-#if !UNITY_EDITOR
-        public GravityChamber(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }

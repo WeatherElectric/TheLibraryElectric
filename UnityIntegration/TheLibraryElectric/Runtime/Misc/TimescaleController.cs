@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -15,7 +14,7 @@ namespace TheLibraryElectric.Misc
         private float timeScale = 1.0f;
         public void ScaleTime()
         {
-            
+           
         }
         private void FixedUpdate()
         {

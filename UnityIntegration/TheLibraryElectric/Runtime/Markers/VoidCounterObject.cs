@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,6 +10,7 @@ namespace TheLibraryElectric.Markers
 #endif
     public class VoidCounterObject : MonoBehaviour
     {
+        // bugo misspelled this, SLZ reference
         public bool disableDespsawnDelay;
     }
 }
