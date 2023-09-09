@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using System;
 using SLZ.VFX;
+using TheLibraryElectric.Markers;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Destroy On Collision")]
+    [AddComponentMenu("The Library Electric/Destroy On Collision")]
 #endif
     public class DestroyOnCollision : MonoBehaviour
     {
@@ -26,23 +28,25 @@ namespace TheLibraryElectric
         private Blip blip;
         public void Disable()
         {
+            
         }
 
         public void Enable()
         {
+            
         }
 
         private void Start()
         {
+            
         }
         private void OnCollisionEnter(Collision collision)
         {
-			return;
+            return;
         }
-		
         private bool IsObjectExcluded(GameObject obj)
         {
-			return default(bool);
+            return false;
         }
     }
 

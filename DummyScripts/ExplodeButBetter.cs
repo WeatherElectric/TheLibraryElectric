@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Rigidbodies
 {
 #if UNITY_EDITOR
 [AddComponentMenu("The Library Electric/Rigidbody Related/Explode But Better")]
@@ -34,6 +35,7 @@ namespace TheLibraryElectric
         {
             return;
         }
+#if UNITY_EDITOR
 		private void OnDrawGizmosSelected()
 		{
 			if (useColliders)
@@ -41,5 +43,6 @@ namespace TheLibraryElectric
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireSphere(transform.position, explosionRadius);
 		}
+#endif
     }
 }

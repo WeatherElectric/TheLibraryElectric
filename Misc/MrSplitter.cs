@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Mr Splitter")]

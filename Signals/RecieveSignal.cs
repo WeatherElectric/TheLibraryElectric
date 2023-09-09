@@ -5,7 +5,7 @@ using UltEvents;
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
 [AddComponentMenu("The Library Electric/Signals/Recieve Signal")]

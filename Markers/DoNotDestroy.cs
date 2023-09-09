@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Markers
 {
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Markers/Do Not Destroy")]

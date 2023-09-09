@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Rigidbodies
 {
     public class PlungerButBetter : MonoBehaviour
     {

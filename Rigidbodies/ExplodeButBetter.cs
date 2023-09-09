@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Rigidbodies
 {
 #if UNITY_EDITOR
 [AddComponentMenu("The Library Electric/Rigidbody Related/Explode But Better")]

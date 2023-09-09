@@ -1,12 +1,10 @@
 ﻿using System;
 using UnityEngine;
-using UnityEditor;
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Rigidbodies
 {
     public class RBGravityManager : MonoBehaviour
     {
-        [HideInInspector]
         public Rigidbody thisRb;
         public Vector3 gravityAmount;
         public Vector3 GravityAmount
@@ -22,6 +20,5 @@ namespace TheLibraryElectric
         {
 
         }
-
     }
 }

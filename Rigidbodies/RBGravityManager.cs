@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Rigidbodies
 {
     public class RBGravityManager : MonoBehaviour
     {

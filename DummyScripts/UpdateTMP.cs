@@ -1,47 +1,41 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Update TextMeshPro")]
+    [AddComponentMenu("The Library Electric/Misc/Update TextMeshPro")}
 #endif
     public class UpdateTMP : MonoBehaviour
     {
         public TextMeshPro textMeshPro;
         public float startingValue = 1.0f;
         public float incrementAmount = 0.5f;
-		public float minValue= 0.1f;
+        public float minValue = 0.1f;
 
         private float currentValue;
 
         private void Start()
         {
-            currentValue = startingValue;
-            UpdateTextValue();
+            
         }
 
         private void UpdateTextValue()
         {
-            textMeshPro.text = currentValue.ToString("F1"); // Displaying with one decimal place
+            
         }
 
         public void IncreaseValue()
         {
-            currentValue += incrementAmount;
-            UpdateTextValue();
+            
         }
         public void DecreaseValue()
         {
-            currentValue -= incrementAmount;
-            if (currentValue < 0.0f)
-            {
-                currentValue = 0.0f;
-            }
-            UpdateTextValue();
+            
         }
     }
 }

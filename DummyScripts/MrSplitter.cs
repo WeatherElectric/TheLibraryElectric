@@ -1,13 +1,14 @@
 using SLZ.Interaction;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Mr Splitter")]
+    [AddComponentMenu("The Library Electric/Mr Splitter")]
 #endif
     public class MrSplitter : MonoBehaviour
     {
@@ -20,6 +21,8 @@ namespace TheLibraryElectric
 #endif
         public void Break()
         {
+            
+            }
         }
     }
 }

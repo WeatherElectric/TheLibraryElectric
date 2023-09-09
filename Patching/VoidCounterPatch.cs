@@ -2,10 +2,9 @@
 using UnityEngine;
 using SLZ.Marrow.Pool;
 using SLZ;
-using System.Collections;
-using MelonLoader;
+using TheLibraryElectric.Markers;
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Patching
 {
     public static class VoidCounterPatch
     {
