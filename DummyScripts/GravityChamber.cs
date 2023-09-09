@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Rigidbody Related/Gravity Chamber")]
+#endif
     public class GravityChamber : MonoBehaviour
     {
         [HideInInspector]

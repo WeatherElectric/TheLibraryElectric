@@ -1,4 +1,8 @@
-﻿using MelonLoader;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using MelonLoader;
+using UnityEngine;
+
 namespace TheLibraryElectric
 {
     public class Main : MelonMod
@@ -42,7 +46,18 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected GravityChamber", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
-            ModStats.Increment();
+        }
+        public override void OnLateInitializeMelon()
+        {
+            Thread initializationThread = new Thread(new ThreadStart(async () =>
+            {
+                await ModStats.IncrementLaunch();
+                if (!PlayerPrefs.HasKey("TheLibraryElectricLaunch"))
+                    await ModStats.IncrementUser();
+                PlayerPrefs.TrySetInt("TheLibraryElectricLaunch", 1);
+            }));
+
+            initializationThread.Start();
         }
     }
 }
