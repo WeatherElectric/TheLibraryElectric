@@ -9,7 +9,8 @@ public class MenuItems : Editor
         {
             GameObject go = new GameObject("Gravity Chamber");
             GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
-            go.AddComponent<BoxCollider>();
+            BoxCollider bc = go.AddComponent<BoxCollider>();
+			bc.isTrigger = true;
             go.AddComponent<GravityChamber>();
             Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
             Selection.activeObject = go;
