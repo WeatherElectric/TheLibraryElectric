@@ -42,8 +42,6 @@ namespace TheLibraryElectric.Rigidbodies
                 rb.AddForce(forceAmount, ForceMode.Force);
             }
         }
-#if !UNITY_EDITOR
-        public ForceZone(IntPtr ptr) : base(ptr) { }
-#endif
+
     }
 }
