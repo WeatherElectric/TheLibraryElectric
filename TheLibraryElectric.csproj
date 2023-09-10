@@ -51,6 +51,7 @@
     <Compile Include="ModStats.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Rigidbodies\ExplodeButBetter.cs" />
+    <Compile Include="Rigidbodies\ForceZone.cs" />
     <Compile Include="Rigidbodies\FreezeRigidbodies.cs" />
     <Compile Include="Rigidbodies\GravityChamber.cs" />
     <Compile Include="Rigidbodies\PlungerButBetter.cs" />
