@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ColliderHelper.cs" />
+    <Compile Include="Helpers\RigidbodyHelper.cs" />
+    <Compile Include="Helpers\RigmanagerHelper.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
