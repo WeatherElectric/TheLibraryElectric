@@ -46,6 +46,7 @@
     <Compile Include="Markers\VoidCounterObject.cs" />
     <Compile Include="Misc\DestroyOnCollision.cs" />
     <Compile Include="Misc\MrSplitter.cs" />
+    <Compile Include="Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Misc\TimescaleController.cs" />
     <Compile Include="Misc\UpdateTMP.cs" />
     <Compile Include="ModStats.cs" />
