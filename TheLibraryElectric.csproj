@@ -47,7 +47,6 @@
     <Compile Include="Misc\DespawnPooledObject.cs" />
     <Compile Include="Misc\DestroyOnCollision.cs" />
     <Compile Include="Misc\MrSplitter.cs" />
-    <Compile Include="Misc\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Misc\TimescaleController.cs" />
     <Compile Include="Misc\UpdateTMP.cs" />
@@ -71,9 +70,6 @@
     <Reference Include="Assembly-CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="BoneLib">
-      <HintPath>References\BoneLib.dll</HintPath>
     </Reference>
     <Reference Include="FieldInjector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
