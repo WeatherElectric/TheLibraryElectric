@@ -55,6 +55,7 @@ namespace TheLibraryElectric.Misc
                 Action<GameObject> spawnAction = go =>
                 {
                     go.transform.rotation = rotation;
+                    spawnedObject = go;
                 };
                 AssetSpawner.Spawn(spawnable, other.transform.position, Quaternion.identity, new BoxedNullable<Vector3>(null), false, new BoxedNullable<int>(null), spawnAction);
             }
@@ -68,6 +69,7 @@ namespace TheLibraryElectric.Misc
                 Action<GameObject> spawnAction = go =>
                 {
                     go.transform.rotation = other.transform.rotation;
+                    spawnedObject = go;
                 };
                 AssetSpawner.Spawn(spawnable, other.transform.position, Quaternion.identity, new BoxedNullable<Vector3>(null), false, new BoxedNullable<int>(null), spawnAction);
             }
