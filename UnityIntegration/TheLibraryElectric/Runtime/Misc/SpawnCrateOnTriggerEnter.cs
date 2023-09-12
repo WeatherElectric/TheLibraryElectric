@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SLZ.Marrow.Data;
+using SLZ.Marrow.Pool;
+using SLZ.Marrow.Warehouse;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,12 +11,12 @@ using UnityEditor;
 namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Spawn On Trigger Enter")]
+    [AddComponentMenu("The Library Electric/Misc/Spawn Crate On Trigger Enter")]
 #endif
-    public class SpawnOnTriggerEnter : MonoBehaviour
+    public class SpawnCrateOnTriggerEnter : MonoBehaviour
     {
 
-        public GameObject objectToSpawn;
+        public SpawnableCrateReference objectToSpawn;
         public bool divideVelocity;
         public float divideByX = 0.1f;
         public float divideByY = 0.1f;
@@ -43,12 +46,11 @@ namespace TheLibraryElectric.Misc
             }
             if (fixedRotation)
             {
-                spawnedObject = Instantiate(objectToSpawn, other.transform.position, rotation);
+				return;
             }
             else
             {
-                spawnedObject = Instantiate(objectToSpawn, other.transform.position, other.transform.rotation);
-
+				return;
             }
 
             float clampedX = Mathf.Clamp(other.attachedRigidbody.velocity.x / divideByX, minimumScale.x, 200f);
@@ -57,8 +59,5 @@ namespace TheLibraryElectric.Misc
             rbVelocity = new Vector3(clampedX, clampedY, clampedZ);
             spawnedObject.transform.localScale = Vector3.Scale(rbVelocity, spawnedObject.transform.lossyScale);
         }
-#if !UNITY_EDITOR
-        public SpawnOnTriggerEnter(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
