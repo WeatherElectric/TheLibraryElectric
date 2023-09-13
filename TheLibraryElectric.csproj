@@ -51,6 +51,7 @@
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
     <Compile Include="Monobehaviours\Misc\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
+    <Compile Include="Monobehaviours\Misc\RandomAudioPlayer.cs" />
     <Compile Include="Monobehaviours\Misc\RigManagerControl.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
