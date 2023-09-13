@@ -52,11 +52,12 @@
     <Compile Include="Monobehaviours\Misc\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
     <Compile Include="Monobehaviours\Misc\RandomAudioPlayer.cs" />
-    <Compile Include="Monobehaviours\Misc\RigManagerControl.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />
     <Compile Include="Monobehaviours\Misc\UpdateTMP.cs" />
+    <Compile Include="Monobehaviours\PlayerUtil\RagdollZone.cs" />
+    <Compile Include="Monobehaviours\PlayerUtil\RigManagerControl.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\ExplodeButBetter.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\ForceZone.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\FreezeRigidbodies.cs" />
@@ -134,9 +135,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Monobehaviours\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

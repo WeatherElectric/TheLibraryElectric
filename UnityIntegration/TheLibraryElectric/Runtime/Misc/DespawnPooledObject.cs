@@ -11,6 +11,9 @@ namespace TheLibraryElectric.Misc
 #endif
     public class DespawnPooledObject : MonoBehaviour
     {
+#if UNITY_EDITOR
+        [Header("This MUST be on root!")]
+#endif
         private GameObject _self;
         private AssetPoolee _assetPoolee;
         private void Start()

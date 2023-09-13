@@ -8,7 +8,7 @@ using UnityEditor;
 namespace TheLibraryElectric.Rigidbodies
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Rigidbody Related/Freeze Rigidbodies")]
+    [AddComponentMenu("The Library Electric/Rigidbodies/Freeze Rigidbodies")]
 #endif
     public class FreezeRigidbodies : MonoBehaviour
     {

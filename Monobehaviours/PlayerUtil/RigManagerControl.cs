@@ -5,10 +5,10 @@ using BoneLib;
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.PlayerUtil
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Rigmanager Control")]
+    [AddComponentMenu("The Library Electric/Player Utilities/Rigmanager Control")]
 #endif
     public class RigManagerControl : MonoBehaviour
     {

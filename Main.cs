@@ -3,6 +3,7 @@ using TheLibraryElectric.Markers;
 using TheLibraryElectric.Misc;
 using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.Signals;
+using TheLibraryElectric.PlayerUtil;
 using MelonLoader;
 using UnityEngine;
 
@@ -47,6 +48,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RBGravityManager", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<GravityChamber>();
             ModConsole.Msg("Hopefully injected GravityChamber", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<RagdollZone>();
+            ModConsole.Msg("Hopefully injected RagdollZone", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<ForceZone>();
             ModConsole.Msg("Hopefully injected ForceZone", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<SpawnOnTriggerEnter>();
