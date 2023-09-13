@@ -38,20 +38,20 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="InternalHelpers\ColliderHelper.cs" />
+    <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
+    <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
-    <Compile Include="Monobehaviours\Helpers\ColliderHelper.cs" />
-    <Compile Include="Monobehaviours\Helpers\RigidbodyHelper.cs" />
-    <Compile Include="Monobehaviours\Helpers\RigmanagerHelper.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotDestroy.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotFreeze.cs" />
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
     <Compile Include="Monobehaviours\Misc\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
-    <Compile Include="Monobehaviours\Misc\MrSplitter.cs" />
+    <Compile Include="Monobehaviours\Misc\RigManagerControl.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />

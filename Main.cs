@@ -29,8 +29,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RecieveSignal", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<SendSignal>();
             ModConsole.Msg("Hopefully injected SendSignal", LoggingMode.DEBUG);
-            FieldInjector.SerialisationHandler.Inject<MrSplitter>();
-            ModConsole.Msg("Hopefully injected MrSplitter", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<RigManagerControl>();
+            ModConsole.Msg("Hopefully injected RigManagerControl", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<FreezeRigidbodies>();
             ModConsole.Msg("Hopefully injected FreezeRigidbodies", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DestroyOnCollision>();
@@ -51,6 +51,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected ForceZone", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<SpawnOnTriggerEnter>();
             ModConsole.Msg("Hopefully injected SpawnOnTriggerEnter", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<SpawnCrateOnTriggerEnter>();
+            ModConsole.Msg("Hopefully injected SpawnCrateOnTriggerEnter", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<DespawnPooledObject>();
             ModConsole.Msg("Hopefully injected DespawnPooledObject", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
