@@ -19,7 +19,7 @@ namespace TheLibraryElectric.Water
 #endif
         public List<RbBuoyancyManager> inTriggerCol = new List<RbBuoyancyManager>();
         public float buoyancyMultiplier = 1.0f; // Adjust this to control the buoyancy threshold.
-        public float midpoint = 100.0f; // Adjust this to control the midpoint of the effect.
+        public float midpoint = 50.0f; // Adjust this to control the midpoint of the effect.
 #if UNITY_EDITOR
         [Tooltip("If this is true, RBs with a mass that is exactly the midpoint will sink, if false, they will float.")]
 #endif
