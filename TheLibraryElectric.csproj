@@ -41,6 +41,7 @@
     <Compile Include="InternalHelpers\ColliderHelper.cs" />
     <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
     <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
+    <Compile Include="InternalHelpers\SpawnCrateWithSpawnable.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
     <Compile Include="Monobehaviours\Misc\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
+    <Compile Include="Monobehaviours\Misc\ItemThrower.cs" />
     <Compile Include="Monobehaviours\Misc\RandomAudioPlayer.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
