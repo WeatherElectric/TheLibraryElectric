@@ -15,6 +15,8 @@ namespace TheLibraryElectric.Water
         public bool dampening; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount; // Dampening multiplier
 
+        internal Action<RbBuoyancyManager> onDestroyed = null;
+
         private void Start()
         {
             thisRb = GetComponent<Rigidbody>(); // Get the Rigidbody component
@@ -23,6 +25,24 @@ namespace TheLibraryElectric.Water
                 thisRb.useGravity = false; // Disable gravity so the scene gravity doesn't interfere
             }
         }
+
+        private void OnDisable()
+        {
+            // When this object is disabled, re-enable gravity and destroy the script
+            // Fixes pooling
+            if (thisRb != null)
+            {
+                thisRb.useGravity = true;
+            }
+
+            Destroy(this);
+        }
+
+        private void OnDestroy()
+        {
+            onDestroyed?.Invoke(this);
+        }
+
         private void FixedUpdate()
         {
             // If mass is smaller than midpoint, float

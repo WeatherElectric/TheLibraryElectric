@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SLZ.Rig;
+using UnhollowerBaseLib.Attributes;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -29,20 +30,22 @@ namespace TheLibraryElectric.Water
         public bool ignoreRigManager;
         void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponentInParent<Rigidbody>() != null && other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
+            var colliderRigidbody = other.attachedRigidbody;
+            if (colliderRigidbody != null && colliderRigidbody.GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
             {
-                if(other.GetComponentInParent<RigManager>() != null && ignoreRigManager)
+                if (other.GetComponentInParent<RigManager>() != null && ignoreRigManager)
                 {
                     return;
                 }
-                RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+                RbBuoyancyManager themanager = colliderRigidbody.gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
                 themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;
                 themanager.dampeningAmount = dampeningAmount;
                 themanager.midpointSink = midpointSink;
-                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach(Rigidbody rb in childRbs)
+                themanager.onDestroyed = OnBuoyancyManagerDestroyed;
+                Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
+                foreach (Rigidbody rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -57,16 +60,22 @@ namespace TheLibraryElectric.Water
                         }
                     }
                 }
-                inTriggerCol.Add(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Add the colliding GameObject to the list
+                inTriggerCol.Add(themanager); // Add the colliding GameObject to the list
             }
         }
         void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
-            if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>())) // Check if the colliding GameObject is in the list
+            var colliderRigidbody = other.attachedRigidbody;
+            RbBuoyancyManager manager = null;
+
+            if (colliderRigidbody != null)
+                manager = colliderRigidbody.GetComponent<RbBuoyancyManager>();
+
+            if (inTriggerCol.Contains(manager)) // Check if the colliding GameObject is in the list
             {
-                other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
-                UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Destroy the RBGravityManager component
-                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
+                colliderRigidbody.useGravity = true; // Enable gravity
+                UnityEngine.Object.Destroy(manager); // Destroy the RBGravityManager component
+                Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
                 foreach (Rigidbody rb in childRbs)
                 {
                     if (rb.isKinematic)
@@ -77,10 +86,17 @@ namespace TheLibraryElectric.Water
                         }
                     }
                 }
-                inTriggerCol.Remove(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Remove the colliding GameObject from the list
             }
 
         }
+
+        [HideFromIl2Cpp]
+        void OnBuoyancyManagerDestroyed(RbBuoyancyManager manager)
+        {
+            // Changed this to be an action so that the pooling fix wouldn't cause garbage collection errors
+            inTriggerCol.Remove(manager); // Remove the colliding GameObject from the list
+        }
+
         void Update()
         {
             foreach(RbBuoyancyManager rBBuoyancyManager in inTriggerCol) // Loop through the list
