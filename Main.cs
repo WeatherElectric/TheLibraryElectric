@@ -67,6 +67,10 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected WaterZone", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<ItemThrower>();
             ModConsole.Msg("Hopefully injected ItemThrower", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<SignalTrigger>();
+            ModConsole.Msg("Hopefully injected SignalTrigger", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<SignalTriggerer>();
+            ModConsole.Msg("Hopefully injected SignalTriggerer", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
         }

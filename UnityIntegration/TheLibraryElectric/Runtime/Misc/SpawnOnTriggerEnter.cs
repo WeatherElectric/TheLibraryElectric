@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+
 
 namespace TheLibraryElectric.Misc
 {
@@ -16,15 +13,10 @@ namespace TheLibraryElectric.Misc
 
         public GameObject objectToSpawn;
         public bool divideVelocity;
-        public float divideByX = 10f;
-        public float divideByY = 10f;
-        public float divideByZ = 10f;
+        public float divideByX = 0.1f;
+        public float divideByY = 0.1f;
+        public float divideByZ = 0.1f;
         public Vector3 minimumScale = new Vector3(1, 1, 1);
-        public Vector3 maximumScale = new Vector3(200, 200, 200);
-        public bool uniformScale = true;
-        public float uniformScaleMinimum = 1f;
-        public float uniformScaleMaximum = 200f;
-        public float uniformScaleDivision = 10f;
         public bool ignoreSpawnedObjects = false;
         public bool fixedRotation = true;
         public Quaternion rotation = new Quaternion(0, 0, 1, 0);
@@ -39,7 +31,7 @@ namespace TheLibraryElectric.Misc
             {
                 return;
             }
-            if (spawnedObjects.Contains(other.transform.root.gameObject) && ignoreSpawnedObjects)
+            if (spawnedObjects.Contains(other.transform.root.gameObject))
             {
                 return;
             }
@@ -56,25 +48,12 @@ namespace TheLibraryElectric.Misc
                 spawnedObject = Instantiate(objectToSpawn, other.transform.position, other.transform.rotation);
 
             }
-            if (!uniformScale)
-            {
-                float clampedX = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.x) / divideByX, minimumScale.x, maximumScale.x);
-                float clampedY = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.y) / divideByY, minimumScale.y, maximumScale.y);
-                float clampedZ = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.z) / divideByZ, minimumScale.z, maximumScale.z);
-                rbVelocity = new Vector3(clampedX, clampedY, clampedZ);
-                spawnedObject.transform.localScale = Vector3.Scale(rbVelocity, spawnedObject.transform.lossyScale);
-            }
-            else
-            {
-                rbVelocity = new Vector3(Mathf.Abs(other.attachedRigidbody.velocity.x), Mathf.Abs(other.attachedRigidbody.velocity.y), Mathf.Abs(other.attachedRigidbody.velocity.z));
-                float uniformScale = Mathf.Clamp(rbVelocity.sqrMagnitude / uniformScaleDivision, uniformScaleMinimum, uniformScaleMaximum);
-                UnityEngine.Debug.Log(uniformScale);
-                Vector3 newScale = new Vector3(uniformScale, uniformScale, uniformScale);
-                spawnedObject.transform.localScale = newScale;
-            }
 
+            float clampedX = Mathf.Clamp(other.attachedRigidbody.velocity.x / divideByX, minimumScale.x, 200f);
+            float clampedY = Mathf.Clamp(other.attachedRigidbody.velocity.y / divideByY, minimumScale.y, 200f);
+            float clampedZ = Mathf.Clamp(other.attachedRigidbody.velocity.z / divideByZ, minimumScale.z, 200f);
+            rbVelocity = new Vector3(clampedX, clampedY, clampedZ);
+            spawnedObject.transform.localScale = Vector3.Scale(rbVelocity, spawnedObject.transform.lossyScale);
         }
-
     }
 }
-

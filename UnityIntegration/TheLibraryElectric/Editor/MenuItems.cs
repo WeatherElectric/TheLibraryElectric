@@ -3,6 +3,8 @@ using UnityEditor;
 using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.PlayerUtil;
 using TheLibraryElectric.Water;
+using TheLibraryElectric.Signals;
+using UltEvents;
 
 public class MenuItems : Editor
 {
@@ -36,6 +38,18 @@ public class MenuItems : Editor
 		BoxCollider bc = go.AddComponent<BoxCollider>();
 		bc.isTrigger = true;
 		go.AddComponent<RagdollZone>();
+		Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
+		Selection.activeObject = go;
+	}
+	[MenuItem("GameObject/The Library Electric/Signal Trigger", false, 10)]
+	static void CreateSignalTrigger(MenuCommand menuCommand)
+	{
+		GameObject go = new GameObject("Signal Trigger");
+		GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
+		BoxCollider bc = go.AddComponent<BoxCollider>();
+		bc.isTrigger = true;
+		go.AddComponent<UltEventHolder>();
+		go.AddComponent<SignalTrigger>();
 		Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
 		Selection.activeObject = go;
 	}
