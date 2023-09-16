@@ -67,6 +67,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RigidbodyBuoyancy", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<WaterZone>();
             ModConsole.Msg("Hopefully injected WaterZone", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<ItemThrower>();
+            ModConsole.Msg("Hopefully injected ItemThrower", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
         }
