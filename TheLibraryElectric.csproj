@@ -68,7 +68,6 @@
     <Compile Include="Monobehaviours\Rigidbodies\RBGravityManager.cs" />
     <Compile Include="Monobehaviours\Signals\RecieveSignal.cs" />
     <Compile Include="Monobehaviours\Signals\SendSignal.cs" />
-    <Compile Include="Monobehaviours\Water\RigidbodyBuoyancy.cs" />
     <Compile Include="Monobehaviours\Water\RbBuoyancyManager.cs" />
     <Compile Include="Monobehaviours\Water\WaterZone.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />

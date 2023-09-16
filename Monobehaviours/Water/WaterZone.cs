@@ -36,11 +36,6 @@ namespace TheLibraryElectric.Water
                     return;
                 }
                 RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
-                RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
-                if (buoyancy != null)
-                {
-                    buoyancy.DoTheThing();
-                }
                 themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;
@@ -70,11 +65,6 @@ namespace TheLibraryElectric.Water
             if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>())) // Check if the colliding GameObject is in the list
             {
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
-                RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
-                if (buoyancy != null)
-                {
-                    buoyancy.UndoTheThing();
-                }
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
                 foreach (Rigidbody rb in childRbs)
