@@ -15,15 +15,11 @@ namespace TheLibraryElectric.PlayerUtil
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-
-                Invoke(nameof(Unragdoll), delayBeforeUnragdoll);
-            }
+            return;
         }
         private void Unragdoll()
         {
-
+            
         }
         #if UNITY_EDITOR
 		private void OnDrawGizmos()
@@ -34,7 +30,7 @@ namespace TheLibraryElectric.PlayerUtil
 
             if (collider != null && (collider is CapsuleCollider || collider is BoxCollider || collider is SphereCollider))
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = Color.red;
 
                 // Draw gizmo based on collider type
                 if (collider is CapsuleCollider)

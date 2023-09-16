@@ -36,7 +36,7 @@ namespace TheLibraryElectric.PlayerUtil
 
             if (collider != null && (collider is CapsuleCollider || collider is BoxCollider || collider is SphereCollider))
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = Color.red;
 
                 // Draw gizmo based on collider type
                 if (collider is CapsuleCollider)
