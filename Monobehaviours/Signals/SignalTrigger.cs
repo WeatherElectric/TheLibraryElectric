@@ -9,11 +9,12 @@ namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
 [AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
-[RequireComponent(typeof(UltEventHolder))]
 [RequireComponent(typeof(Collider))]
 #endif
     public class SignalTrigger : MonoBehaviour
     {
+        public UltEventHolder triggerEnterEvent;
+        public UltEventHolder triggerExitEvent;
         public string activationKey;
         private void Start()
         {
@@ -27,7 +28,24 @@ namespace TheLibraryElectric.Signals
                 if (triggerer.activationKey == activationKey)
                 {
                     ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
-                    GetComponent<UltEventHolder>().Invoke();
+                    triggerEnterEvent.Invoke();
+                    ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
+                }
+                else
+                {
+                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", LoggingMode.DEBUG);
+                }
+            }
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
+            {
+                if (triggerer.activationKey == activationKey)
+                {
+                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
+                    triggerExitEvent.Invoke();
                     ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
                 }
                 else

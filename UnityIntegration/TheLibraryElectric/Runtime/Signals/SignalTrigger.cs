@@ -9,16 +9,14 @@ namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
 [AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
-[RequireComponent(typeof(UltEventHolder))]
 [RequireComponent(typeof(Collider))]
 #endif
     public class SignalTrigger : MonoBehaviour
     {
+        public UltEventHolder triggerEnterEvent;
+        public UltEventHolder triggerExitEvent;
         public string activationKey;
-        private void Start()
-        {
-            
-        }
+
         private void OnTriggerEnter(Collider other)
         {
             var triggerer = other.GetComponent<SignalTriggerer>();
@@ -26,11 +24,18 @@ namespace TheLibraryElectric.Signals
             {
                 if (triggerer.activationKey == activationKey)
                 {
-                    GetComponent<UltEventHolder>().Invoke();
+                    triggerEnterEvent.Invoke();
                 }
-                else
+            }
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
+            {
+                if (triggerer.activationKey == activationKey)
                 {
-                    
+                    triggerExitEvent.Invoke();
                 }
             }
         }
