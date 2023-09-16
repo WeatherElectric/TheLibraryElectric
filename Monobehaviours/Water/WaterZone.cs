@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SLZ.Rig;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric.Rigidbodies
+namespace TheLibraryElectric.Water
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Rigidbody Related/Water Zone")]
+    [AddComponentMenu("The Library Electric/Water/Water Zone")]
     [RequireComponent(typeof(Collider))]
 #endif
     public class WaterZone : MonoBehaviour
@@ -35,6 +36,11 @@ namespace TheLibraryElectric.Rigidbodies
                     return;
                 }
                 RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+                RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
+                if (buoyancy != null)
+                {
+                    buoyancy.DoTheThing();
+                }
                 themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;
@@ -64,6 +70,11 @@ namespace TheLibraryElectric.Rigidbodies
             if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>())) // Check if the colliding GameObject is in the list
             {
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
+                RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
+                if (buoyancy != null)
+                {
+                    buoyancy.UndoTheThing();
+                }
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
                 foreach (Rigidbody rb in childRbs)
@@ -144,6 +155,9 @@ namespace TheLibraryElectric.Rigidbodies
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
+#endif
+#if !UNITY_EDITOR
+        public WaterZone(IntPtr ptr) : base(ptr) { }
 #endif
     }
 }

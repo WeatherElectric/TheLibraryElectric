@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.PlayerUtil;
+using TheLibraryElectric.Water;
 
 public class MenuItems : Editor
 {

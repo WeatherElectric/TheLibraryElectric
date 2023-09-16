@@ -63,11 +63,12 @@
     <Compile Include="Monobehaviours\Rigidbodies\FreezeRigidbodies.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\GravityChamber.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\PlungerButBetter.cs" />
-    <Compile Include="Monobehaviours\Rigidbodies\RbBuoyancyManager.cs" />
     <Compile Include="Monobehaviours\Rigidbodies\RBGravityManager.cs" />
-    <Compile Include="Monobehaviours\Rigidbodies\WaterZone.cs" />
     <Compile Include="Monobehaviours\Signals\RecieveSignal.cs" />
     <Compile Include="Monobehaviours\Signals\SendSignal.cs" />
+    <Compile Include="Monobehaviours\Water\RigidbodyBuoyancy.cs" />
+    <Compile Include="Monobehaviours\Water\RbBuoyancyManager.cs" />
+    <Compile Include="Monobehaviours\Water\WaterZone.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

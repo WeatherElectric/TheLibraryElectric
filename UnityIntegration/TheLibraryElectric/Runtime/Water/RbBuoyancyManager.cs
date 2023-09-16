@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace TheLibraryElectric.Rigidbodies
+namespace TheLibraryElectric.Water
 {
 #if UNITY_EDITOR
         [HideInInspector]
@@ -30,7 +30,6 @@ namespace TheLibraryElectric.Rigidbodies
             {
                 float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.up * buoyantForce);
-
                 if (dampening)
                 { 
                     thisRb.velocity *= dampeningAmount;
@@ -41,7 +40,6 @@ namespace TheLibraryElectric.Rigidbodies
             {
                 float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.down * buoyantForce);
-
                 if (dampening)
                 { 
                     thisRb.velocity *= dampeningAmount;
@@ -54,7 +52,6 @@ namespace TheLibraryElectric.Rigidbodies
                 {
                     float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.down * buoyantForce);
-
                     if (dampening)
                     { 
                         thisRb.velocity *= dampeningAmount;
@@ -64,16 +61,12 @@ namespace TheLibraryElectric.Rigidbodies
                 {
                     float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.up * buoyantForce);
-
                     if (dampening)
                     { 
-                        thisRb.velocity *= dampeningAmount;
+                            thisRb.velocity *= dampeningAmount;
                     }
                 }
             }
         }
-#if !UNITY_EDITOR
-        public RbBuoyancyManager(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
