@@ -1,5 +1,5 @@
 using System;
-using BoneLib;
+using SLZ.Rig;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -14,18 +14,20 @@ namespace TheLibraryElectric.PlayerUtil
     public class RagdollZone : MonoBehaviour
     {
         public float delayBeforeUnragdoll = 2f;
+        private RigManager _rigManager;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            _rigManager = other.GetComponentInParent<RigManager>();
+            if (_rigManager != null)
             {
-                Player.physicsRig.RagdollRig();
+                _rigManager.physicsRig.RagdollRig();
                 Invoke(nameof(Unragdoll), delayBeforeUnragdoll);
             }
         }
         private void Unragdoll()
         {
-            Player.physicsRig.UnRagdollRig();
+            _rigManager.physicsRig.UnRagdollRig();
         }
         #if UNITY_EDITOR
 		private void OnDrawGizmos()
