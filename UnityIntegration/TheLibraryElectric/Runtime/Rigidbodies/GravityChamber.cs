@@ -9,7 +9,7 @@ using UnityEditor;
 namespace TheLibraryElectric.Rigidbodies
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Rigidbody Related/Gravity Chamber")]
+    [AddComponentMenu("The Library Electric/Rigidbodies/Gravity Chamber")]
     [RequireComponent(typeof(Collider))]
 #endif
     public class GravityChamber : MonoBehaviour

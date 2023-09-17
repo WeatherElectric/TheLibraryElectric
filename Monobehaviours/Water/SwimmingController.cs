@@ -1,12 +1,22 @@
 ﻿using System;
 using UnityEngine;
 using SLZ.Rig;
-using MelonLoader;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace TheLibraryElectric.Water
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Water/Swimming Controller")]
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(WaterZone))]
+#endif
     public class SwimmingController : MonoBehaviour
     {
+#if UNITY_EDITOR
+        [HideInInspector]
+#endif
         public RigManager rigManager;
         public float minimumVelocity = 15f;
         public float velocityMultiplier = 100f;
@@ -15,7 +25,7 @@ namespace TheLibraryElectric.Water
             rigManager = other.GetComponentInParent<RigManager>();
             if (rigManager != null)
             {
-                MelonLogger.Msg("SwimmingController: RigManager found!");
+                ModConsole.Msg("SwimmingController: RigManager found!", LoggingMode.DEBUG);
                 if (rigManager.physicsRig.leftHand.GetComponent<HandMonitor>() == null)
                 {
                     HandMonitor handMonitor = rigManager.physicsRig.leftHand.gameObject.AddComponent<HandMonitor>();
