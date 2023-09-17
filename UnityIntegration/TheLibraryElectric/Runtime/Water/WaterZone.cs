@@ -19,7 +19,7 @@ namespace TheLibraryElectric.Water
 #endif
         public List<RbBuoyancyManager> inTriggerCol = new List<RbBuoyancyManager>();
         public float buoyancyMultiplier = 1.0f; // Adjust this to control the buoyancy threshold.
-        public float midpoint = 100.0f; // Adjust this to control the midpoint of the effect.
+        public float midpoint = 50.0f; // Adjust this to control the midpoint of the effect.
 #if UNITY_EDITOR
         [Tooltip("If this is true, RBs with a mass that is exactly the midpoint will sink, if false, they will float.")]
 #endif
@@ -35,13 +35,12 @@ namespace TheLibraryElectric.Water
                 {
                     return;
                 }
+                if(other.GetComponentInParent<IgnoreRigidbody>() != null)
+                {
+                    return;
+                }
                 RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
-                RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
-				if (buoyancy != null)
-				{
-					buoyancy.DoTheThing();
-				}
-				themanager.dampening = dampening;
+                themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;
                 themanager.dampeningAmount = dampeningAmount;
@@ -70,11 +69,6 @@ namespace TheLibraryElectric.Water
             if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>())) // Check if the colliding GameObject is in the list
             {
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
-				RigidbodyBuoyancy buoyancy = other.GetComponentInParent<Rigidbody>().GetComponent<RigidbodyBuoyancy>();
-				if (buoyancy != null)
-				{
-					buoyancy.UndoTheThing();
-				}
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
                 foreach (Rigidbody rb in childRbs)
