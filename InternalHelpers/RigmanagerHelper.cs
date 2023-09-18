@@ -1,5 +1,6 @@
 using UnityEngine;
 using SLZ.Rig;
+using BoneLib;
 
 namespace TheLibraryElectric.Helpers
 {
@@ -24,6 +25,14 @@ namespace TheLibraryElectric.Helpers
         public static void Teleport(RigManager rig, Vector3 feetPos, bool zerovelocity)
         {
             rig.Teleport(feetPos, zerovelocity);
+        }
+        public static void SetDoubleJump(RigManager rig, bool canDoubleJump)
+        {
+            rig.remapHeptaRig.doubleJump = canDoubleJump;
+        }
+        public static RigManager GetFromBonelib()
+        {
+            return Player.rigManager;
         }
     }
 }
