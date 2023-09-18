@@ -14,6 +14,7 @@ namespace TheLibraryElectric.Rigidbodies
 #endif
         public Rigidbody thisRb;
         public Vector3 gravityAmount;
+        internal Action<RBGravityManager> onDestroyed = null;
         public Vector3 GravityAmount
         {
             get { return gravityAmount; }
@@ -33,6 +34,10 @@ namespace TheLibraryElectric.Rigidbodies
             {
                 thisRb.AddForce(gravityAmount * thisRb.mass, ForceMode.Force); // Add the gravity force
             }
+        }
+        private void OnDestroy()
+        {
+            onDestroyed?.Invoke(this);
         }
 #if !UNITY_EDITOR
         public RBGravityManager(IntPtr ptr) : base(ptr) { }

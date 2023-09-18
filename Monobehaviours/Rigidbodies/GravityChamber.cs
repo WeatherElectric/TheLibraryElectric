@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SLZ.Rig;
+using TheLibraryElectric.Water;
+using UnhollowerBaseLib.Attributes;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -70,6 +72,13 @@ namespace TheLibraryElectric.Rigidbodies
                 inTriggerCol.Remove(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Remove the colliding GameObject from the list
             }
 
+        }
+        
+        [HideFromIl2Cpp]
+        void OnGravityManagerDestroyed(RBGravityManager manager)
+        {
+            // Changed this to be an action so that the pooling fix wouldn't cause garbage collection errors
+            inTriggerCol.Remove(manager); // Remove the colliding GameObject from the list
         }
         void Update()
         {
