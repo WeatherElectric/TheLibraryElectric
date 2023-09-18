@@ -1,33 +1,58 @@
 using System;
-using SLZ.Rig;
 using UnityEngine;
+using UltEvents;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric.PlayerUtil
+namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Ragdoll Zone")]
-    [RequireComponent(typeof(Collider))]
+[AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
+[RequireComponent(typeof(Collider))]
 #endif
-    public class RagdollZone : MonoBehaviour
+    public class SignalTrigger : MonoBehaviour
     {
-        public float delayBeforeUnragdoll = 2f;
-        private RigManager _rigManager;
-
+        public UltEventHolder triggerEnterEvent;
+        public UltEventHolder triggerExitEvent;
+        public string activationKey;
+        private void Start()
+        {
+            ModConsole.Msg($"SignalTrigger spawned, key is {activationKey}", LoggingMode.DEBUG);
+        }
         private void OnTriggerEnter(Collider other)
         {
-            _rigManager = other.GetComponentInParent<RigManager>();
-            if (_rigManager != null)
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
             {
-                _rigManager.physicsRig.RagdollRig();
-                Invoke(nameof(Unragdoll), delayBeforeUnragdoll);
+                if (triggerer.activationKey == activationKey)
+                {
+                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
+                    triggerEnterEvent.Invoke();
+                    ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
+                }
+                else
+                {
+                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", LoggingMode.DEBUG);
+                }
             }
         }
-        private void Unragdoll()
+        private void OnTriggerExit(Collider other)
         {
-            _rigManager.physicsRig.UnRagdollRig();
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
+            {
+                if (triggerer.activationKey == activationKey)
+                {
+                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
+                    triggerExitEvent.Invoke();
+                    ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
+                }
+                else
+                {
+                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", LoggingMode.DEBUG);
+                }
+            }
         }
         #if UNITY_EDITOR
 		private void OnDrawGizmos()
@@ -38,7 +63,7 @@ namespace TheLibraryElectric.PlayerUtil
 
             if (collider != null && (collider is CapsuleCollider || collider is BoxCollider || collider is SphereCollider))
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.yellow;
 
                 // Draw gizmo based on collider type
                 if (collider is CapsuleCollider)
@@ -81,7 +106,7 @@ namespace TheLibraryElectric.PlayerUtil
         }
 #endif
 #if !UNITY_EDITOR
-        public RagdollZone(IntPtr ptr) : base(ptr) { }
+        public SignalTrigger(IntPtr ptr) : base(ptr) { }
 #endif
     }
 }

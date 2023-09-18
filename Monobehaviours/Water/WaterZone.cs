@@ -37,7 +37,15 @@ namespace TheLibraryElectric.Water
                 {
                     return;
                 }
+
                 RbBuoyancyManager themanager = colliderRigidbody.gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+
+                if(other.GetComponentInParent<IgnoreRigidbody>() != null)
+                {
+                    return;
+                }
+                RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+
                 themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;

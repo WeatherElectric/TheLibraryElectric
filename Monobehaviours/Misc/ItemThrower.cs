@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using TheLibraryElectric.InternalHelpers;
 using SLZ.Marrow.Data;
 
@@ -16,5 +17,8 @@ namespace TheLibraryElectric.Misc
                 go.GetComponent<Rigidbody>().AddRelativeForce(force);
             });
         }
+#if !UNITY_EDITOR
+        public ItemThrower(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }

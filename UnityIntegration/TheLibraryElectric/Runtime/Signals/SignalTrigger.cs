@@ -1,33 +1,43 @@
 using System;
-using SLZ.Rig;
 using UnityEngine;
+using UltEvents;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace TheLibraryElectric.PlayerUtil
+namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Ragdoll Zone")]
-    [RequireComponent(typeof(Collider))]
+[AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
+[RequireComponent(typeof(Collider))]
 #endif
-    public class RagdollZone : MonoBehaviour
+    public class SignalTrigger : MonoBehaviour
     {
-        public float delayBeforeUnragdoll = 2f;
-        private RigManager _rigManager;
+        public UltEventHolder triggerEnterEvent;
+        public UltEventHolder triggerExitEvent;
+        public string activationKey;
 
         private void OnTriggerEnter(Collider other)
         {
-            _rigManager = other.GetComponentInParent<RigManager>();
-            if (_rigManager != null)
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
             {
-                _rigManager.physicsRig.RagdollRig();
-                Invoke(nameof(Unragdoll), delayBeforeUnragdoll);
+                if (triggerer.activationKey == activationKey)
+                {
+                    triggerEnterEvent.Invoke();
+                }
             }
         }
-        private void Unragdoll()
+        private void OnTriggerExit(Collider other)
         {
-            _rigManager.physicsRig.UnRagdollRig();
+            var triggerer = other.GetComponent<SignalTriggerer>();
+            if (triggerer != null)
+            {
+                if (triggerer.activationKey == activationKey)
+                {
+                    triggerExitEvent.Invoke();
+                }
+            }
         }
         #if UNITY_EDITOR
 		private void OnDrawGizmos()
@@ -38,7 +48,7 @@ namespace TheLibraryElectric.PlayerUtil
 
             if (collider != null && (collider is CapsuleCollider || collider is BoxCollider || collider is SphereCollider))
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.yellow;
 
                 // Draw gizmo based on collider type
                 if (collider is CapsuleCollider)
@@ -79,9 +89,6 @@ namespace TheLibraryElectric.PlayerUtil
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
-#endif
-#if !UNITY_EDITOR
-        public RagdollZone(IntPtr ptr) : base(ptr) { }
 #endif
     }
 }
