@@ -74,9 +74,11 @@ namespace TheLibraryElectric
             FieldInjector.SerialisationHandler.Inject<SignalTriggerer>();
             ModConsole.Msg("Hopefully injected SignalTriggerer", LoggingMode.DEBUG);
             FieldInjector.SerialisationHandler.Inject<HandMonitor>();
-            ModConsole.Msg("Hopefully injected SwimmingController", LoggingMode.DEBUG);
-            FieldInjector.SerialisationHandler.Inject<SwimmingController>();
             ModConsole.Msg("Hopefully injected HandMonitor", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<SwimmingController>();
+            ModConsole.Msg("Hopefully injected SwimmingController", LoggingMode.DEBUG);
+            FieldInjector.SerialisationHandler.Inject<InvokeIfLibInstalled>();
+            ModConsole.Msg("Hopefully injected InvokeIfLibInstalled", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
         }
