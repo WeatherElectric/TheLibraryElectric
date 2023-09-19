@@ -13,11 +13,11 @@ namespace TheLibraryElectric.Water
 #endif
     public class DrowningManager : MonoBehaviour
     {
-        public float timeUntilDrowning = 30f;
+        public float timeUntilDrowning = 10f;
         public float damageInterval = 5f;
         public float damagePercentage = 0.10f;
         private RigManager _rigManager;
-        private bool _isDrowning = true;
+        private bool _isDrowning = false;
         private float _timeInsideWater = 0.0f;
         private float _methodCallTimer = 0.0f;
 

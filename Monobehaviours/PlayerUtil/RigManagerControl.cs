@@ -40,6 +40,18 @@ namespace TheLibraryElectric.PlayerUtil
         {
             Player.rigManager.health.healthMode = Health.HealthMode.InsantDeath;
         }
+        public void EnableDoubleJump()
+        {
+            Player.remapRig.doubleJump = true;
+        }
+        public void DoubleJumpPower(float power)
+        {
+            Player.remapRig.doubleJumpPower = power;
+        }
+        public void DisableDoubleJump()
+        {
+            Player.remapRig.doubleJump = false;
+        }
 #if !UNITY_EDITOR
         public RigManagerControl(IntPtr ptr) : base(ptr) { }
 #endif
