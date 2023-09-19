@@ -4,6 +4,7 @@ using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.PlayerUtil;
 using TheLibraryElectric.Water;
 using TheLibraryElectric.Signals;
+using TheLibraryElectric.Misc;
 using UltEvents;
 
 public class MenuItems : Editor
@@ -19,14 +20,28 @@ public class MenuItems : Editor
 		Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
 		Selection.activeObject = go;
 	}
-	[MenuItem("GameObject/The Library Electric/Water Zone", false, 10)]
-	static void CreateWaterZone(MenuCommand menuCommand)
+	[MenuItem("GameObject/The Library Electric/Basic Water Zone", false, 10)]
+	static void CreateBasicWaterZone(MenuCommand menuCommand)
 	{
 		GameObject go = new GameObject("Water Zone");
 		GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
 		BoxCollider bc = go.AddComponent<BoxCollider>();
 		bc.isTrigger = true;
 		go.AddComponent<WaterZone>();
+		Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
+		Selection.activeObject = go;
+	}
+		[MenuItem("GameObject/The Library Electric/Full Water Zone", false, 10)]
+	static void CreateFullWaterZone(MenuCommand menuCommand)
+	{
+		GameObject go = new GameObject("Water Zone");
+		GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
+		BoxCollider bc = go.AddComponent<BoxCollider>();
+		bc.isTrigger = true;
+		go.AddComponent<WaterZone>();
+		go.AddComponent<SwimmingController>();
+		go.AddComponent<DrowningManager>();
+		go.AddComponent<SpawnOnTriggerEnter>();
 		Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
 		Selection.activeObject = go;
 	}

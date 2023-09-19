@@ -58,8 +58,5 @@ namespace TheLibraryElectric.Water
             float damageTaken = _playerHealth.max_Health * damagePercentage;
             _playerHealth.TAKEDAMAGE(damageTaken);
         }
-#if !UNITY_EDITOR
-        public DrowningManager(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }

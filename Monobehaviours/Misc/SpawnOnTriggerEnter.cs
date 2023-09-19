@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +9,7 @@ namespace TheLibraryElectric.Misc
 {
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Misc/Spawn On Trigger Enter")]
+    [RequireComponent(typeof(Collider))]
 #endif
     public class SpawnOnTriggerEnter : MonoBehaviour
     {
@@ -78,4 +78,3 @@ namespace TheLibraryElectric.Misc
 #endif
     }
 }
-

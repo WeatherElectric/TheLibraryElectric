@@ -38,6 +38,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FieldInjection.cs" />
     <Compile Include="InternalHelpers\ColliderHelper.cs" />
     <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
     <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
