@@ -32,7 +32,7 @@ namespace TheLibraryElectricUpdater
             offlineModePref = prefsCategory.CreateEntry("OfflineMode", false);
             prefsCategory.SaveToFile(false);
 
-            LoggerInstance.Msg(isOffline ? ConsoleColor.Yellow : ConsoleColor.Green, isOffline ? "BoneLib is in OFFLINE mode" : "BoneLib is in ONLINE mode");
+            LoggerInstance.Msg(isOffline ? ConsoleColor.Yellow : ConsoleColor.Green, isOffline ? "TheLibraryElectric is in OFFLINE mode" : "TheLibraryElectric is in ONLINE mode");
 
             if (isOffline)
             {

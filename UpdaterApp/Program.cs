@@ -99,7 +99,7 @@ namespace UpdaterApp
                                     string downloadUrl = asset["browser_download_url"];
                                     using (HttpClient downloadClient = new HttpClient())
                                     {
-                                        // Download the latest version of BoneLibUpdater.dll and save it to the plugins folder
+                                        // Download the latest version of TheLibraryElectricUpdater.dll and save it to the plugins folder
                                         HttpWebRequest downloadRequest = (HttpWebRequest)WebRequest.Create(downloadUrl);
                                         downloadRequest.Accept = "application/vnd.github.v3.raw";
                                         downloadRequest.UserAgent = "TheLibraryElectricUpdater";
