@@ -8,6 +8,7 @@ namespace TheLibraryElectric.Signals
 {
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Signals/Signal Triggerer")]
+    [RequireComponent(typeof(Collider))]
 #endif
     public class SignalTriggerer : MonoBehaviour
     {

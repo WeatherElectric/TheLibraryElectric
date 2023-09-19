@@ -38,7 +38,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FieldInjection.cs" />
     <Compile Include="InternalHelpers\ColliderHelper.cs" />
     <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
     <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
@@ -80,6 +79,7 @@
     <Compile Include="Monobehaviours\Water\WaterZone.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Patching\WeaponSlotPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
