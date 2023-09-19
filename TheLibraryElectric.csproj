@@ -75,7 +75,6 @@
     <Compile Include="Monobehaviours\Water\DrowningManager.cs" />
     <Compile Include="Monobehaviours\Water\HandMonitor.cs" />
     <Compile Include="Monobehaviours\Water\IgnoreRigidbody.cs" />
-    <Compile Include="Monobehaviours\Water\PreventFromDrowning.cs" />
     <Compile Include="Monobehaviours\Water\RbBuoyancyManager.cs" />
     <Compile Include="Monobehaviours\Water\SwimmingController.cs" />
     <Compile Include="Monobehaviours\Water\WaterZone.cs" />

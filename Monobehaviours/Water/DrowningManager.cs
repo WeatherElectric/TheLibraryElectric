@@ -26,11 +26,7 @@ namespace TheLibraryElectric.Water
             _rigManager = other.GetComponentInParent<RigManager>();
             if (_rigManager != null)
             {
-                var preventCheck = _rigManager.GetComponentInChildren<PreventFromDrowning>();
-                if (preventCheck.preventDrowning == false)
-                {
-                    _isDrowning = true;
-                }
+                _isDrowning = true;
             }
         }
         private void OnTriggerExit(Collider other)
