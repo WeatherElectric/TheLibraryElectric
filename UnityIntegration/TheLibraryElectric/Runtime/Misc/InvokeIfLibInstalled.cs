@@ -18,8 +18,5 @@ namespace TheLibraryElectric.Misc
         {
             gameObject.GetComponent<UltEventHolder>().Invoke();
         }
-#if !UNITY_EDITOR
-        public InvokeIfLibInstalled(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
