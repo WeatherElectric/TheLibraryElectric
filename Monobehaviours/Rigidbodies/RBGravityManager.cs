@@ -14,6 +14,7 @@ namespace TheLibraryElectric.Rigidbodies
 #endif
         public Rigidbody thisRb;
         public Vector3 gravityAmount;
+        [NonSerialized]
         internal Action<RBGravityManager> onDestroyed = null;
         public Vector3 GravityAmount
         {

@@ -15,6 +15,7 @@ namespace TheLibraryElectric.Water
         public bool dampening; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount; // Dampening multiplier
 
+        [NonSerialized]
         internal Action<RbBuoyancyManager> onDestroyed = null;
 
         private void Start()
