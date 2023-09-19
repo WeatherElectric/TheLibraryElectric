@@ -1,6 +1,6 @@
 using UnityEngine;
 using HarmonyLib;
-using SLZ.Props.Weapons;
+using SLZ.Interaction;
 using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.Water;
 
@@ -8,8 +8,8 @@ namespace TheLibraryElectric.Patching
 {
     public static class WeaponSlotPatch
     {
-        [HarmonyPatch(typeof(WeaponSlot), "onSlotInsert")]
-        public class SlotPatch
+        [HarmonyPatch(typeof(InteractableHost), "onSlotInsert")]
+        public class InteractableHostPatch
         {
             [HarmonyPrefix]
             public static void Postfix(GameObject __instance)
