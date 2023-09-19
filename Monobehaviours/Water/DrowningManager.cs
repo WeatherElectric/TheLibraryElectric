@@ -17,17 +17,15 @@ namespace TheLibraryElectric.Water
         public float damageInterval = 5f;
         public float damagePercentage = 0.10f;
         private RigManager _rigManager;
-        private Player_Health _playerHealth;
         private bool _isDrowning = true;
         private float _timeInsideWater = 0.0f;
         private float _methodCallTimer = 0.0f;
 
         private void OnTriggerEnter(Collider other)
         {
-            _rigManager = other.GetComponent<RigManager>();
+            _rigManager = other.GetComponentInParent<RigManager>();
             if (_rigManager != null)
             {
-                _playerHealth = _rigManager.GetComponent<Player_Health>();
                 _isDrowning = true;
             }
         }
@@ -55,8 +53,8 @@ namespace TheLibraryElectric.Water
         }
         private void Drown()
         {
-            float damageTaken = _playerHealth.max_Health * damagePercentage;
-            _playerHealth.TAKEDAMAGE(damageTaken);
+            float damageTaken = _rigManager.health.max_Health * damagePercentage;
+            _rigManager.health.TAKEDAMAGE(damageTaken);
         }
 #if !UNITY_EDITOR
         public DrowningManager(IntPtr ptr) : base(ptr) { }
