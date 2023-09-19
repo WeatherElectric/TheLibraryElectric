@@ -13,8 +13,8 @@ namespace TheLibraryElectric.Water
 #endif
     public class DrowningManager : MonoBehaviour
     {
-        public float timeUntilDrowning = 10f;
-        public float damageInterval = 5f;
+        public float timeUntilDrowning = 20f;
+        public float damageInterval = 1f;
         public float damagePercentage = 0.10f;
         private RigManager _rigManager;
         private bool _isDrowning = false;
@@ -26,7 +26,11 @@ namespace TheLibraryElectric.Water
             _rigManager = other.GetComponentInParent<RigManager>();
             if (_rigManager != null)
             {
-                _isDrowning = true;
+                var preventCheck = _rigManager.GetComponentInChildren<PreventFromDrowning>();
+                if (preventCheck.preventDrowning == false)
+                {
+                    _isDrowning = true;
+                }
             }
         }
         private void OnTriggerExit(Collider other)
