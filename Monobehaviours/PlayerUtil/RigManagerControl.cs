@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using BoneLib;
+using TheLibraryElectric.Patching;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -44,13 +45,17 @@ namespace TheLibraryElectric.PlayerUtil
         {
             Player.remapRig.doubleJump = true;
         }
-        public void DoubleJumpPower(float power)
-        {
-            Player.remapRig.doubleJumpPower = power;
-        }
         public void DisableDoubleJump()
         {
             Player.remapRig.doubleJump = false;
+        }
+        public void DisableVaulting()
+        {
+            VaultingPatch.vaultingToggle = true;
+        }
+        public void EnableVaulting()
+        {
+            VaultingPatch.vaultingToggle = false;
         }
 #if !UNITY_EDITOR
         public RigManagerControl(IntPtr ptr) : base(ptr) { }

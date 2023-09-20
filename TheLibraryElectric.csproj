@@ -78,6 +78,7 @@
     <Compile Include="Monobehaviours\Water\RbBuoyancyManager.cs" />
     <Compile Include="Monobehaviours\Water\SwimmingController.cs" />
     <Compile Include="Monobehaviours\Water\WaterZone.cs" />
+    <Compile Include="Patching\VaultingPatch.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
