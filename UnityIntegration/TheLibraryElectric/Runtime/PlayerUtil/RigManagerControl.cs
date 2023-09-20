@@ -38,5 +38,17 @@ namespace TheLibraryElectric.PlayerUtil
         {
 
         }
+		public void EnableDoubleJump()
+		{
+			
+		}
+		public void DoubleJumpPower(float power)
+		{
+			return;
+		}
+		public void DisableDoubleJump()
+		{
+			
+		}
     }
 }
