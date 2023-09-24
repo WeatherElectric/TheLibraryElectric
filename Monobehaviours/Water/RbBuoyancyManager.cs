@@ -47,7 +47,7 @@ namespace TheLibraryElectric.Water
         private void FixedUpdate()
         {
             // Force the RB to have no gravity in case someone uses a grav chamber
-            if (thisRb != null)
+            if (thisRb != null && thisRb.useGravity)
             {
                 thisRb.useGravity = false;
             }
