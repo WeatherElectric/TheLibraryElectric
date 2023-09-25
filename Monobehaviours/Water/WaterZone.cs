@@ -38,7 +38,7 @@ namespace TheLibraryElectric.Water
                     return;
                 }
 
-                RbBuoyancyManager themanager = colliderRigidbody.gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+                var themanager = colliderRigidbody.gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
 
                 if(other.GetComponentInParent<IgnoreRigidbody>() != null)
                 {
@@ -52,13 +52,13 @@ namespace TheLibraryElectric.Water
                 themanager.midpointSink = midpointSink;
                 themanager.onDestroyed = OnBuoyancyManagerDestroyed;
                 Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
-                foreach (Rigidbody rb in childRbs)
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
                         if (rb.GetComponent<RbBuoyancyManager>() == null)
                         {
-                            RbBuoyancyManager manager = rb.gameObject.AddComponent<RbBuoyancyManager>();
+                            var manager = rb.gameObject.AddComponent<RbBuoyancyManager>();
                             manager.buoyancyMultiplier = buoyancyMultiplier;
                             manager.dampening = dampening;
                             manager.midpoint = midpoint;
@@ -83,7 +83,7 @@ namespace TheLibraryElectric.Water
                 colliderRigidbody.useGravity = true; // Enable gravity
                 UnityEngine.Object.Destroy(manager); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
-                foreach (Rigidbody rb in childRbs)
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -106,7 +106,7 @@ namespace TheLibraryElectric.Water
 
         void Update()
         {
-            foreach(RbBuoyancyManager rBBuoyancyManager in inTriggerCol) // Loop through the list
+            foreach(var rBBuoyancyManager in inTriggerCol) // Loop through the list
             {
                 if (rBBuoyancyManager != null)
                 {

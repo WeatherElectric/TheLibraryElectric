@@ -11,8 +11,8 @@ namespace TheLibraryElectric.InternalHelpers
     {
         public static void Spawn(string barcode, Vector3 position, Quaternion rotation, bool ignorePolicy, Action<GameObject> callback)
         {
-            SpawnableCrateReference reference = new SpawnableCrateReference(barcode);
-            Spawnable spawnable = new Spawnable()
+            var reference = new SpawnableCrateReference(barcode);
+            var spawnable = new Spawnable()
             {
                 crateRef = reference
             };

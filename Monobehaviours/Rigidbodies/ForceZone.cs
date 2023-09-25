@@ -30,7 +30,7 @@ namespace TheLibraryElectric.Rigidbodies
         }
         void Update()
         {
-            foreach (Rigidbody rb in inTriggerRbs)
+            foreach (var rb in inTriggerRbs)
             {
                 rb.AddForce(forceAmount, ForceMode.Force);
             }

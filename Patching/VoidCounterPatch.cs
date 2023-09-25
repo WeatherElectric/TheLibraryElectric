@@ -17,14 +17,14 @@ namespace TheLibraryElectric.Patching
             {
                 if (c.gameObject.GetComponentInParent<VoidCounterObject>() != null) // Check if the colliding GameObject has the VoidCounterObject component
                 {
-                    PhysicMaterial dynamicMaterial = new PhysicMaterial
+                    var dynamicMaterial = new PhysicMaterial
                     {
                         bounciness = 1f,  
                         dynamicFriction = 0.2f,
                         staticFriction = 0.5f
                     };
                     Collider[] colliders = __instance.GetComponentsInChildren<Collider>();
-                    foreach (Collider collider in colliders)
+                    foreach (var collider in colliders)
                     {
                         collider.material = dynamicMaterial;
                     }
@@ -36,7 +36,7 @@ namespace TheLibraryElectric.Patching
                     {
                         if (__instance.gameObject.GetComponent<DisableDelay>() != null) {
                             DisableDelay[] disableDelays = __instance.gameObject.GetComponentsInChildren<DisableDelay>();
-                            foreach (DisableDelay disableDelay in disableDelays)
+                            foreach (var disableDelay in disableDelays)
                             {
                                 UnityEngine.Object.Destroy(disableDelay);
                             }

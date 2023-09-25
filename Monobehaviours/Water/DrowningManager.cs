@@ -54,7 +54,7 @@ namespace TheLibraryElectric.Water
         }
         private void Drown()
         {
-            float damageTaken = _rigManager.health.max_Health * damagePercentage;
+            var damageTaken = _rigManager.health.max_Health * damagePercentage;
             _rigManager.health.TAKEDAMAGE(damageTaken);
         }
 #if !UNITY_EDITOR

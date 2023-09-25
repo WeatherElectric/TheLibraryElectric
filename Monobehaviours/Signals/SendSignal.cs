@@ -19,10 +19,10 @@ namespace TheLibraryElectric.Signals
             ModConsole.Msg("Finding recievers", LoggingMode.DEBUG);
             RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
             ModConsole.Msg("Got recievers", LoggingMode.DEBUG);
-            foreach (RecieveSignal reciever in recievers)
+            foreach (var reciever in recievers)
             {
                 ModConsole.Msg("Finding recievers again", LoggingMode.DEBUG);
-                RecieveSignal il2cppsucks = reciever.gameObject.GetComponent<RecieveSignal>();
+                var il2cppsucks = reciever.gameObject.GetComponent<RecieveSignal>();
                 ModConsole.Msg($"Reciever gameobject is {il2cppsucks.gameObject.name}", LoggingMode.DEBUG);
                 ModConsole.Msg($"Sender key is {activationKey}, reciever key is {il2cppsucks.activationKey}", LoggingMode.DEBUG);
                 if (activationKey == il2cppsucks.activationKey)

@@ -27,14 +27,14 @@ namespace TheLibraryElectric.Water
                 ModConsole.Msg("SwimmingController: RigManager found!", LoggingMode.DEBUG);
                 if (rigManager.physicsRig.leftHand.GetComponent<HandMonitor>() == null)
                 {
-                    HandMonitor handMonitor = rigManager.physicsRig.leftHand.gameObject.AddComponent<HandMonitor>();
+                    var handMonitor = rigManager.physicsRig.leftHand.gameObject.AddComponent<HandMonitor>();
                     handMonitor.rigManager = rigManager;
                     handMonitor.minimumVelocity = minimumVelocity;
 
                 }
                 if (rigManager.physicsRig.rightHand.GetComponent<HandMonitor>() == null)
                 {
-                    HandMonitor handMonitor = rigManager.physicsRig.rightHand.gameObject.AddComponent<HandMonitor>();
+                    var handMonitor = rigManager.physicsRig.rightHand.gameObject.AddComponent<HandMonitor>();
                     handMonitor.rigManager = rigManager;
                     handMonitor.minimumVelocity = minimumVelocity;
                     handMonitor.velocityMultiplier = velocityMultiplier;

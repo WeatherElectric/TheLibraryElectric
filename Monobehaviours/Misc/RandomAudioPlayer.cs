@@ -25,7 +25,7 @@ namespace TheLibraryElectric.Misc
         {
             if (audioSources.Length > 0)
             {
-                int randomIndex = Random.Range(0, audioSources.Length);
+                var randomIndex = Random.Range(0, audioSources.Length);
                 
                 audioSources[randomIndex].Play();
             }

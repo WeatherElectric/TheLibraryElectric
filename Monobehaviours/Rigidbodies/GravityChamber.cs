@@ -37,7 +37,7 @@ namespace TheLibraryElectric.Rigidbodies
                 }
                 other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RBGravityManager>().gravityAmount = gravityAmount; // Add the RBGravityManager component and set the gravity amount
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach(Rigidbody rb in childRbs)
+                foreach(var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -58,7 +58,7 @@ namespace TheLibraryElectric.Rigidbodies
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach (Rigidbody rb in childRbs)
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -82,7 +82,7 @@ namespace TheLibraryElectric.Rigidbodies
         }
         void Update()
         {
-            foreach(RBGravityManager rBGravityManager in inTriggerCol) // Loop through the list
+            foreach(var rBGravityManager in inTriggerCol) // Loop through the list
             {
                 if (rBGravityManager != null)
                 {

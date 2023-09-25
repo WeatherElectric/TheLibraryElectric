@@ -15,12 +15,12 @@ namespace TheLibraryElectric.Rigidbodies
         private GameObject rigManager;
         private void Start()
         {
-            GameObject rm = GameObject.Find("[RigManager (Blank)]");
+            var rm = GameObject.Find("[RigManager (Blank)]");
             ModConsole.Msg("Got rigmanager", LoggingMode.DEBUG);
             rigManager = rm;
             Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
             ModConsole.Msg("Got rigidbodies", LoggingMode.DEBUG);
-            foreach (Rigidbody rb in allRigidbodies)
+            foreach (var rb in allRigidbodies)
             {
                 ModConsole.Msg("Giving existing kinematic RBs DoNotFreeze", LoggingMode.DEBUG);
                 // Check if the GameObject has the DoNotFreeze component
@@ -40,7 +40,7 @@ namespace TheLibraryElectric.Rigidbodies
             {
                 ModConsole.Msg("Getting rigidbodies", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-                foreach (Rigidbody rb in allRigidbodies)
+                foreach (var rb in allRigidbodies)
                 {
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)
@@ -66,7 +66,7 @@ namespace TheLibraryElectric.Rigidbodies
             {
                 ModConsole.Msg("Getting all RBs", LoggingMode.DEBUG);
                 Rigidbody[] allRigidbodies = FindObjectsOfType<Rigidbody>();
-                foreach (Rigidbody rb in allRigidbodies)
+                foreach (var rb in allRigidbodies)
                 {
                     // Check if the GameObject has the DoNotFreeze component
                     if (rb.gameObject.GetComponent<DoNotFreeze>() != null)

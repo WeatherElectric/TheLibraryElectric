@@ -48,7 +48,7 @@ namespace TheLibraryElectric.Misc
                 // Check if the colliding GameObject is not a child of the excluded object
                 if (!collision.transform.IsChildOf(rigManager) && collision.gameObject.layer != 13 && !IsObjectExcluded(collision.gameObject) && !collision.gameObject.GetComponent<DoNotDestroy>())
                 {
-                    Rigidbody rb = collision.transform.GetComponentInParent<Rigidbody>();
+                    var rb = collision.transform.GetComponentInParent<Rigidbody>();
                     if (rb != null)
                     {
                         blip = rb.transform.GetComponent<Blip>();
@@ -69,7 +69,7 @@ namespace TheLibraryElectric.Misc
 #endif
         private bool IsObjectExcluded(GameObject obj)
         {
-            foreach (GameObject excludedObject in excludedObjects)
+            foreach (var excludedObject in excludedObjects)
             {
                 if (obj == excludedObject)
                 {

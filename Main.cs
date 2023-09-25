@@ -28,7 +28,7 @@ namespace TheLibraryElectric
         }
         public override void OnLateInitializeMelon()
         {
-            Thread initializationThread = new Thread(new ThreadStart(async () =>
+            var initializationThread = new Thread(new ThreadStart(async () =>
             {
                 await ModStats.IncrementLaunch();
                 if (!PlayerPrefs.HasKey("TheLibraryElectricLaunch"))

@@ -58,17 +58,17 @@ namespace TheLibraryElectric.Misc
             }
             if (!uniformScale)
             {
-                float clampedX = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.x) / divideByX, minimumScale.x, maximumScale.x);
-                float clampedY = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.y) / divideByY, minimumScale.y, maximumScale.y);
-                float clampedZ = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.z) / divideByZ, minimumScale.z, maximumScale.z);
+                var clampedX = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.x) / divideByX, minimumScale.x, maximumScale.x);
+                var clampedY = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.y) / divideByY, minimumScale.y, maximumScale.y);
+                var clampedZ = Mathf.Clamp(Mathf.Abs(other.attachedRigidbody.velocity.z) / divideByZ, minimumScale.z, maximumScale.z);
                 rbVelocity = new Vector3(clampedX, clampedY, clampedZ);
                 spawnedObject.transform.localScale = Vector3.Scale(rbVelocity, spawnedObject.transform.lossyScale);
             }
             else
             {
                 rbVelocity = new Vector3(Mathf.Abs(other.attachedRigidbody.velocity.x), Mathf.Abs(other.attachedRigidbody.velocity.y), Mathf.Abs(other.attachedRigidbody.velocity.z));
-                float uniformScale = Mathf.Clamp(rbVelocity.sqrMagnitude / uniformScaleDivision, uniformScaleMinimum, uniformScaleMaximum);
-                Vector3 newScale = new Vector3(uniformScale, uniformScale, uniformScale);
+                var uniformScale = Mathf.Clamp(rbVelocity.sqrMagnitude / uniformScaleDivision, uniformScaleMinimum, uniformScaleMaximum);
+                var newScale = new Vector3(uniformScale, uniformScale, uniformScale);
                 spawnedObject.transform.localScale = newScale;
             }
 

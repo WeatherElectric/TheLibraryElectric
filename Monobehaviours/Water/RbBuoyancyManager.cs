@@ -54,7 +54,7 @@ namespace TheLibraryElectric.Water
             // If mass is smaller than midpoint, float
             if (thisRb != null && thisRb.mass < midpoint)
             {
-                float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.up * buoyantForce);
                 if (dampening)
                 { 
@@ -64,7 +64,7 @@ namespace TheLibraryElectric.Water
             // If mass is bigger than midpoint, sink
             if (thisRb != null && thisRb.mass > midpoint)
             {
-                float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.down * buoyantForce);
                 if (dampening)
                 { 
@@ -76,7 +76,7 @@ namespace TheLibraryElectric.Water
             {
                 if (midpointSink)
                 {
-                    float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                    var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.down * buoyantForce);
                     if (dampening)
                     { 
@@ -85,7 +85,7 @@ namespace TheLibraryElectric.Water
                 }
                 if (!midpointSink)
                 {
-                    float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                    var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.up * buoyantForce);
                     if (dampening)
                     { 

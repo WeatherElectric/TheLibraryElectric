@@ -22,7 +22,7 @@ namespace TheLibraryElectric.Signals
         }
         public void InvokeEvent()
         {
-            UltEventHolder il2cppsucks = GetComponent<UltEventHolder>();
+            var il2cppsucks = GetComponent<UltEventHolder>();
             if (il2cppsucks != null)
             {
                 ModConsole.Msg("Signal recieved, invoking", LoggingMode.DEBUG);

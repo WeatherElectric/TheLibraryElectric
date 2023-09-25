@@ -32,10 +32,10 @@ namespace TheLibraryElectric.Rigidbodies
         }
         public void ExplodeColliders()
         {
-            foreach (GameObject go in gameObjects)
+            foreach (var go in gameObjects)
             {
                 if (transform.root.gameObject == go.transform.root.gameObject) { continue; }
-                Rigidbody rb = go.GetComponent<Rigidbody>();
+                var rb = go.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
                     ModConsole.Msg($"Adding force to {rb.gameObject.name}", LoggingMode.DEBUG);
@@ -46,10 +46,10 @@ namespace TheLibraryElectric.Rigidbodies
         public void Explode()
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-            foreach (Collider col in colliders)
+            foreach (var col in colliders)
             {
                 if (transform.root.gameObject == col.transform.root.gameObject) { continue; }
-                Rigidbody rb = col.GetComponent<Rigidbody>();
+                var rb = col.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
                     ModConsole.Msg($"Adding force to {rb.gameObject.name}", LoggingMode.DEBUG);
