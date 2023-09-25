@@ -21,7 +21,7 @@ namespace TheLibraryElectric.Misc
         public void Add(float value)
         {
             counter += value;
-            if (counter >= countersNeeded)
+            if (counter == countersNeeded)
             {
                 onCounterHit.Invoke();
                 counter = 0;
