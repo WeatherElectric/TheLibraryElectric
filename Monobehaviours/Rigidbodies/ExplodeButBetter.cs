@@ -18,7 +18,7 @@ namespace TheLibraryElectric.Rigidbodies
         public bool active = false;
         private List<GameObject> gameObjects = new List<GameObject>();
 
-        void Update()
+        private void Update()
         {
             if (!active) { return; } // If not active, don't do anything
             if (useColliders)
@@ -57,12 +57,14 @@ namespace TheLibraryElectric.Rigidbodies
                 }
             }
         }
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
             ModConsole.Msg($"Adding {other.gameObject.name} to list", LoggingMode.DEBUG);
             gameObjects.Add(other.gameObject); //When an object enters the trigger, add it to the list
         }
-        void OnTriggerExit(Collider other)
+
+        private void OnTriggerExit(Collider other)
         {
             ModConsole.Msg($"Removing {other.gameObject.name} from list", LoggingMode.DEBUG);
             gameObjects.Remove(other.gameObject); //When an object leaves the trigger, remove it from the list

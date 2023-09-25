@@ -27,7 +27,8 @@ namespace TheLibraryElectric.Rigidbodies
             get { return gravityAmount; }
             set { gravityAmount = value; }
         }
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
             if(other.GetComponentInParent<Rigidbody>() != null && other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
             {
@@ -51,7 +52,8 @@ namespace TheLibraryElectric.Rigidbodies
                 inTriggerCol.Add(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Add the colliding GameObject to the list
             }
         }
-        void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
+
+        private void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
             if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>())) // Check if the colliding GameObject is in the list
             {
@@ -75,12 +77,13 @@ namespace TheLibraryElectric.Rigidbodies
         }
         
         [HideFromIl2Cpp]
-        void OnGravityManagerDestroyed(RBGravityManager manager)
+        private void OnGravityManagerDestroyed(RBGravityManager manager)
         {
             // Changed this to be an action so that the pooling fix wouldn't cause garbage collection errors
             inTriggerCol.Remove(manager); // Remove the colliding GameObject from the list
         }
-        void Update()
+
+        private void Update()
         {
             foreach(var rBGravityManager in inTriggerCol) // Loop through the list
             {

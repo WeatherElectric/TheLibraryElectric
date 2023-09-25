@@ -28,7 +28,7 @@ namespace TheLibraryElectric.Misc
         private Vector3 rbVelocity;
         private List<GameObject> spawnedObjects = new List<GameObject>();
         private GameObject spawnedObject;
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (barcodeToSpawn == null)
             {

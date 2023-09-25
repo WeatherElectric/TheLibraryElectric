@@ -10,7 +10,7 @@ namespace TheLibraryElectric.Misc
     {
         public Spawnable spawnable;
         public Vector3 force;
-        void Throw()
+        public void Throw()
         {
             SpawnCrateWithSpawnable.Spawn(spawnable, transform.position, transform.rotation, false, go =>
             {

@@ -35,21 +35,30 @@ namespace TheLibraryElectric.Water
             _isDrowning = false;
             _timeInsideWater = 0.0f;
         }
+        // The car told me to do this and the car is right
         private void FixedUpdate()
         {
             if (_isDrowning)
             {
-                _timeInsideWater += Time.deltaTime;
-                if (_timeInsideWater >= timeUntilDrowning)
-                {
-                    _methodCallTimer += Time.deltaTime;
+                CheckTimeInWater();
+            }
+        }
+        private void CheckTimeInWater()
+        {
+            _timeInsideWater += Time.deltaTime;
+            if (_timeInsideWater >= timeUntilDrowning)
+            {
+                RepeatDrownMethod();
+            }
+        }
+        private void RepeatDrownMethod()
+        {
+            _methodCallTimer += Time.deltaTime;
 
-                    if (_methodCallTimer >= damageInterval)
-                    {
-                        Drown();
-                        _methodCallTimer = 0.0f;
-                    }
-                }
+            if (_methodCallTimer >= damageInterval)
+            {
+                Drown();
+                _methodCallTimer = 0.0f;
             }
         }
         private void Drown()

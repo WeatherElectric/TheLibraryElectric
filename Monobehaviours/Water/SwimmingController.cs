@@ -19,7 +19,8 @@ namespace TheLibraryElectric.Water
         public RigManager rigManager;
         public float minimumVelocity = 10f;
         public float velocityMultiplier = 100f;
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
             rigManager = other.GetComponentInParent<RigManager>();
             if (rigManager != null)
@@ -42,7 +43,8 @@ namespace TheLibraryElectric.Water
                 }
             }
         }
-        void OnTriggerExit(Collider other)
+
+        private void OnTriggerExit(Collider other)
         {
             rigManager = other.GetComponentInParent<RigManager>();
             if (rigManager != null)

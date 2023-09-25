@@ -14,21 +14,23 @@ namespace TheLibraryElectric.Rigidbodies
             set { forceAmount = value; }
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other.attachedRigidbody != null)
             {
                 inTriggerRbs.Add(other.attachedRigidbody);
             }
         }
-        void OnTriggerExit(Collider other)
+
+        private void OnTriggerExit(Collider other)
         {
             if (other.attachedRigidbody != null && inTriggerRbs.Contains(other.attachedRigidbody))
             {
                 inTriggerRbs.Remove(other.attachedRigidbody);
             }
         }
-        void Update()
+
+        private void Update()
         {
             foreach (var rb in inTriggerRbs)
             {

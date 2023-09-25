@@ -10,7 +10,7 @@ namespace TheLibraryElectric.Misc
 #if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Misc/Invoke if Library is Installed")]
 #endif
-    class InvokeIfLibInstalled : MonoBehaviour
+    public class InvokeIfLibInstalled : MonoBehaviour
     {
         public void Awake()
         {

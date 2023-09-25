@@ -28,7 +28,8 @@ namespace TheLibraryElectric.Water
         public bool dampening = true; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount = 0.98f; // Dampening multiplier
         public bool ignoreRigManager;
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
             var colliderRigidbody = other.attachedRigidbody;
             if (colliderRigidbody != null && colliderRigidbody.GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
@@ -70,7 +71,8 @@ namespace TheLibraryElectric.Water
                 inTriggerCol.Add(themanager); // Add the colliding GameObject to the list
             }
         }
-        void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
+
+        private void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
             var colliderRigidbody = other.attachedRigidbody;
             RbBuoyancyManager manager = null;
@@ -98,13 +100,13 @@ namespace TheLibraryElectric.Water
         }
 
         [HideFromIl2Cpp]
-        void OnBuoyancyManagerDestroyed(RbBuoyancyManager manager)
+        private void OnBuoyancyManagerDestroyed(RbBuoyancyManager manager)
         {
             // Changed this to be an action so that the pooling fix wouldn't cause garbage collection errors
             inTriggerCol.Remove(manager); // Remove the colliding GameObject from the list
         }
 
-        void Update()
+        private void Update()
         {
             foreach(var rBBuoyancyManager in inTriggerCol) // Loop through the list
             {

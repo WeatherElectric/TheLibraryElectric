@@ -15,13 +15,14 @@ namespace TheLibraryElectric.Rigidbodies
         public Rigidbody thisRb;
         public Vector3 gravityAmount;
         [NonSerialized]
-        internal Action<RBGravityManager> onDestroyed = null;
+        private Action<RBGravityManager> onDestroyed = null;
         public Vector3 GravityAmount
         {
             get { return gravityAmount; }
             set { gravityAmount = value; }
         }
-        void Start()
+
+        private void Start()
         {
             thisRb = GetComponent<Rigidbody>(); // Get the Rigidbody component
             if (thisRb != null)
@@ -29,7 +30,8 @@ namespace TheLibraryElectric.Rigidbodies
                 thisRb.useGravity = false; // Disable gravity so the scene gravity doesn't interfere
             }
         }
-        void FixedUpdate()
+
+        private void FixedUpdate()
         {
             if (thisRb != null)
             {

@@ -12,11 +12,11 @@ namespace TheLibraryElectric.Water
         public float velocityMultiplier;
         private Rigidbody handRb;
 
-        void Start()
+        private void Start()
         {
             handRb = GetComponent<Rigidbody>();
         }
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             handVelocity = handRb.velocity - rigManager.physicsRig.m_chest.GetComponent<Rigidbody>().velocity;
             if (handVelocity.sqrMagnitude > minimumVelocity)

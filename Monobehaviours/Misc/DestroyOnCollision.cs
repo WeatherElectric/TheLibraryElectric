@@ -17,7 +17,7 @@ namespace TheLibraryElectric.Misc
 [Header("Is Allowed To Destroy?")]
 [SerializeField]
 #endif
-        bool activeState;
+        private bool activeState;
 #if UNITY_EDITOR
 [Header("Destroy Sound Audio Src")]
 [SerializeField]
