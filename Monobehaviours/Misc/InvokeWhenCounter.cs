@@ -16,21 +16,20 @@ namespace TheLibraryElectric.Misc
 #if UNITY_EDITOR
         [Tooltip("The number the counter must reach for the event to be invoked.")]
 #endif
-        public float countersNeeded = 5.0f;
-        public float Counter
-        {
-            get { return counter; }
-            set { counter = value; }
-        }
+        public float countersNeeded = 5;
         public UltEvent onCounterHit;
-        public void Update()
+        public void Add(float value)
         {
-            const double tolerance = 0.0f;
-            if (Math.Abs(counter - countersNeeded) < tolerance)
+            counter += value;
+            if (counter >= countersNeeded)
             {
                 onCounterHit.Invoke();
-                counter = 0.0f;
+                counter = 0;
             }
+        }
+        public void Subtract(float value)
+        {
+            counter -= value;
         }
 #if !UNITY_EDITOR
         public InvokeWhenCounter(IntPtr ptr) : base(ptr) { }
