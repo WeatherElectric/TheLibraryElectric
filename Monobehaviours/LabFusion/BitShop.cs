@@ -1,4 +1,5 @@
 using System;
+using LabFusion.MarrowIntegration;
 using LabFusion.SDK.Points;
 using UltEvents;
 using UnityEngine;
@@ -16,6 +17,10 @@ namespace TheLibraryElectric.LabFusion
 #endif
         public int bitsRequired;
 #if UNITY_EDITOR
+		[Tooltip("The BitRewardProxy to use to take away bits.")]
+#endif
+        public BitRewardProxy bitRewardProxy;
+#if UNITY_EDITOR
         [Header("Events")]
         [Tooltip("Called if the player has enough bits.")]
 #endif
@@ -30,6 +35,7 @@ namespace TheLibraryElectric.LabFusion
             if (bits == bitsRequired)
             {
                 purchaseEvent.Invoke();
+                bitRewardProxy.DecrementBits(bitsRequired);
             }
             else
             {
