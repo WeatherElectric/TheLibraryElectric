@@ -11,6 +11,7 @@ namespace TheLibraryElectric.PlayerUtil
 #endif
     public class RagdollZone : MonoBehaviour
     {
+		[Tooltip("Time in seconds before the player is unragdolled")]
         public float delayBeforeUnragdoll = 2f;
 
         private void OnTriggerEnter(Collider other)

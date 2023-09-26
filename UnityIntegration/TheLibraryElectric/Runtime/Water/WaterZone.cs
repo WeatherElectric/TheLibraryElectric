@@ -18,14 +18,19 @@ namespace TheLibraryElectric.Water
     [HideInInspector]
 #endif
         public List<RbBuoyancyManager> inTriggerCol = new List<RbBuoyancyManager>();
+		[Tooltip("Multiplier on the buoyancy effect")]
         public float buoyancyMultiplier = 1.0f; // Adjust this to control the buoyancy threshold.
+		[Tooltip("The mass midpoint used to decide when objects will start to sink. Anything higher than the midpoint will sink")]
         public float midpoint = 50.0f; // Adjust this to control the midpoint of the effect.
 #if UNITY_EDITOR
         [Tooltip("If this is true, RBs with a mass that is exactly the midpoint will sink, if false, they will float.")]
 #endif
         public bool midpointSink = true; // Will masses at the midpoint sink or float?
+		[Tooltip("If dampening is enabled, the object will get slower overtime and eventually stop bobbing.")]
         public bool dampening = true; // If dampening is enabled, drag will increase as the object sinks.
+		[Tooltip("Lower = more dampening, this value's a bit weird. May break some stuff")]
         public float dampeningAmount = 0.98f; // Dampening multiplier
+		[Tooltip("Should the player be ignored?")]
         public bool ignoreRigManager;
         void OnTriggerEnter(Collider other)
         {

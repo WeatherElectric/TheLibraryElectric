@@ -13,6 +13,7 @@ namespace TheLibraryElectric.PlayerUtil
 #endif
     public class RagdollOnCollide : MonoBehaviour
     {
+		[Tooltip("Time in seconds before the player is unragdolled")]
         public float delayBeforeUnragdoll = 2f;
         private RigManager _rigManager;
         

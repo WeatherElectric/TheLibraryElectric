@@ -17,7 +17,9 @@ namespace TheLibraryElectric.Water
         [HideInInspector]
 #endif
         public RigManager rigManager;
+		[Tooltip("Minimum velocity needed to swim")]
         public float minimumVelocity = 10f;
+		[Tooltip("Velocity gained when the player moves their arms fast enough")]
         public float velocityMultiplier = 100f;
         void OnTriggerEnter(Collider other)
         {

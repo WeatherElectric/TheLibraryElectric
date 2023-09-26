@@ -25,6 +25,11 @@ namespace TheLibraryElectric.Water
         }
         private void FixedUpdate()
         {
+			// Force the RB to have no gravity in case someone uses a grav chamber
+            if (thisRb != null)
+            {
+                thisRb.useGravity = false;
+            }
             // If mass is smaller than midpoint, float
             if (thisRb != null && thisRb.mass < midpoint)
             {

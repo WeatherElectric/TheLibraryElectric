@@ -20,11 +20,6 @@ namespace TheLibraryElectric
             Preferences.Setup();
             FieldInjection.Inject();
             ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
-            Hooking.OnLevelUnloaded += OnLevelUnloaded;
-        }
-        private static void OnLevelUnloaded()
-        {
-            NimbusPatch.nimbusToggle = false;
         }
         public override void OnLateInitializeMelon()
         {

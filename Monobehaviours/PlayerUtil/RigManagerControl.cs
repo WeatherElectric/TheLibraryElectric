@@ -49,14 +49,6 @@ namespace TheLibraryElectric.PlayerUtil
         {
             Player.remapRig.doubleJump = false;
         }
-        public void DisableVaulting()
-        {
-            VaultingPatch.vaultingToggle = true;
-        }
-        public void EnableVaulting()
-        {
-            VaultingPatch.vaultingToggle = false;
-        }
 #if !UNITY_EDITOR
         public RigManagerControl(IntPtr ptr) : base(ptr) { }
 #endif

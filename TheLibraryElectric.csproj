@@ -48,6 +48,7 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\LabFusion\BitShop.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotDestroy.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotFreeze.cs" />
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
@@ -61,7 +62,6 @@
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />
     <Compile Include="Monobehaviours\Misc\UpdateTMP.cs" />
-    <Compile Include="Monobehaviours\PlayerUtil\PreventNimbus.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RagdollOnCollide.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RagdollZone.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RigManagerControl.cs" />
@@ -81,8 +81,6 @@
     <Compile Include="Monobehaviours\Water\RbBuoyancyManager.cs" />
     <Compile Include="Monobehaviours\Water\SwimmingController.cs" />
     <Compile Include="Monobehaviours\Water\WaterZone.cs" />
-    <Compile Include="Patching\NimbusPatch.cs" />
-    <Compile Include="Patching\VaultingPatch.cs" />
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +110,9 @@
     </Reference>
     <Reference Include="JeviLib">
       <HintPath>References\JeviLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LabFusion">
+      <HintPath>References\LabFusion.dll</HintPath>
     </Reference>
     <Reference Include="MelonLoader, Version=0.5.7.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

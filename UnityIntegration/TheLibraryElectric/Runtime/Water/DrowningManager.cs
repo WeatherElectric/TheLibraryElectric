@@ -13,18 +13,12 @@ namespace TheLibraryElectric.Water
 #endif
     public class DrowningManager : MonoBehaviour
     {
+		[Tooltip("How long it takes to start taking damage")]
         public float timeUntilDrowning = 30f;
-        public float damageInterval = 5f;
+		[Tooltip("Time in seconds between each damage tick")]
+        public float damageInterval = 1f;
+		[Tooltip("Percentage of the player's max health that's taken by the damage tick")]
         public float damagePercentage = 0.10f;
-        public bool enableSoundQueue = false;
-#if UNITY_EDITOR
-        [Tooltip("The sound that plays when the player is halfway to drowning.")]
-#endif
-        public AudioSource halfWarningSound;
-#if UNITY_EDITOR
-        [Tooltip("The sound that plays when the player is a quarter of the way to drowning.")]
-#endif
-        public AudioSource quarterWarningSound;
         private RigManager _rigManager;
 		private Transform _head;
         private bool _isDrowning = false;
@@ -50,16 +44,6 @@ namespace TheLibraryElectric.Water
             if (_isDrowning)
             {
                 _timeInsideWater += Time.deltaTime;
-				if (enableSoundQueue && _timeInsideWater >= timeUntilDrowning / 2)
-                {
-					halfWarningSound.transform.SetParent(_head);
-                    halfWarningSound.Play();
-                }
-                if (enableSoundQueue && _timeInsideWater >= timeUntilDrowning / 4)
-                {
-					quarterWarningSound.transform.SetParent(_head);
-                    quarterWarningSound.Play();
-                }
                 if (_timeInsideWater >= timeUntilDrowning)
                 {
                     _methodCallTimer += Time.deltaTime;

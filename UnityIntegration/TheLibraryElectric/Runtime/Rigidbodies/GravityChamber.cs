@@ -18,7 +18,9 @@ namespace TheLibraryElectric.Rigidbodies
     [HideInInspector]
 #endif
         public List<RBGravityManager> inTriggerCol = new List<RBGravityManager>();
+		[Tooltip("The amount of gravity the objects should have")]
         public Vector3 gravityAmount;
+		[Tooltip("Should the player be ignored?")]
         public bool ignoreRigManager;
         public Vector3 GravityAmount
         {

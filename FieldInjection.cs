@@ -1,4 +1,6 @@
 using FieldInjector;
+using Il2CppSystem.Runtime.Serialization;
+using TheLibraryElectric.LabFusion;
 using TheLibraryElectric.Markers;
 using TheLibraryElectric.Misc;
 using TheLibraryElectric.PlayerUtil;
@@ -73,10 +75,10 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected DrowningManager", LoggingMode.DEBUG);
             SerialisationHandler.Inject<RagdollOnCollide>();
             ModConsole.Msg("Hopefully injected RagdollOnCollide", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<PreventNimbus>();
-            ModConsole.Msg("Hopefully injected PreventNimbus", LoggingMode.DEBUG);
             SerialisationHandler.Inject<InvokeWhenCounter>();
             ModConsole.Msg("Hopefully injected InvokeWhenCounter", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<BitShop>();
+            ModConsole.Msg("Hopefully injected BitShop", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }

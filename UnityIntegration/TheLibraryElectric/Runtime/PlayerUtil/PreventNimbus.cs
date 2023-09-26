@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using TheLibraryElectric.Patching;
 
 namespace TheLibraryElectric.PlayerUtil
 {
@@ -11,10 +9,7 @@ namespace TheLibraryElectric.PlayerUtil
     {
         private void Awake()
         {
-            NimbusPatch.nimbusToggle = true;
+            
         }
-#if !UNITY_EDITOR
-        public PreventNimbus(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }
