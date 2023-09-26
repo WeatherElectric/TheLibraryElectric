@@ -79,6 +79,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RagdollOnCollide", LoggingMode.DEBUG);
             SerialisationHandler.Inject<InvokeWhenCounter>();
             ModConsole.Msg("Hopefully injected InvokeWhenCounter", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<AbsoluteFizzler>();
+            ModConsole.Msg("Hopefully injected AbsoluteFizzler", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }

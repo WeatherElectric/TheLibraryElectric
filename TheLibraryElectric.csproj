@@ -52,6 +52,7 @@
     <Compile Include="Monobehaviours\Markers\DoNotDestroy.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotFreeze.cs" />
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
+    <Compile Include="Monobehaviours\Misc\AbsoluteFizzler.cs" />
     <Compile Include="Monobehaviours\Misc\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeIfLibInstalled.cs" />
