@@ -6,9 +6,10 @@ namespace TheLibraryElectric.Misc
 {
     public class InvokeIfLibInstalled : MonoBehaviour
     {
+        public UltEvent ifInstalled;
         public void Awake()
         {
-            gameObject.GetComponent<UltEventHolder>().Invoke();
+            ifInstalled.Invoke();
         }
 #if !UNITY_EDITOR
         public InvokeIfLibInstalled(IntPtr ptr) : base(ptr) { }
