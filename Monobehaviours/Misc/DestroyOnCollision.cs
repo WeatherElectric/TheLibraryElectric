@@ -2,26 +2,12 @@
 using System;
 using SLZ.VFX;
 using TheLibraryElectric.Markers;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Destroy On Collision")]
-#endif
     public class DestroyOnCollision : MonoBehaviour
     {
-#if UNITY_EDITOR
-[Header("Is Allowed To Destroy?")]
-[SerializeField]
-#endif
         private bool activeState;
-#if UNITY_EDITOR
-[Header("Destroy Sound Audio Src")]
-[SerializeField]
-#endif
         public AudioSource audioSource;
         public GameObject[] excludedObjects;
         private Transform rigManager;

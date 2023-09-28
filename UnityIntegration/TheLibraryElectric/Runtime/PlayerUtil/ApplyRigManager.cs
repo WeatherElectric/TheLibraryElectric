@@ -1,41 +1,34 @@
+using System;
 using SLZ.Bonelab;
+using SLZ.Rig;
 using UnityEngine;
 
 namespace TheLibraryElectric.PlayerUtil
 { 
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Player Util/Apply Rig Manager")]
-#endif
-    public class ApplyRigManager : MonoBehaviour
+    public class ApplyRigManager : ElectricBehaviour
     {
-#if UNITY_EDITOR
         [Header("Player Leash")]
-        [Tooltip("Whether the script should apply the rig manager to the player leash script.")]
-#endif
+        [Tooltip("Should the script apply the RM to player leash?")]
         public bool playerLeash;
         public Simple_PlayerLeasher playerLeasher;
-#if UNITY_EDITOR
-        [Header("Player Launch Pad")]
-        [Tooltip("Whether the script should apply the rig manager to the player launch pad script.")]
-#endif
+        [Header("Player LaunchPad")]
+        [Tooltip("Should the script apply the RM to player launchpad?")]
         public bool playerLaunchPad;
         public PlayerLaunchPad[] playerLaunchPads;
-#if UNITY_EDITOR
         [Header("Force Avatar")]
-        [Tooltip("Whether the script should apply the rig manager to the force avatar script.")]
-#endif
+        [Tooltip("Should the script apply the RM to force avatar?")]
         public bool forceAvatar;
         public ForceAvatar[] forceAvatars;
-#if UNITY_EDITOR
         [Header("Random Avatar")]
-        [Tooltip("Whether the script should apply the rig manager to the random avatar script.")]
-#endif
+        [Tooltip("Should the script apply the RM to random avatar?")]
         public bool randomAvatar;
         public RandomAvatar[] randomAvatars;
 
-        private void Start()
+        private RigManager _rigManager;
+        public void Apply()
         {
-
+            
         }
 
         private void PlayerLeash()

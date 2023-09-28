@@ -3,27 +3,14 @@ using System.Collections.Generic;
 using SLZ.Rig;
 using UnhollowerBaseLib.Attributes;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Water/Water Zone")]
-    [RequireComponent(typeof(Collider))]
-#endif
     public class WaterZone : MonoBehaviour
     {
-#if UNITY_EDITOR
-    [HideInInspector]
-#endif
         public List<RbBuoyancyManager> inTriggerCol = new List<RbBuoyancyManager>();
         public float buoyancyMultiplier = 1.0f; // Adjust this to control the buoyancy threshold.
         public float midpoint = 50.0f; // Adjust this to control the midpoint of the effect.
-#if UNITY_EDITOR
-        [Tooltip("If this is true, RBs with a mass that is exactly the midpoint will sink, if false, they will float.")]
-#endif
         public bool midpointSink = true; // Will masses at the midpoint sink or float?
         public bool dampening = true; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount = 0.98f; // Dampening multiplier
@@ -120,57 +107,6 @@ namespace TheLibraryElectric.Water
                 }
             }
         }
-#if UNITY_EDITOR
-		private void OnDrawGizmos()
-        {
-			if (Selection.activeGameObject == gameObject)
-				return;
-            Collider collider = GetComponent<Collider>();
-
-            if (collider != null && (collider is CapsuleCollider || collider is BoxCollider || collider is SphereCollider))
-            {
-                Gizmos.color = Color.blue;
-
-                // Draw gizmo based on collider type
-                if (collider is CapsuleCollider)
-                {
-                    DrawCapsuleGizmo((CapsuleCollider)collider);
-                }
-                else if (collider is BoxCollider)
-                {
-                    DrawBoxGizmo((BoxCollider)collider);
-                }
-                else if (collider is SphereCollider)
-                {
-                    DrawSphereGizmo((SphereCollider)collider);
-                }
-            }
-        }
-        private void DrawCapsuleGizmo(CapsuleCollider capsuleCollider)
-        {
-            Vector3 position = transform.position + capsuleCollider.center;
-			float height = capsuleCollider.height * transform.lossyScale.y;
-			float radius = capsuleCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.z);
-			Vector3 boxSize = new Vector3(radius * 2, height - 2 * radius, radius * 2);
-			Gizmos.DrawWireSphere(position + Vector3.up * (height / 2 - radius), radius);
-			Gizmos.DrawWireSphere(position - Vector3.up * (height / 2 - radius), radius);
-			Gizmos.DrawWireCube(position, boxSize);
-        }
-
-        private void DrawBoxGizmo(BoxCollider boxCollider)
-        {
-            Vector3 position = transform.position + boxCollider.center;
-            Vector3 size = Vector3.Scale(boxCollider.size, transform.lossyScale);
-            Gizmos.DrawWireCube(position, size);
-        }
-
-        private void DrawSphereGizmo(SphereCollider sphereCollider)
-        {
-            Vector3 position = transform.position + sphereCollider.center;
-            float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
-            Gizmos.DrawWireSphere(position, radius);
-        }
-#endif
 #if !UNITY_EDITOR
         public WaterZone(IntPtr ptr) : base(ptr) { }
 #endif

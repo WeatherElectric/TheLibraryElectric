@@ -1,19 +1,13 @@
 using System;
 using SLZ.Rig;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.PlayerUtil
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Ragdoll On Collision")]
-    [RequireComponent(typeof(Collider))]
-#endif
-    public class RagdollOnCollide : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Player Util/Ragdoll On Collide")]
+    public class RagdollOnCollide : ElectricBehaviour
     {
-		[Tooltip("Time in seconds before the player is unragdolled")]
+        [Tooltip("The amount of time to wait before unragdolling the player.")]
         public float delayBeforeUnragdoll = 2f;
         private RigManager _rigManager;
         

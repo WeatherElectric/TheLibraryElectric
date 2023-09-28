@@ -3,10 +3,8 @@ using System;
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
-        [HideInInspector]
-#endif
-    public class RbBuoyancyManager : MonoBehaviour
+    [HideInInspector]
+    public class RbBuoyancyManager : ElectricBehaviour
     {
         public Rigidbody thisRb;
         public float buoyancyMultiplier; // Adjust this to control the buoyancy threshold.
@@ -14,6 +12,9 @@ namespace TheLibraryElectric.Water
         public bool midpointSink; // Will masses at the midpoint sink or float?
         public bool dampening; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount; // Dampening multiplier
+
+        [NonSerialized]
+        internal Action<RbBuoyancyManager> onDestroyed = null;
 
         private void Start()
         {
@@ -23,17 +24,35 @@ namespace TheLibraryElectric.Water
                 thisRb.useGravity = false; // Disable gravity so the scene gravity doesn't interfere
             }
         }
+
+        private void OnDisable()
+        {
+            // When this object is disabled, re-enable gravity and destroy the script
+            // Fixes pooling
+            if (thisRb != null)
+            {
+                thisRb.useGravity = true;
+            }
+
+            Destroy(this);
+        }
+
+        private void OnDestroy()
+        {
+            onDestroyed?.Invoke(this);
+        }
+
         private void FixedUpdate()
         {
-			// Force the RB to have no gravity in case someone uses a grav chamber
-            if (thisRb != null)
+            // Force the RB to have no gravity in case someone uses a grav chamber
+            if (thisRb != null && thisRb.useGravity)
             {
                 thisRb.useGravity = false;
             }
             // If mass is smaller than midpoint, float
             if (thisRb != null && thisRb.mass < midpoint)
             {
-                float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.up * buoyantForce);
                 if (dampening)
                 { 
@@ -43,7 +62,7 @@ namespace TheLibraryElectric.Water
             // If mass is bigger than midpoint, sink
             if (thisRb != null && thisRb.mass > midpoint)
             {
-                float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                 thisRb.AddForce(Vector3.down * buoyantForce);
                 if (dampening)
                 { 
@@ -55,7 +74,7 @@ namespace TheLibraryElectric.Water
             {
                 if (midpointSink)
                 {
-                    float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                    var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.down * buoyantForce);
                     if (dampening)
                     { 
@@ -64,7 +83,7 @@ namespace TheLibraryElectric.Water
                 }
                 if (!midpointSink)
                 {
-                    float buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
+                    var buoyantForce = thisRb.mass + Physics.gravity.magnitude * buoyancyMultiplier;
                     thisRb.AddForce(Vector3.up * buoyantForce);
                     if (dampening)
                     { 

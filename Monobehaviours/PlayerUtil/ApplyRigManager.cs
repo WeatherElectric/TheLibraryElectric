@@ -1,70 +1,66 @@
 using System;
 using BoneLib;
 using SLZ.Bonelab;
+using SLZ.Rig;
 using UnityEngine;
 
 namespace TheLibraryElectric.PlayerUtil
 { 
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Util/Apply Rig Manager")]
-#endif
     public class ApplyRigManager : MonoBehaviour
     {
-#if UNITY_EDITOR
-        [Header("Player Leash")]
-        [Tooltip("Whether the script should apply the rig manager to the player leash script.")]
-#endif
         public bool playerLeash;
         public Simple_PlayerLeasher playerLeasher;
-#if UNITY_EDITOR
-        [Header("Player Launch Pad")]
-        [Tooltip("Whether the script should apply the rig manager to the player launch pad script.")]
-#endif
         public bool playerLaunchPad;
         public PlayerLaunchPad[] playerLaunchPads;
-#if UNITY_EDITOR
-        [Header("Force Avatar")]
-        [Tooltip("Whether the script should apply the rig manager to the force avatar script.")]
-#endif
         public bool forceAvatar;
         public ForceAvatar[] forceAvatars;
-#if UNITY_EDITOR
-        [Header("Random Avatar")]
-        [Tooltip("Whether the script should apply the rig manager to the random avatar script.")]
-#endif
         public bool randomAvatar;
         public RandomAvatar[] randomAvatars;
 
-        private void Start()
+        private RigManager _rigManager;
+        public void Apply()
         {
+            _rigManager = Player.rigManager;
+            ModConsole.Msg($"Playerleash is {playerLeash}", LoggingMode.DEBUG);
+            ModConsole.Msg($"PlayerLaunchPad is {playerLaunchPad}", LoggingMode.DEBUG);
+            ModConsole.Msg($"ForceAvatar is {forceAvatar}", LoggingMode.DEBUG);
+            ModConsole.Msg($"RandomAvatar is {randomAvatar}", LoggingMode.DEBUG);
             if (playerLeash)
             {
+                ModConsole.Msg($"Executing PlayerLeash", LoggingMode.DEBUG);
                 PlayerLeash();
             }
             if (playerLaunchPad)
             {
+                ModConsole.Msg($"Executing PlayerLaunchPad", LoggingMode.DEBUG);
                 PlayerLaunchPad();
             }
             if (forceAvatar)
             {
+                ModConsole.Msg($"Executing ForceAvatar", LoggingMode.DEBUG);
                 ForceAvatar();
             }
             if (randomAvatar)
             {
+                ModConsole.Msg($"Executing RandomAvatar", LoggingMode.DEBUG);
                 RandomAvatar();
             }
         }
 
         private void PlayerLeash()
         {
-            playerLeasher.rM = Player.rigManager;
+            playerLeasher.rM = _rigManager;
+            ModConsole.Msg($"PlayerLeasher RM is {playerLeasher.rM}", LoggingMode.DEBUG);
+            playerLeasher.gameObject.SetActive(true);
         }
         
         private void PlayerLaunchPad()
         {
             foreach (var launchPad in playerLaunchPads)
             {
-                launchPad.rigManager = Player.rigManager;
+                launchPad.rigManager = _rigManager;
+                ModConsole.Msg($"PlayerLaunchPad RM is {launchPad.rigManager}", LoggingMode.DEBUG);
+                launchPad.gameObject.SetActive(true);
             }
         }
         
@@ -72,7 +68,9 @@ namespace TheLibraryElectric.PlayerUtil
         {
             foreach (var avatar in forceAvatars)
             {
-                avatar.rm = Player.rigManager;
+                ModConsole.Msg($"ForceAvatar RM is {avatar.rm}", LoggingMode.DEBUG);
+                avatar.rm = _rigManager;
+                avatar.gameObject.SetActive(true);
             }
         }
         
@@ -80,7 +78,9 @@ namespace TheLibraryElectric.PlayerUtil
         {
             foreach (var avatar in randomAvatars)
             {
-                avatar.rm = Player.rigManager;
+                ModConsole.Msg($"RandomAvatar RM is {avatar.rm}", LoggingMode.DEBUG);
+                avatar.rm = _rigManager;
+                avatar.gameObject.SetActive(true);
             }
         }
         

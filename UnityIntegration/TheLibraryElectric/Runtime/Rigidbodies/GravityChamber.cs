@@ -1,33 +1,26 @@
-﻿using System;
+﻿using UnityEditor;
 using System.Collections.Generic;
 using SLZ.Rig;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Rigidbodies
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Rigidbodies/Gravity Chamber")]
-    [RequireComponent(typeof(Collider))]
-#endif
-    public class GravityChamber : MonoBehaviour
+    public class GravityChamber : ElectricBehaviour
     {
-#if UNITY_EDITOR
-    [HideInInspector]
-#endif
+        [HideInInspector]
         public List<RBGravityManager> inTriggerCol = new List<RBGravityManager>();
-		[Tooltip("The amount of gravity the objects should have")]
+        [Tooltip("The amount of gravity to apply to the rigidbodies in the trigger collider.")]
         public Vector3 gravityAmount;
-		[Tooltip("Should the player be ignored?")]
+        [Tooltip("Should the gravity chamber ignore the player?")]
         public bool ignoreRigManager;
         public Vector3 GravityAmount
         {
             get { return gravityAmount; }
             set { gravityAmount = value; }
         }
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
             if(other.GetComponentInParent<Rigidbody>() != null && other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
             {
@@ -37,7 +30,7 @@ namespace TheLibraryElectric.Rigidbodies
                 }
                 other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RBGravityManager>().gravityAmount = gravityAmount; // Add the RBGravityManager component and set the gravity amount
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach(Rigidbody rb in childRbs)
+                foreach(var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -51,14 +44,15 @@ namespace TheLibraryElectric.Rigidbodies
                 inTriggerCol.Add(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Add the colliding GameObject to the list
             }
         }
-        void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
+
+        private void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
             if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>())) // Check if the colliding GameObject is in the list
             {
                 other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
                 UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RBGravityManager>()); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach (Rigidbody rb in childRbs)
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -73,9 +67,10 @@ namespace TheLibraryElectric.Rigidbodies
             }
 
         }
-        void Update()
+        
+        private void Update()
         {
-            foreach(RBGravityManager rBGravityManager in inTriggerCol) // Loop through the list
+            foreach(var rBGravityManager in inTriggerCol) // Loop through the list
             {
                 if (rBGravityManager != null)
                 {
@@ -83,7 +78,7 @@ namespace TheLibraryElectric.Rigidbodies
                 }
             }
         }
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
 		private void OnDrawGizmos()
         {
 			if (Selection.activeGameObject == gameObject)
@@ -133,6 +128,6 @@ namespace TheLibraryElectric.Rigidbodies
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
-#endif
+        #endif
     }
 }

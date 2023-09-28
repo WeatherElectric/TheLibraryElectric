@@ -1,15 +1,9 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Random Audio Player")]
-#endif
     public class RandomAudioPlayer : MonoBehaviour
     {
         public AudioSource[] audioSources;

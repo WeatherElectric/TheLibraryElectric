@@ -1,15 +1,11 @@
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.PlayerUtil
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Rigmanager Control")]
-#endif
-    public class RigManagerControl : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Player Util/Rig Manager Control")]
+    public class RigManagerControl : ElectricBehaviour
     {
+        public override string Comment => "Ragdoll, unragdoll, teleport, set invincible, set mortal, set instant death, enable double jump, and disable double jump.";
         public void RagDoll()
         {
 
@@ -20,11 +16,11 @@ namespace TheLibraryElectric.PlayerUtil
         }
         public void Teleport(Vector3 feetPos)
         {
-            return;
+
         }
         public void Teleport(Vector3 feetPos, bool zerovelocity)
         {
-            return;
+
         }
         public void Invincible()
         {
@@ -38,17 +34,13 @@ namespace TheLibraryElectric.PlayerUtil
         {
 
         }
-		public void EnableDoubleJump()
-		{
-			
-		}
-		public void DoubleJumpPower(float power)
-		{
-			return;
-		}
-		public void DisableDoubleJump()
-		{
-			
-		}
+        public void EnableDoubleJump()
+        {
+
+        }
+        public void DisableDoubleJump()
+        {
+
+        }
     }
 }

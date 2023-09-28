@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using TMPro;
 using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Update TextMeshPro")]
-#endif
     public class UpdateTMP : MonoBehaviour
     {
         public TextMeshPro textMeshPro;

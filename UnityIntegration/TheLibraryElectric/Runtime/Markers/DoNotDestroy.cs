@@ -1,16 +1,11 @@
-﻿using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+﻿using System;
+using UnityEngine;
 
 namespace TheLibraryElectric.Markers
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Markers/Do Not Destroy")]
-	[RequireComponent(typeof(Rigidbody))]
-#endif
-    public class DoNotDestroy : MonoBehaviour
+    public class DoNotDestroy : ElectricBehaviour
     {
-		
+        public override string Comment => "Put this on the root object!";
     }
 }

@@ -5,14 +5,13 @@ using UnityEngine;
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Misc/Absolute Fizzler")]
     [RequireComponent(typeof(Collider))]
-#endif
-    public class AbsoluteFizzler : MonoBehaviour
+    public class AbsoluteFizzler : ElectricBehaviour
     {
         private void OnTriggerEnter(Collider other)
         {
+
         }
     }
 }

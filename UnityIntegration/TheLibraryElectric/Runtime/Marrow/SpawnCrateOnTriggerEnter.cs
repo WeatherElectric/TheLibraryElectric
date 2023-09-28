@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.Marrow
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Spawn Crate On Trigger Enter")]
-#endif
-    public class SpawnCrateOnTriggerEnter : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Marrow/Spawn Crate On Trigger Enter")]
+    public class SpawnCrateOnTriggerEnter : ElectricBehaviour
     {
-
+        [Tooltip("The barcode to spawn.")]
         public string barcodeToSpawn;
         public bool divideVelocity;
         public float divideByX = 0.1f;
@@ -27,7 +22,7 @@ namespace TheLibraryElectric.Misc
         private Vector3 rbVelocity;
         private List<GameObject> spawnedObjects = new List<GameObject>();
         private GameObject spawnedObject;
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             return;
         }

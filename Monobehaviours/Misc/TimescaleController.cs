@@ -1,14 +1,8 @@
 ﻿using UnityEngine;
 using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Timescale Controller")]
-#endif
     public class TimescaleController : MonoBehaviour
     {
         public float incrementValue = 0.5f;

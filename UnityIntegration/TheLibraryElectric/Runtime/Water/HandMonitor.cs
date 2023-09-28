@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace TheLibraryElectric.Water
 {
-    public class HandMonitor : MonoBehaviour
+    [HideInInspector]
+    public class HandMonitor : ElectricBehaviour
     {
         public Vector3 handVelocity;
         public RigManager rigManager;
@@ -12,13 +13,17 @@ namespace TheLibraryElectric.Water
         public float velocityMultiplier;
         private Rigidbody handRb;
 
-        void Start()
+        private void Start()
         {
-            
+            handRb = GetComponent<Rigidbody>();
         }
-        void FixedUpdate()
+        private void FixedUpdate()
         {
-            
+            handVelocity = handRb.velocity - rigManager.physicsRig.m_chest.GetComponent<Rigidbody>().velocity;
+            if (handVelocity.sqrMagnitude > minimumVelocity)
+            {
+                rigManager.physicsRig.m_head.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, handVelocity.sqrMagnitude * velocityMultiplier));
+            }
         }
     }
 }

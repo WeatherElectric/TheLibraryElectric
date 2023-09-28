@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
 using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Signals
 {
-#if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Signals/Send Signal")]
-#endif
-    public class SendSignal : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Signals/Send Signal")]
+    public class SendSignal : ElectricBehaviour
     {
+        [Tooltip("The key to activate this signal.")]
         public string activationKey;
         public void Broadcast()
         {
             RecieveSignal[] recievers = FindObjectsOfType<RecieveSignal>();
-            foreach (RecieveSignal reciever in recievers)
+            foreach (var reciever in recievers)
             {
-                RecieveSignal il2cppsucks = reciever.gameObject.GetComponent<RecieveSignal>();
+                var il2cppsucks = reciever.gameObject.GetComponent<RecieveSignal>();
                 if (activationKey == il2cppsucks.activationKey)
                 {
                     reciever.InvokeEvent();

@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TheLibraryElectric.InternalHelpers;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.Marrow
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Spawn Crate On Trigger Enter")]
-#endif
     public class SpawnCrateOnTriggerEnter : MonoBehaviour
     {
 

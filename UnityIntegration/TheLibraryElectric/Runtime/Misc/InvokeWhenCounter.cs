@@ -4,24 +4,18 @@ using UltEvents;
 
 namespace TheLibraryElectric.Misc
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Misc/Invoke When Counter Is Hit")]
-#endif
-    public class InvokeWhenCounter : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Misc/Invoke When Counter Reached")]
+    public class InvokeWhenCounter : ElectricBehaviour
     {
-#if UNITY_EDITOR
-        [HideInInspector]
-#endif
-        public float counter;
-#if UNITY_EDITOR
-        [Tooltip("The number the counter must reach for the event to be invoked.")]
-#endif
+        private float counter;
+        [Tooltip("The number needed for the counter to reach before invoking.")]
         public float countersNeeded = 5;
+        [Tooltip("The event to invoke when the counter reaches the number needed.")]
         public UltEvent onCounterHit;
         public void Add(float value)
         {
             counter += value;
-            if (counter >= countersNeeded)
+            if (counter == countersNeeded)
             {
                 onCounterHit.Invoke();
                 counter = 0;

@@ -1,63 +1,58 @@
-﻿using System;
+﻿using UnityEditor;
 using System.Collections.Generic;
 using SLZ.Rig;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Water/Water Zone")]
-    [RequireComponent(typeof(Collider))]
-#endif
-    public class WaterZone : MonoBehaviour
+    public class WaterZone : ElectricBehaviour
     {
-#if UNITY_EDITOR
-    [HideInInspector]
-#endif
+        [HideInInspector]
         public List<RbBuoyancyManager> inTriggerCol = new List<RbBuoyancyManager>();
-		[Tooltip("Multiplier on the buoyancy effect")]
+        [Tooltip("The multiplier for the buoyancy.")]
         public float buoyancyMultiplier = 1.0f; // Adjust this to control the buoyancy threshold.
-		[Tooltip("The mass midpoint used to decide when objects will start to sink. Anything higher than the midpoint will sink")]
+        [Tooltip("The midpoint of mass where things start to sink.")]
         public float midpoint = 50.0f; // Adjust this to control the midpoint of the effect.
-#if UNITY_EDITOR
-        [Tooltip("If this is true, RBs with a mass that is exactly the midpoint will sink, if false, they will float.")]
-#endif
+        [Tooltip("Should objects right at the midpoint sink or float?")]
         public bool midpointSink = true; // Will masses at the midpoint sink or float?
-		[Tooltip("If dampening is enabled, the object will get slower overtime and eventually stop bobbing.")]
+        [Tooltip("Should dampening be enabled?")]
         public bool dampening = true; // If dampening is enabled, drag will increase as the object sinks.
-		[Tooltip("Lower = more dampening, this value's a bit weird. May break some stuff")]
+        [Tooltip("The dampening multiplier.")]
         public float dampeningAmount = 0.98f; // Dampening multiplier
-		[Tooltip("Should the player be ignored?")]
+        [Tooltip("Should the water ignore the player?")]
         public bool ignoreRigManager;
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponentInParent<Rigidbody>() != null && other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
+            var colliderRigidbody = other.attachedRigidbody;
+            if (colliderRigidbody != null && colliderRigidbody.GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
             {
-                if(other.GetComponentInParent<RigManager>() != null && ignoreRigManager)
+                if (other.GetComponentInParent<RigManager>() != null && ignoreRigManager)
                 {
                     return;
                 }
+
+                var themanager = colliderRigidbody.gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+
                 if(other.GetComponentInParent<IgnoreRigidbody>() != null)
                 {
                     return;
                 }
-                RbBuoyancyManager themanager = other.GetComponentInParent<Rigidbody>().gameObject.AddComponent<RbBuoyancyManager>(); // Add the RBGravityManager component and set the gravity amount
+                
                 themanager.dampening = dampening;
                 themanager.buoyancyMultiplier = buoyancyMultiplier;
                 themanager.midpoint = midpoint;
                 themanager.dampeningAmount = dampeningAmount;
                 themanager.midpointSink = midpointSink;
-                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach(Rigidbody rb in childRbs)
+                Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
                         if (rb.GetComponent<RbBuoyancyManager>() == null)
                         {
-                            RbBuoyancyManager manager = rb.gameObject.AddComponent<RbBuoyancyManager>();
+                            var manager = rb.gameObject.AddComponent<RbBuoyancyManager>();
                             manager.buoyancyMultiplier = buoyancyMultiplier;
                             manager.dampening = dampening;
                             manager.midpoint = midpoint;
@@ -66,17 +61,24 @@ namespace TheLibraryElectric.Water
                         }
                     }
                 }
-                inTriggerCol.Add(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Add the colliding GameObject to the list
+                inTriggerCol.Add(themanager); // Add the colliding GameObject to the list
             }
         }
-        void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
+
+        private void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
-            if (inTriggerCol.Contains(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>())) // Check if the colliding GameObject is in the list
+            var colliderRigidbody = other.attachedRigidbody;
+            RbBuoyancyManager manager = null;
+
+            if (colliderRigidbody != null)
+                manager = colliderRigidbody.GetComponent<RbBuoyancyManager>();
+
+            if (inTriggerCol.Contains(manager)) // Check if the colliding GameObject is in the list
             {
-                other.GetComponentInParent<Rigidbody>().useGravity = true; // Enable gravity
-                UnityEngine.Object.Destroy(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Destroy the RBGravityManager component
-                Rigidbody[] childRbs = other.GetComponentInParent<Rigidbody>().GetComponentsInChildren<Rigidbody>();
-                foreach (Rigidbody rb in childRbs)
+                colliderRigidbody.useGravity = true; // Enable gravity
+                UnityEngine.Object.Destroy(manager); // Destroy the RBGravityManager component
+                Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
+                foreach (var rb in childRbs)
                 {
                     if (rb.isKinematic)
                     {
@@ -86,13 +88,13 @@ namespace TheLibraryElectric.Water
                         }
                     }
                 }
-                inTriggerCol.Remove(other.GetComponentInParent<Rigidbody>().GetComponent<RbBuoyancyManager>()); // Remove the colliding GameObject from the list
             }
 
         }
-        void Update()
+
+        private void Update()
         {
-            foreach(RbBuoyancyManager rBBuoyancyManager in inTriggerCol) // Loop through the list
+            foreach(var rBBuoyancyManager in inTriggerCol) // Loop through the list
             {
                 if (rBBuoyancyManager != null)
                 {
@@ -104,7 +106,7 @@ namespace TheLibraryElectric.Water
                 }
             }
         }
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
 		private void OnDrawGizmos()
         {
 			if (Selection.activeGameObject == gameObject)
@@ -154,6 +156,6 @@ namespace TheLibraryElectric.Water
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
-#endif
+        #endif
     }
 }

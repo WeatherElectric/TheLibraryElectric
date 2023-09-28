@@ -1,16 +1,9 @@
 using System;
 using UnityEngine;
 using BoneLib;
-using TheLibraryElectric.Patching;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.PlayerUtil
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Rigmanager Control")]
-#endif
     public class RigManagerControl : MonoBehaviour
     {
         public void RagDoll()

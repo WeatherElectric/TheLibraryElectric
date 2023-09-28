@@ -4,7 +4,7 @@ using TheLibraryElectric.InternalHelpers;
 using SLZ.Marrow.Data;
 
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.Marrow
 {
     public class ItemThrower : MonoBehaviour
     {

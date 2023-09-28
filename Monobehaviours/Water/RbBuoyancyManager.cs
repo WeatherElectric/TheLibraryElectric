@@ -3,9 +3,6 @@ using System;
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
-        [HideInInspector]
-#endif
     public class RbBuoyancyManager : MonoBehaviour
     {
         public Rigidbody thisRb;

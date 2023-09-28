@@ -1,30 +1,24 @@
+using System;
 using UltEvents;
 using UnityEngine;
 
 namespace TheLibraryElectric.LabFusion
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Fusion/Bit Shop")]
-#endif
-    public class BitShop : MonoBehaviour
+    public class BitShop : ElectricBehaviour
     {
-#if UNITY_EDITOR
-        [Header("Settings")]
-        [Tooltip("The bits needed to purchase.")]
-#endif
+        public override string Comment => "You do not need to use a Bit Reward Proxy! This takes away bits on it's own!";
+        [Header("Shop Settings")]
+        [Tooltip("The amount of bits required to purchase.")]
         public int bitsRequired;
-#if UNITY_EDITOR
         [Header("Events")]
-        [Tooltip("Called if the player has enough bits.")]
-#endif
+        [Tooltip("Event that is called when the purchase is successful.")]
         public UltEvent purchaseEvent;
-#if UNITY_EDITOR
-        [Tooltip("Called if the player does not have enough bits.")]
-#endif
+        [Tooltip("Event that is called when the purchase is unsuccessful.")]
         public UltEvent noBitsEvent;
         public void Purchase()
         {
-			
+
         }
     }
 }

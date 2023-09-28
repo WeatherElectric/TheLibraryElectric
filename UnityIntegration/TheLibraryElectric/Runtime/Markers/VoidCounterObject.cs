@@ -1,15 +1,13 @@
-﻿using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+﻿using System;
+using UnityEngine;
 
 namespace TheLibraryElectric.Markers
 {
-#if UNITY_EDITOR
     [AddComponentMenu("The Library Electric/Markers/Void Counter Object")]
-#endif
-    public class VoidCounterObject : MonoBehaviour
+    [RequireComponent(typeof(Rigidbody))]
+    public class VoidCounterObject : ElectricBehaviour
     {
+        public override string Comment => "Put this on the same object as the rigidbody!";
         // bugo misspelled this, SLZ reference
         public bool disableDespsawnDelay;
     }

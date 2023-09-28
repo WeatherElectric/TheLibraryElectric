@@ -1,5 +1,4 @@
 using FieldInjector;
-using Il2CppSystem.Runtime.Serialization;
 using TheLibraryElectric.LabFusion;
 using TheLibraryElectric.Markers;
 using TheLibraryElectric.Misc;
@@ -7,6 +6,7 @@ using TheLibraryElectric.PlayerUtil;
 using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.Signals;
 using TheLibraryElectric.Water;
+using TheLibraryElectric.Marrow;
 
 namespace TheLibraryElectric
 {
@@ -29,8 +29,6 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected FreezeRigidbodies", LoggingMode.DEBUG);
             SerialisationHandler.Inject<DestroyOnCollision>();
             ModConsole.Msg("Hopefully injected DestroyOnCollision", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<ExplodeButBetter>();
-            ModConsole.Msg("Hopefully injected ExplodeButBetter", LoggingMode.DEBUG);
             SerialisationHandler.Inject<TimescaleController>();
             ModConsole.Msg("Hopefully injected TimescaleController", LoggingMode.DEBUG);
             SerialisationHandler.Inject<UpdateTMP>();

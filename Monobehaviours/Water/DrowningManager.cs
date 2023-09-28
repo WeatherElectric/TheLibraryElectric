@@ -8,10 +8,6 @@ using UnityEditor;
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Water/Drowning Manager")]
-    [RequireComponent(typeof(Collider))]
-#endif
     public class DrowningManager : MonoBehaviour
     {
         public float timeUntilDrowning = 20f;

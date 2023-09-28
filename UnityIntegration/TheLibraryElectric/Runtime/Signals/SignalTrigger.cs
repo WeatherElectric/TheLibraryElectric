@@ -1,22 +1,21 @@
-using System;
+using UnityEditor;
 using UnityEngine;
 using UltEvents;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Signals
 {
-#if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
-[RequireComponent(typeof(Collider))]
-#endif
-    public class SignalTrigger : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
+    public class SignalTrigger : ElectricBehaviour
     {
-        public UltEventHolder triggerEnterEvent;
-        public UltEventHolder triggerExitEvent;
+        [Tooltip("The event to invoke when the signal trigger enters the trigger.")]
+        public UltEvent triggerEnterEvent;
+        [Tooltip("The event to invoke when the signal trigger exits the trigger.")]
+        public UltEvent triggerExitEvent;
+        [Tooltip("The key to activate this signal trigger.")]
         public string activationKey;
-
+        private void Start()
+        {
+        }
         private void OnTriggerEnter(Collider other)
         {
             var triggerer = other.GetComponent<SignalTriggerer>();
@@ -36,6 +35,9 @@ namespace TheLibraryElectric.Signals
                 if (triggerer.activationKey == activationKey)
                 {
                     triggerExitEvent.Invoke();
+                }
+                else
+                {
                 }
             }
         }
@@ -89,6 +91,6 @@ namespace TheLibraryElectric.Signals
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
-#endif
+        #endif
     }
 }

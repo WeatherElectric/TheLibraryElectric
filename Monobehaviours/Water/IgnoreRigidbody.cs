@@ -6,9 +6,6 @@ using UnityEditor;
 
 namespace TheLibraryElectric.Water
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Markers/Ignore RB For Buoyancy")]
-#endif
     public class IgnoreRigidbody : MonoBehaviour
     {
 #if !UNITY_EDITOR

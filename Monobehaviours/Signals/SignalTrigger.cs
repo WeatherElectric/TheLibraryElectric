@@ -1,20 +1,13 @@
 using System;
 using UnityEngine;
 using UltEvents;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace TheLibraryElectric.Signals
 {
-#if UNITY_EDITOR
-[AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
-[RequireComponent(typeof(Collider))]
-#endif
     public class SignalTrigger : MonoBehaviour
     {
-        public UltEventHolder triggerEnterEvent;
-        public UltEventHolder triggerExitEvent;
+        public UltEvent triggerEnterEvent;
+        public UltEvent triggerExitEvent;
         public string activationKey;
         private void Start()
         {

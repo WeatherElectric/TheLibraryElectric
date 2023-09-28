@@ -1,18 +1,15 @@
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using SLZ.Rig;
+using UnityEngine;
 
 namespace TheLibraryElectric.PlayerUtil
 {
-#if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Player Utilities/Ragdoll Zone")]
-    [RequireComponent(typeof(Collider))]
-#endif
-    public class RagdollZone : MonoBehaviour
+    [AddComponentMenu("The Library Electric/Player Util/Ragdoll Zone")]
+    public class RagdollZone : ElectricBehaviour
     {
-		[Tooltip("Time in seconds before the player is unragdolled")]
+        [Tooltip("The amount of time to wait before unragdolling the player.")]
         public float delayBeforeUnragdoll = 2f;
+        private RigManager _rigManager;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -72,6 +69,6 @@ namespace TheLibraryElectric.PlayerUtil
             float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
             Gizmos.DrawWireSphere(position, radius);
         }
-#endif
+        #endif
     }
 }
