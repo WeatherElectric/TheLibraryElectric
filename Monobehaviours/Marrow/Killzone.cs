@@ -76,10 +76,18 @@ namespace TheLibraryElectric.Marrow
         {
             foreach (var player in _playerinZone)
             {
+                if (player == null)
+                {
+                    return;
+                }
                 player.health.TAKEDAMAGE(playerDamageAmount);
             }
             foreach (var npc in _npcinZone)
             {
+                if (npc == null)
+                {
+                    return;
+                }
                 npc.behaviour.health.TakeDamage(npcDamageAmount, new Attack());
             }
         }
