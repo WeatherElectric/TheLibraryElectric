@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using PuppetMasta;
+using SLZ.AI;
 using SLZ.Combat;
 using UnityEngine;
 using SLZ.Rig;
@@ -15,7 +16,7 @@ namespace TheLibraryElectric.Marrow
         public float playerDamageAmount = 1f;
         public int npcDamageAmount = 1;
         private List<RigManager> _playerinZone = new List<RigManager>();
-        private List<BehaviourPowerLegs> _npcinZone = new List<BehaviourPowerLegs>();
+        private List<AIBrain> _npcinZone = new List<AIBrain>();
 
         private void OnCollisionEnter(Collision other)
         {
@@ -24,7 +25,7 @@ namespace TheLibraryElectric.Marrow
             {
                 _playerinZone.Add(rm);
             }
-            var npc = other.gameObject.GetComponentInParent<BehaviourPowerLegs>();
+            var npc = other.gameObject.GetComponentInParent<AIBrain>();
             if (npc != null && !ignoreNpcs)
             {
                 _npcinZone.Add(npc);
@@ -38,7 +39,7 @@ namespace TheLibraryElectric.Marrow
             {
                 _playerinZone.Add(rm);
             }
-            var npc = other.gameObject.GetComponentInParent<BehaviourPowerLegs>();
+            var npc = other.gameObject.GetComponentInParent<AIBrain>();
             if (npc != null && !ignoreNpcs && !_npcinZone.Contains(npc))
             {
                 _npcinZone.Add(npc);
@@ -52,7 +53,7 @@ namespace TheLibraryElectric.Marrow
             {
                 _playerinZone.Remove(rm);
             }
-            var npc = other.gameObject.GetComponentInParent<BehaviourPowerLegs>();
+            var npc = other.gameObject.GetComponentInParent<AIBrain>();
             if (npc != null && !ignoreNpcs)
             {
                 _npcinZone.Remove(npc);
@@ -79,7 +80,7 @@ namespace TheLibraryElectric.Marrow
             }
             foreach (var npc in _npcinZone)
             {
-                npc.health.TakeDamage(npcDamageAmount, new Attack());
+                npc.behaviour.health.TakeDamage(npcDamageAmount, new Attack());
             }
         }
 #if !UNITY_EDITOR
