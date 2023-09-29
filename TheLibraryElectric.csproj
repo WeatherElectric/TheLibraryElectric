@@ -55,6 +55,7 @@
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
     <Compile Include="Monobehaviours\Marrow\DespawnPooledObject.cs" />
     <Compile Include="Monobehaviours\Marrow\ItemThrower.cs" />
+    <Compile Include="Monobehaviours\Marrow\Killzone.cs" />
     <Compile Include="Monobehaviours\Marrow\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\AbsoluteFizzler.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
