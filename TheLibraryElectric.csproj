@@ -48,6 +48,8 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
+    <Compile Include="Monobehaviours\Signals\Grouping\GroupProxy.cs" />
     <Compile Include="Monobehaviours\Internal\ElectricBehaviour.cs" />
     <Compile Include="Monobehaviours\LabFusion\BitShop.cs" />
     <Compile Include="Monobehaviours\Markers\DoNotDestroy.cs" />
@@ -63,8 +65,10 @@
     <Compile Include="Monobehaviours\Misc\InvokeWhenCounter.cs" />
     <Compile Include="Monobehaviours\Misc\PhotonThruster.cs" />
     <Compile Include="Monobehaviours\Misc\RandomAudioPlayer.cs" />
+    <Compile Include="Monobehaviours\Misc\SimpleCounter.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />
+    <Compile Include="Monobehaviours\Misc\TLE_SimpleRaycast.cs" />
     <Compile Include="Monobehaviours\Misc\UpdateTMP.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\ApplyRigManager.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RagdollOnCollide.cs" />
