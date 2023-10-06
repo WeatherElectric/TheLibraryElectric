@@ -1,22 +1,17 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UltEvents;
+using UnityEditor;
 
 namespace TheLibraryElectric.Misc
 {
-    public class InvokeWhenCounter : MonoBehaviour
+    public class SimpleCounter : MonoBehaviour
     {
-        public float counter;
-        public float countersNeeded = 5;
+        public float counter { get; set; }
         public UltEvent onCounterHit;
         public void Add(float value)
         {
             counter += value;
-            if (counter == countersNeeded)
-            {
-                onCounterHit.Invoke();
-                counter = 0;
-            }
         }
         public void Subtract(float value)
         {
@@ -27,7 +22,7 @@ namespace TheLibraryElectric.Misc
             return counter;
         }
 #if !UNITY_EDITOR
-        public InvokeWhenCounter(IntPtr ptr) : base(ptr) { }
+        public SimpleCounter(IntPtr ptr) : base(ptr) { }
 #endif
     }
 }
