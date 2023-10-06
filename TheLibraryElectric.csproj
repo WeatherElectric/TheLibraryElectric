@@ -61,6 +61,7 @@
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeIfLibInstalled.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeWhenCounter.cs" />
+    <Compile Include="Monobehaviours\Misc\PhotonThruster.cs" />
     <Compile Include="Monobehaviours\Misc\RandomAudioPlayer.cs" />
     <Compile Include="Monobehaviours\Misc\SpawnOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />

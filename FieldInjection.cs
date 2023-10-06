@@ -81,6 +81,7 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected AbsoluteFizzler", LoggingMode.DEBUG);
             SerialisationHandler.Inject<Killzone>();
             ModConsole.Msg("Hopefully injected Killzone", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<PhotonThruster>();
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }
