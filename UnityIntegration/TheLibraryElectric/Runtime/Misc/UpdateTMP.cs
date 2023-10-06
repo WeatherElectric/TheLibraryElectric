@@ -28,7 +28,7 @@ namespace TheLibraryElectric.Misc
             textMeshPro.text = currentValue.ToString("F1"); // Displaying with one decimal place
         }
 
-        public void IncreaseValue()
+       public void IncreaseValue()
         {
             currentValue += incrementAmount;
             UpdateTextValue();

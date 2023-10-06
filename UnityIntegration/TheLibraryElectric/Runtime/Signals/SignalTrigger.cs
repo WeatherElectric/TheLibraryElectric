@@ -7,12 +7,12 @@ namespace TheLibraryElectric.Signals
     [AddComponentMenu("The Library Electric/Signals/Signal Trigger")]
     public class SignalTrigger : ElectricBehaviour
     {
-        [Tooltip("The event to invoke when the signal trigger enters the trigger.")]
+        [Tooltip("The key to activate this signal trigger.")]
+        public string activationKey;
+		[Tooltip("The event to invoke when the signal trigger enters the trigger.")]
         public UltEvent triggerEnterEvent;
         [Tooltip("The event to invoke when the signal trigger exits the trigger.")]
         public UltEvent triggerExitEvent;
-        [Tooltip("The key to activate this signal trigger.")]
-        public string activationKey;
         private void Start()
         {
         }

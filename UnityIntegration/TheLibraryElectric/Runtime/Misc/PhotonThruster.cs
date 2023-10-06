@@ -8,7 +8,7 @@ namespace TheLibraryElectric.Misc
 	[RequireComponent(typeof(Rigidbody))]
     public class PhotonThruster : ElectricBehaviour
     {
-		public override string Comment => "This must be on the same object as the rigidbody!";
+		public override string Comment => "This must be on the same object as the rigidbody! This adds thrust on the Z axis, so the front of your object should be facing the blue arrow!";
 		[Header("Base Settings")]
         [Tooltip("The amount of force this thruster will apply by default.")]
         public float thrustForce = 100f;
@@ -35,10 +35,13 @@ namespace TheLibraryElectric.Misc
 
         private bool _thrustEnabled;
         private Rigidbody _thisrb;
+		private Vector3 _vectorizedForce;
         
         private void Awake()
         {
             _thisrb = GetComponent<Rigidbody>();
+			textMeshPro.text = thrustForce.ToString("F1");
+			_vectorizedForce = new Vector3(0, 0, thrustForce);
         }
 
         public void Toggle()
@@ -60,10 +63,12 @@ namespace TheLibraryElectric.Misc
             if (thrustForce > maximumForce)
             {
                 thrustForce += incrementAmount;
+				_vectorizedForce = new Vector3(0, 0, thrustForce);
             }
             else
             {
                 thrustForce = maximumForce;
+				_vectorizedForce = new Vector3(0, 0, thrustForce);
             }
             if (useText)
             {
@@ -76,10 +81,12 @@ namespace TheLibraryElectric.Misc
             if (thrustForce < minimumForce)
             {
                 thrustForce -= decrementAmount;
+				_vectorizedForce = new Vector3(0, 0, thrustForce);
             }
             else
             {
                 thrustForce = minimumForce;
+				_vectorizedForce = new Vector3(0, 0, thrustForce);
             }
             if (useText)
             {
@@ -115,7 +122,7 @@ namespace TheLibraryElectric.Misc
         {
             if (_thrustEnabled)
             {
-                _thisrb.AddRelativeForce(transform.forward * thrustForce);
+                _thisrb.AddRelativeForce(_vectorizedForce);
             }
         }
     }
