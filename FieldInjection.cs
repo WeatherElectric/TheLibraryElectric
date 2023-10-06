@@ -7,6 +7,7 @@ using TheLibraryElectric.Rigidbodies;
 using TheLibraryElectric.Signals;
 using TheLibraryElectric.Water;
 using TheLibraryElectric.Marrow;
+using TheLibraryElectric.Groups;
 
 namespace TheLibraryElectric
 {
@@ -82,6 +83,13 @@ namespace TheLibraryElectric
             SerialisationHandler.Inject<Killzone>();
             ModConsole.Msg("Hopefully injected Killzone", LoggingMode.DEBUG);
             SerialisationHandler.Inject<PhotonThruster>();
+            ModConsole.Msg("Hopefully injected PhotonThruster", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<GroupProxy>();
+            ModConsole.Msg("Hopefully injected GroupProxy", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<GroupIdentifier>();
+            ModConsole.Msg("Hopefully injected GroupIdenifier", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<TLE_SimpleRaycast>();
+            ModConsole.Msg("Hopefully injected TLE_SimpleRaycast", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }
