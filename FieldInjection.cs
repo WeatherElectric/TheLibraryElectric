@@ -90,6 +90,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected GroupIdenifier", LoggingMode.DEBUG);
             SerialisationHandler.Inject<TLE_SimpleRaycast>();
             ModConsole.Msg("Hopefully injected TLE_SimpleRaycast", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<RbSpeedMeter>();
+            ModConsole.Msg("Hopefully injected RbSpeedMeter", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }
