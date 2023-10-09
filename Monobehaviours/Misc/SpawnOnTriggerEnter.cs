@@ -22,6 +22,8 @@ namespace TheLibraryElectric.Misc
         public bool fixedRotation = true;
         public Quaternion rotation = new Quaternion(0, 0, 1, 0);
         public float minimumVelocity = 0.5f;
+        public bool fixedY = true;
+        public float YValue = 0f;
 
         private Vector3 rbVelocity;
         private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -42,11 +44,27 @@ namespace TheLibraryElectric.Misc
             }
             if (fixedRotation)
             {
-                spawnedObject = Instantiate(objectToSpawn, other.transform.position, rotation);
+                if (fixedY)
+                {
+                    Vector3 fixedYPosition = new Vector3(other.transform.position.x, YValue, other.transform.position.z);
+                    spawnedObject = Instantiate(objectToSpawn, fixedYPosition, rotation);
+                }
+                else
+                {
+                    spawnedObject = Instantiate(objectToSpawn, other.transform.position, rotation);
+                }
             }
             else
             {
-                spawnedObject = Instantiate(objectToSpawn, other.transform.position, other.transform.rotation);
+                if (fixedY)
+                {
+                    Vector3 fixedYPosition = new Vector3(other.transform.position.x, YValue, other.transform.position.z);
+                    spawnedObject = Instantiate(objectToSpawn, fixedYPosition, other.transform.rotation);
+                }
+                else
+                {
+                    spawnedObject = Instantiate(objectToSpawn, other.transform.position, other.transform.rotation);
+                }
 
             }
             if (!uniformScale)
