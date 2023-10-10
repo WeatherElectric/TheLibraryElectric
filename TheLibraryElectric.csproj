@@ -48,7 +48,7 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
-    <Compile Include="Monobehaviours\Rigidbodies\RbSpeedMeter.cs" />
+    <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupProxy.cs" />
     <Compile Include="Monobehaviours\Internal\ElectricBehaviour.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Monobehaviours\Signals\SendSignal.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTrigger.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTriggerer.cs" />
+    <Compile Include="Monobehaviours\Vehicles\RbSpeedMeter.cs" />
     <Compile Include="Monobehaviours\Water\DrowningManager.cs" />
     <Compile Include="Monobehaviours\Water\HandMonitor.cs" />
     <Compile Include="Monobehaviours\Water\IgnoreRigidbody.cs" />
