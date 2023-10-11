@@ -43,6 +43,7 @@
     <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
     <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
+    <Compile Include="InternalHelpers\TimeProxy.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
