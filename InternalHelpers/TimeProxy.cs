@@ -15,7 +15,7 @@ namespace TheLibraryElectric.Helpers
         }
         public static bool IfAfterOrNow(float hour, float minute)
         {
-            if(hour <= GetHour() && minute <= minute)
+            if(hour + minute <= GetHour() + GetMinute())
             {
                 return true;
             }
@@ -23,7 +23,7 @@ namespace TheLibraryElectric.Helpers
         }
         public static bool IfBeforeOrNow(float hour, float minute)
         {
-            if (hour >= GetHour() && minute >= minute)
+            if (hour + minute >= GetHour() + GetMinute())
             {
                 return true;
             }
