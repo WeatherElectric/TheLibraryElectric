@@ -48,6 +48,7 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupProxy.cs" />

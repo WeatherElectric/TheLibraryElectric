@@ -95,6 +95,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RbSpeedMeter", LoggingMode.DEBUG);
             SerialisationHandler.Inject<ScoreKeeper>();
             ModConsole.Msg("Hopefully injected ScoreKeeper", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<RealtimeAnalogClock>();
+            ModConsole.Msg("Hopefully injected RealtimeAnalogClock", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }
