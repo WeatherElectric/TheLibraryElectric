@@ -3,9 +3,9 @@ using SLZ.Interaction;
 using SLZ.Marrow.Pool;
 using UnityEngine;
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.Marrow
 {
-    [AddComponentMenu("The Library Electric/Misc/Absolute Fizzler")]
+    [AddComponentMenu("The Library Electric/Marrow/Absolute Fizzler")]
     [RequireComponent(typeof(Collider))]
     public class AbsoluteFizzler : ElectricBehaviour
     {

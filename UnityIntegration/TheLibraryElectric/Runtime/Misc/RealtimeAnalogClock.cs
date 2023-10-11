@@ -3,7 +3,8 @@ using System;
 
 namespace TheLibraryElectric.Misc
 {
-    public class RealtimeAnalogClock : MonoBehaviour
+	[AddComponentMenu("The Library Electric/Misc/Realtime Analog Clock")]
+    public class RealtimeAnalogClock : ElectricBehaviour
     {
         public enum RotationEnum
         {

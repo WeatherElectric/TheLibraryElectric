@@ -48,6 +48,8 @@
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\Marrow\AbsoluteFizzler.cs" />
+    <Compile Include="Monobehaviours\Marrow\DelayedFizzler.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
@@ -61,7 +63,6 @@
     <Compile Include="Monobehaviours\Marrow\ItemThrower.cs" />
     <Compile Include="Monobehaviours\Marrow\Killzone.cs" />
     <Compile Include="Monobehaviours\Marrow\SpawnCrateOnTriggerEnter.cs" />
-    <Compile Include="Monobehaviours\Misc\AbsoluteFizzler.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeIfLibInstalled.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeWhenCounter.cs" />

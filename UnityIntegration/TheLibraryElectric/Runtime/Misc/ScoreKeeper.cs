@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TheLibraryElectric.Misc
 {
 	[AddComponentMenu("The Library Electric/Misc/Score Keeper")]
-    public class ScoreKeeper : MonoBehaviour
+    public class ScoreKeeper : ElectricBehaviour
     {
 		[Header("TextMeshPro References")]
         public TextMeshPro player1Score;

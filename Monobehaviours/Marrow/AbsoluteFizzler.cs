@@ -3,7 +3,7 @@ using SLZ.Interaction;
 using SLZ.Marrow.Pool;
 using UnityEngine;
 
-namespace TheLibraryElectric.Misc
+namespace TheLibraryElectric.Marrow
 {
     public class AbsoluteFizzler : MonoBehaviour
     {
