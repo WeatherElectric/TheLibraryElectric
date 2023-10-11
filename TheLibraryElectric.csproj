@@ -84,6 +84,7 @@
     <Compile Include="Monobehaviours\Signals\SendSignal.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTrigger.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTriggerer.cs" />
+    <Compile Include="Monobehaviours\Vehicles\Boat.cs" />
     <Compile Include="Monobehaviours\Vehicles\RbSpeedMeter.cs" />
     <Compile Include="Monobehaviours\Water\DrowningManager.cs" />
     <Compile Include="Monobehaviours\Water\HandMonitor.cs" />
@@ -158,6 +159,9 @@
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>References\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
