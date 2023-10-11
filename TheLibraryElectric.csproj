@@ -47,6 +47,7 @@
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\Environment\TimeCycleHandler.cs" />
     <Compile Include="Monobehaviours\Marrow\CoolerSpawnablePlacer.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />

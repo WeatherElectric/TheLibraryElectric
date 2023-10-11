@@ -1,4 +1,5 @@
 using FieldInjector;
+using TheLibraryElectric.Environment;
 using TheLibraryElectric.LabFusion;
 using TheLibraryElectric.Markers;
 using TheLibraryElectric.Misc;
@@ -94,6 +95,8 @@ namespace TheLibraryElectric
             // arm forgot to inject this and then wondered why it didnt work
             SerialisationHandler.Inject<Boat>();
             ModConsole.Msg("Hopefully injected Boat", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<TimeCycleHandler>();
+            ModConsole.Msg("Hopefully injected TimeCycleHandler", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }
