@@ -79,10 +79,6 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RagdollOnCollide", LoggingMode.DEBUG);
             SerialisationHandler.Inject<InvokeWhenCounter>();
             ModConsole.Msg("Hopefully injected InvokeWhenCounter", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<AbsoluteFizzler>();
-            ModConsole.Msg("Hopefully injected AbsoluteFizzler", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<Killzone>();
-            ModConsole.Msg("Hopefully injected Killzone", LoggingMode.DEBUG);
             SerialisationHandler.Inject<PhotonThruster>();
             ModConsole.Msg("Hopefully injected PhotonThruster", LoggingMode.DEBUG);
             SerialisationHandler.Inject<GroupProxy>();
@@ -100,8 +96,6 @@ namespace TheLibraryElectric
             // arm forgot to inject this and then wondered why it didnt work
             SerialisationHandler.Inject<Boat>();
             ModConsole.Msg("Hopefully injected Boat", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<DelayedFizzler>();
-            ModConsole.Msg("Hopefully injected DelayedFizzler", LoggingMode.DEBUG);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", LoggingMode.DEBUG);
         }
     }

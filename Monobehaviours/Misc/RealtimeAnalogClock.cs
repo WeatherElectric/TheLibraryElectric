@@ -31,29 +31,6 @@ namespace TheLibraryElectric.Misc
                 switch (rotationAxis)
                 {
                     case RotationEnum.XAxis:
-                        hoursHand.localRotation = Quaternion.Euler(HoursToDegrees * _hours, 0f, 0f);
-                        minutesHand.localRotation = Quaternion.Euler(MinutesToDegrees * _minutes, 0f, 0f);
-                        secondsHand.localRotation = Quaternion.Euler(SecondsToDegrees * _seconds, 0f, 0f);
-                        break;
-                    case RotationEnum.YAxis:
-                        hoursHand.localRotation = Quaternion.Euler(0f, HoursToDegrees * _hours, 0f);
-                        minutesHand.localRotation = Quaternion.Euler(0f, MinutesToDegrees * _minutes, 0f);
-                        secondsHand.localRotation = Quaternion.Euler(0f, SecondsToDegrees * _seconds, 0f);
-                        break;
-                    case RotationEnum.ZAxis:
-                        hoursHand.localRotation = Quaternion.Euler(0f, 0f, HoursToDegrees * _hours);
-                        minutesHand.localRotation = Quaternion.Euler(0f, 0f, MinutesToDegrees * _minutes);
-                        secondsHand.localRotation = Quaternion.Euler(0f, 0f, SecondsToDegrees * _seconds);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-            else
-            {
-                switch (rotationAxis)
-                {
-                    case RotationEnum.XAxis:
                         hoursHand.localRotation = Quaternion.Euler(-HoursToDegrees * _hours, 0f, 0f);
                         minutesHand.localRotation = Quaternion.Euler(-MinutesToDegrees * _minutes, 0f, 0f);
                         secondsHand.localRotation = Quaternion.Euler(-SecondsToDegrees * _seconds, 0f, 0f);
@@ -67,6 +44,29 @@ namespace TheLibraryElectric.Misc
                         hoursHand.localRotation = Quaternion.Euler(0f, 0f, -HoursToDegrees * _hours);
                         minutesHand.localRotation = Quaternion.Euler(0f, 0f, -MinutesToDegrees * _minutes);
                         secondsHand.localRotation = Quaternion.Euler(0f, 0f, -SecondsToDegrees * _seconds);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            else
+            {
+                switch (rotationAxis)
+                {
+                    case RotationEnum.XAxis:
+                        hoursHand.localRotation = Quaternion.Euler(HoursToDegrees * _hours, 0f, 0f);
+                        minutesHand.localRotation = Quaternion.Euler(MinutesToDegrees * _minutes, 0f, 0f);
+                        secondsHand.localRotation = Quaternion.Euler(SecondsToDegrees * _seconds, 0f, 0f);
+                        break;
+                    case RotationEnum.YAxis:
+                        hoursHand.localRotation = Quaternion.Euler(0f, HoursToDegrees * _hours, 0f);
+                        minutesHand.localRotation = Quaternion.Euler(0f, MinutesToDegrees * _minutes, 0f);
+                        secondsHand.localRotation = Quaternion.Euler(0f, SecondsToDegrees * _seconds, 0f);
+                        break;
+                    case RotationEnum.ZAxis:
+                        hoursHand.localRotation = Quaternion.Euler(0f, 0f, HoursToDegrees * _hours);
+                        minutesHand.localRotation = Quaternion.Euler(0f, 0f, MinutesToDegrees * _minutes);
+                        secondsHand.localRotation = Quaternion.Euler(0f, 0f, SecondsToDegrees * _seconds);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
