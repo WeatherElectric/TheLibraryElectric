@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace TheLibraryElectric.InternalHelpers
+namespace TheLibraryElectric.Helpers
 {
     public static class TimeProxy
     {
@@ -15,7 +15,7 @@ namespace TheLibraryElectric.InternalHelpers
         }
         public static bool IfAfterOrNow(float hour, float minute)
         {
-            if(hour >= GetHour() && minute >= minute)
+            if(hour <= GetHour() && minute <= minute)
             {
                 return true;
             }
@@ -23,7 +23,7 @@ namespace TheLibraryElectric.InternalHelpers
         }
         public static bool IfBeforeOrNow(float hour, float minute)
         {
-            if (hour <= GetHour() && minute <= minute)
+            if (hour >= GetHour() && minute >= minute)
             {
                 return true;
             }
