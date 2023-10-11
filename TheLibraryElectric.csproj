@@ -42,12 +42,12 @@
     <Compile Include="InternalHelpers\ColliderHelper.cs" />
     <Compile Include="InternalHelpers\RigidbodyHelper.cs" />
     <Compile Include="InternalHelpers\RigmanagerHelper.cs" />
-    <Compile Include="InternalHelpers\SpawnCrateWithSpawnable.cs" />
+    <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\ModPref.cs" />
     <Compile Include="Logging\Preferences.cs" />
-    <Compile Include="InternalHelpers\SpawnCrate.cs" />
     <Compile Include="ModStats.cs" />
+    <Compile Include="Monobehaviours\Marrow\CoolerSpawnablePlacer.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
@@ -58,8 +58,6 @@
     <Compile Include="Monobehaviours\Markers\DoNotFreeze.cs" />
     <Compile Include="Monobehaviours\Markers\VoidCounterObject.cs" />
     <Compile Include="Monobehaviours\Marrow\DespawnPooledObject.cs" />
-    <Compile Include="Monobehaviours\Marrow\ItemThrower.cs" />
-    <Compile Include="Monobehaviours\Marrow\SpawnCrateOnTriggerEnter.cs" />
     <Compile Include="Monobehaviours\Misc\DestroyOnCollision.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeIfLibInstalled.cs" />
     <Compile Include="Monobehaviours\Misc\InvokeWhenCounter.cs" />

@@ -47,8 +47,6 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected ForceZone", LoggingMode.DEBUG);
             SerialisationHandler.Inject<SpawnOnTriggerEnter>();
             ModConsole.Msg("Hopefully injected SpawnOnTriggerEnter", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<SpawnCrateOnTriggerEnter>();
-            ModConsole.Msg("Hopefully injected SpawnCrateOnTriggerEnter", LoggingMode.DEBUG);
             SerialisationHandler.Inject<DespawnPooledObject>();
             ModConsole.Msg("Hopefully injected DespawnPooledObject", LoggingMode.DEBUG);
             SerialisationHandler.Inject<RandomAudioPlayer>();
@@ -59,8 +57,6 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RbBuoyancyManager", LoggingMode.DEBUG);
             SerialisationHandler.Inject<WaterZone>();
             ModConsole.Msg("Hopefully injected WaterZone", LoggingMode.DEBUG);
-            SerialisationHandler.Inject<ItemThrower>();
-            ModConsole.Msg("Hopefully injected ItemThrower", LoggingMode.DEBUG);
             SerialisationHandler.Inject<SignalTrigger>();
             ModConsole.Msg("Hopefully injected SignalTrigger", LoggingMode.DEBUG);
             SerialisationHandler.Inject<SignalTriggerer>();
@@ -93,6 +89,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected ScoreKeeper", LoggingMode.DEBUG);
             SerialisationHandler.Inject<RealtimeAnalogClock>();
             ModConsole.Msg("Hopefully injected RealtimeAnalogClock", LoggingMode.DEBUG);
+            SerialisationHandler.Inject<CoolerSpawnablePlacer>();
+            ModConsole.Msg("Hopefully injected CoolerSpawnablePlacer", LoggingMode.DEBUG);
             // arm forgot to inject this and then wondered why it didnt work
             SerialisationHandler.Inject<Boat>();
             ModConsole.Msg("Hopefully injected Boat", LoggingMode.DEBUG);
