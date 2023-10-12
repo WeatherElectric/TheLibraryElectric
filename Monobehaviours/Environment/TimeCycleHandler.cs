@@ -8,6 +8,8 @@ namespace TheLibraryElectric.Environment
         public Light sun;
         public float yAxis;
         public float zAxis;
+        public float nightLightIntensity = 0.001f;
+        public float dayLightIntensity = 1.0f;
         public ReflectionProbe[] reflectionProbes;
         public float nightIntensity = 0.4f;
         public float dayIntensity = 1.0f;
@@ -23,24 +25,41 @@ namespace TheLibraryElectric.Environment
             var totalSeconds = hours * 3600 + minutes * 60 + seconds;
             var angle = 90 - (totalSeconds / 86400) * 360;
             sun.transform.rotation = Quaternion.Euler(-angle, yAxis, zAxis);
-            var intensity = CalculateIntensity(hours, minutes);
+            var intensity = CalculateIntensity(hours, false);
             foreach (var reflectionProbe in reflectionProbes)
             {
                 reflectionProbe.intensity = intensity;
             }
+            var lightintensity = CalculateIntensity(hours, true);
+            sun.intensity = lightintensity;
         }
         
-        private float CalculateIntensity(float hours, float minutes)
+        private float CalculateIntensity(float hours, bool light)
         {
-            if (hours >= nightStartHour || hours < nightEndHour)
+            if (light)
             {
-                return nightIntensity;
+                if (hours >= nightStartHour || hours < nightEndHour)
+                {
+                    return nightLightIntensity;
+                }
+                else
+                {
+                    return dayLightIntensity;
+                }
             }
             else
             {
-                return dayIntensity;
+                if (hours >= nightStartHour || hours < nightEndHour)
+                {
+                    return nightIntensity;
+                }
+                else
+                {
+                    return dayIntensity;
+                }
             }
         }
+        
 #if !UNITY_EDITOR
         public TimeCycleHandler(IntPtr ptr) : base(ptr) { }
 #endif
