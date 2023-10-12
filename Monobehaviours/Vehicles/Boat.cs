@@ -111,13 +111,13 @@ namespace TheLibraryElectric.Vehicles
             {
                 _JoystickY = 0f;
             }
-            if (_JoystickY * 100 > _MotorStrength)
-            {
-                _JoystickY -= MotorAccel * DecelMultiplier * Time.deltaTime;
-            }
             if (_JoystickY * 100 < _MotorStrength)
             {
-                _JoystickY += MotorAccel * Time.deltaTime;
+                _MotorStrength -= MotorAccel * DecelMultiplier * Time.deltaTime;
+            }
+            if (_JoystickY * 100 > _MotorStrength)
+            {
+                _MotorStrength += MotorAccel * Time.deltaTime;
             }
             if (CanReverse)
             {
