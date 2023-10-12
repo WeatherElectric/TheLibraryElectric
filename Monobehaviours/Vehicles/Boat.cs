@@ -5,6 +5,7 @@ using SLZ.Rig;
 using static System.Math;
 using TheLibraryElectric.Water;
 using UnhollowerRuntimeLib;
+using System;
 
 namespace TheLibraryElectric.Vehicles
 {
@@ -54,7 +55,7 @@ namespace TheLibraryElectric.Vehicles
         {
             DriverSeat.RegisteredEvent += DelegateSupport.ConvertDelegate<Il2CppSystem.Action>(new System.Action(SeatEnter));
             DriverSeat.DeRegisteredEvent += DelegateSupport.ConvertDelegate<Il2CppSystem.Action>(new System.Action(SeatExit));
-            _CurrentDelay = DelayBetweenParticles + Random.Range(-RandomVariance, RandomVariance);
+            _CurrentDelay = DelayBetweenParticles + UnityEngine.Random.Range(-RandomVariance, RandomVariance);
             ModConsole.Msg("Getting absolute of should-be-positive-values", LoggingMode.DEBUG);
             ReverseMultiplier = Abs(ReverseMultiplier);
             DecelMultiplier = Abs(DecelMultiplier);
@@ -245,5 +246,8 @@ namespace TheLibraryElectric.Vehicles
             _IsPlayerIn = false;
             _JoystickY = 0f;
         }
+#if !UNITY_EDITOR
+        public Boat(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }
