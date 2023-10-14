@@ -10,6 +10,8 @@ namespace TheLibraryElectric.Environment
         public float zAxis;
         public float nightLightIntensity = 0.001f;
         public float dayLightIntensity = 1.0f;
+        public Color dayColor = Color.white;
+        public Color nightColor = Color.black;
         public ReflectionProbe[] reflectionProbes;
         public float nightIntensity = 0.4f;
         public float dayIntensity = 1.0f;
@@ -25,13 +27,12 @@ namespace TheLibraryElectric.Environment
             var totalSeconds = hours * 3600 + minutes * 60 + seconds;
             var angle = 90 - (totalSeconds / 86400) * 360;
             sun.transform.rotation = Quaternion.Euler(-angle, yAxis, zAxis);
-            var intensity = CalculateIntensity(hours, false);
             foreach (var reflectionProbe in reflectionProbes)
             {
-                reflectionProbe.intensity = intensity;
+                reflectionProbe.intensity = CalculateIntensity(hours, false);
             }
-            var lightintensity = CalculateIntensity(hours, true);
-            sun.intensity = lightintensity;
+            sun.intensity = CalculateIntensity(hours, true);
+            sun.color = CalculateColor(hours);
         }
         
         private float CalculateIntensity(float hours, bool light)
@@ -57,6 +58,18 @@ namespace TheLibraryElectric.Environment
                 {
                     return dayIntensity;
                 }
+            }
+        }
+
+        private Color CalculateColor(float hours)
+        {
+            if (hours >= nightStartHour || hours < nightEndHour)
+            {
+                return nightColor;
+            }
+            else
+            {
+                return dayColor;
             }
         }
         

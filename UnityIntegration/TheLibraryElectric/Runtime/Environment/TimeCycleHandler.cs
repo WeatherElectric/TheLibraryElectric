@@ -14,6 +14,14 @@ namespace TheLibraryElectric.Environment
         public float yAxis;
 		[Tooltip("What should the light's rotation on the Z axis be?")]
         public float zAxis;
+	    [Tooltip("What should the light's intensity be at night?")]
+	    public float nightLightIntensity = 0.001f;
+	    [Tooltip("What should the light's intensity be at day?")]
+	    public float dayLightIntensity = 1.0f;
+		[Tooltip("What should the light's color be at day?")]
+		public Color dayColor = Color.white;
+		[Tooltip("What should the light's color be at night?")]
+        public Color nightColor = Color.black;
         [Tooltip("The reflection probe(s) to change the intensity of.")]
         public ReflectionProbe[] reflectionProbes;
         [Header("Reflection Probe Settings")]
@@ -36,23 +44,50 @@ namespace TheLibraryElectric.Environment
             var totalSeconds = hours * 3600 + minutes * 60 + seconds;
             var angle = 90 - (totalSeconds / 86400) * 360;
             sun.transform.rotation = Quaternion.Euler(-angle, yAxis, zAxis);
-            var intensity = CalculateIntensity(hours, minutes);
             foreach (var reflectionProbe in reflectionProbes)
             {
-	            reflectionProbe.intensity = intensity;
+                reflectionProbe.intensity = CalculateIntensity(hours, false);
             }
+            sun.intensity = CalculateIntensity(hours, true);
+            sun.color = CalculateColor(hours);
         }
         
-        private float CalculateIntensity(float hours, float minutes)
+        private float CalculateIntensity(float hours, bool light)
         {
-	        if (hours >= nightStartHour || hours < nightEndHour)
-	        {
-		        return nightIntensity;
-	        }
-	        else
-	        {
-		        return dayIntensity;
-	        }
+            if (light)
+            {
+                if (hours >= nightStartHour || hours < nightEndHour)
+                {
+                    return nightLightIntensity;
+                }
+                else
+                {
+                    return dayLightIntensity;
+                }
+            }
+            else
+            {
+                if (hours >= nightStartHour || hours < nightEndHour)
+                {
+                    return nightIntensity;
+                }
+                else
+                {
+                    return dayIntensity;
+                }
+            }
+        }
+
+        private Color CalculateColor(float hours)
+        {
+            if (hours >= nightStartHour || hours < nightEndHour)
+            {
+                return nightColor;
+            }
+            else
+            {
+                return dayColor;
+            }
         }
     }
 }
