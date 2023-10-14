@@ -9,7 +9,7 @@ namespace TheLibraryElectricUpdater
         public const string Name = "TheLibraryElectricUpdater"; // Name of the Mod.  (MUST BE SET)
         public const string Author = "CarrionAndOn"; // Author of the Mod.  (Set as null if none)
         public const string Company = "Weather Electric"; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "2.1.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "2.2.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
     }
 

@@ -51,6 +51,7 @@
     <Compile Include="Monobehaviours\Environment\TimeCycleHandler.cs" />
     <Compile Include="Monobehaviours\Marrow\CoolerSpawnablePlacer.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
+    <Compile Include="Monobehaviours\Misc\RecordingEvents.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupProxy.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Patching\VoidCounterPatch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Temp\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
