@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
-namespace TheLibraryElectric.Monobehaviours.Misc
+namespace TheLibraryElectric.Misc
 {
-    internal class PlungerListener
+    public class PlungerListener : MonoBehaviour
     {
+        public PlungerButBetter plunger { get; set; }
+        public FixedJoint joint { get; set; }
+
+        public void OnJointBreak(float breakForce)
+        {
+            if(joint == null)
+            {
+                plunger.Break();
+            }
+        }
     }
 }

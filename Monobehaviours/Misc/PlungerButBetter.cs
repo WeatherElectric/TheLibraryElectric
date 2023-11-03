@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace TheLibraryElectric.Misc
 {
-    
+    // Thank you for making me do this SLZ
     public class PlungerButBetter : MonoBehaviour
     {
         
