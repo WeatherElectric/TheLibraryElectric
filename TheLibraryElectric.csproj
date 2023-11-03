@@ -50,6 +50,8 @@
     <Compile Include="ModStats.cs" />
     <Compile Include="Monobehaviours\Environment\TimeCycleHandler.cs" />
     <Compile Include="Monobehaviours\Marrow\CoolerSpawnablePlacer.cs" />
+    <Compile Include="Monobehaviours\Misc\PlungerButBetter.cs" />
+    <Compile Include="Monobehaviours\Misc\PlungerListener.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\RecordingEvents.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
