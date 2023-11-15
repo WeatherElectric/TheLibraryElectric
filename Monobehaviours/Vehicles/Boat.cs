@@ -6,6 +6,7 @@ using static System.Math;
 using TheLibraryElectric.Water;
 using UnhollowerRuntimeLib;
 using System;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.Vehicles
 {
@@ -56,7 +57,7 @@ namespace TheLibraryElectric.Vehicles
             DriverSeat.RegisteredEvent += DelegateSupport.ConvertDelegate<Il2CppSystem.Action>(new System.Action(SeatEnter));
             DriverSeat.DeRegisteredEvent += DelegateSupport.ConvertDelegate<Il2CppSystem.Action>(new System.Action(SeatExit));
             _CurrentDelay = DelayBetweenParticles + UnityEngine.Random.Range(-RandomVariance, RandomVariance);
-            ModConsole.Msg("Getting absolute of should-be-positive-values", LoggingMode.DEBUG);
+            ModConsole.Msg("Getting absolute of should-be-positive-values", 1);
             ReverseMultiplier = Abs(ReverseMultiplier);
             DecelMultiplier = Abs(DecelMultiplier);
             MotorAccel = Abs(MotorAccel);
@@ -69,12 +70,12 @@ namespace TheLibraryElectric.Vehicles
             }
             if(motorSFX == null)
             {
-                ModConsole.Error("Motor SFX is null! Fixing...", LoggingMode.DEBUG);
+                ModConsole.Error("Motor SFX is null! Fixing...", 1);
                 motorSFX = gameObject.AddComponent<MotorSFX>();
             }
             if(Speedometer == null)
             {
-                ModConsole.Error("Speedometer is null! Disabling...", LoggingMode.DEBUG);
+                ModConsole.Error("Speedometer is null! Disabling...", 1);
                 MaxSpeedometerRotation = 0;
             }
             if(SteeringWheel == null)
@@ -95,7 +96,7 @@ namespace TheLibraryElectric.Vehicles
                 }
                 else
                 {
-                    ModConsole.Msg("Found a Rigidbody", LoggingMode.DEBUG);
+                    ModConsole.Msg("Found a Rigidbody", 1);
                     BodyToAccelerate = foundBody;
                 }
             }

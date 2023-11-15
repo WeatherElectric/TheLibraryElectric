@@ -2,6 +2,7 @@
 using System;
 using SLZ.VFX;
 using TheLibraryElectric.Markers;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.Misc
 {
@@ -25,7 +26,7 @@ namespace TheLibraryElectric.Misc
         private void Start()
         {
             rigManager = GameObject.Find("[RigManager (Blank)]")?.transform;
-            ModConsole.Msg($"Rigmanager is {rigManager.gameObject.name}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Rigmanager is {rigManager.gameObject.name}", 1);
         }
         private void OnCollisionEnter(Collision collision)
         {
@@ -45,7 +46,7 @@ namespace TheLibraryElectric.Misc
                     }
                     audioSource.Play();
                     // Destroy the colliding GameObject
-                    ModConsole.Msg($"Destroying {collision.gameObject.name}", LoggingMode.DEBUG);
+                    ModConsole.Msg($"Destroying {collision.gameObject.name}", 1);
                     Destroy(collision.gameObject);
                 }
             }
@@ -59,7 +60,7 @@ namespace TheLibraryElectric.Misc
             {
                 if (obj == excludedObject)
                 {
-                    ModConsole.Msg($"Ignoring {excludedObject}", LoggingMode.DEBUG);
+                    ModConsole.Msg($"Ignoring {excludedObject}", 1);
                     return true;
                 }
             }

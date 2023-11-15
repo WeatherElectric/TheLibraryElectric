@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.Misc
 {
@@ -15,7 +16,7 @@ namespace TheLibraryElectric.Misc
 
         private void Start()
         {
-            ModConsole.Msg($"Starting value is {startingValue}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Starting value is {startingValue}", 1);
             currentValue = startingValue;
             UpdateTextValue();
         }
@@ -28,16 +29,16 @@ namespace TheLibraryElectric.Misc
         public void IncreaseValue()
         {
             currentValue += incrementAmount;
-            ModConsole.Msg($"Increasing value by {incrementAmount}, now {currentValue}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Increasing value by {incrementAmount}, now {currentValue}", 1);
             UpdateTextValue();
         }
         public void DecreaseValue()
         {
             currentValue -= incrementAmount;
-            ModConsole.Msg($"Decreasing value by {incrementAmount}, now {currentValue}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Decreasing value by {incrementAmount}, now {currentValue}", 1);
             if (currentValue < 0.1f)
             {
-                ModConsole.Msg("Value should not be lower than 0.1!", LoggingMode.DEBUG);
+                ModConsole.Msg("Value should not be lower than 0.1!", 1);
                 currentValue = minValue;
             }
             UpdateTextValue();

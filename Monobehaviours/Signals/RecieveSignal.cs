@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using TheLibraryElectric.Melon;
 using UltEvents;
 
 namespace TheLibraryElectric.Signals
@@ -9,7 +10,7 @@ namespace TheLibraryElectric.Signals
         public string activationKey;
         private void Start()
         {
-            ModConsole.Msg($"Reciever spawned, key is {activationKey}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Reciever spawned, key is {activationKey}", 1);
         }
         public void InvokeEvent()
         {

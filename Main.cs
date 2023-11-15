@@ -1,7 +1,6 @@
 ﻿using System.Threading;
-using BoneLib;
 using MelonLoader;
-using TheLibraryElectric.Patching;
+using TheLibraryElectric.Melon;
 using UnityEngine;
 
 namespace TheLibraryElectric
@@ -19,7 +18,7 @@ namespace TheLibraryElectric
             ModConsole.Setup(LoggerInstance);
             Preferences.Setup();
             FieldInjection.Inject();
-            ModConsole.Msg("Doing Jevillib stuff", LoggingMode.DEBUG);
+            ModConsole.Msg("Doing Jevillib stuff", 1);
         }
         public override void OnLateInitializeMelon()
         {

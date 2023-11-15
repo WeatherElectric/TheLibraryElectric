@@ -1,4 +1,5 @@
 using System;
+using TheLibraryElectric.Melon;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,7 +12,7 @@ namespace TheLibraryElectric.Signals
         public string activationKey;
         public void Start()
         {
-            ModConsole.Msg($"SignalTriggerer spawned, key is {activationKey}", LoggingMode.DEBUG);
+            ModConsole.Msg($"SignalTriggerer spawned, key is {activationKey}", 1);
         }
 #if !UNITY_EDITOR
         public SignalTriggerer(IntPtr ptr) : base(ptr) { }

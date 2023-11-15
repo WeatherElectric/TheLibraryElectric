@@ -1,5 +1,6 @@
 ﻿using System;
 using SLZ.Rig;
+using TheLibraryElectric.Melon;
 using UnityEngine;
 
 namespace TheLibraryElectric.Water
@@ -22,7 +23,7 @@ namespace TheLibraryElectric.Water
             if (handVelocity.sqrMagnitude > minimumVelocity)
             {
                 rigManager.physicsRig.m_head.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, handVelocity.sqrMagnitude * velocityMultiplier));
-                ModConsole.Msg("Chest velocity: " + rigManager.physicsRig.m_chest.GetComponent<Rigidbody>().velocity + "e: " + handVelocity.sqrMagnitude * 1000, LoggingMode.DEBUG);
+                ModConsole.Msg("Chest velocity: " + rigManager.physicsRig.m_chest.GetComponent<Rigidbody>().velocity + "e: " + handVelocity.sqrMagnitude * 1000, 1);
             }
         }
 #if !UNITY_EDITOR

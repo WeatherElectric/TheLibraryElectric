@@ -1,4 +1,5 @@
 using System;
+using TheLibraryElectric.Melon;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +12,7 @@ namespace TheLibraryElectric.Misc
         {
             if (audioSources.Length == 0)
             {
-                ModConsole.Msg("No audiosources assigned!", LoggingMode.DEBUG);
+                ModConsole.Msg("No audiosources assigned!", 1);
             }
         }
 
@@ -25,7 +26,7 @@ namespace TheLibraryElectric.Misc
             }
             else
             {
-                ModConsole.Msg("No audiosources assigned!", LoggingMode.DEBUG);
+                ModConsole.Msg("No audiosources assigned!", 1);
             }
         }
 #if !UNITY_EDITOR

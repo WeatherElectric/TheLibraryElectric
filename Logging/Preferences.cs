@@ -1,19 +1,19 @@
 ﻿using MelonLoader;
 
-namespace TheLibraryElectric
+namespace TheLibraryElectric.Melon
 {
     internal static class Preferences
     {
-        private static MelonPreferences_Category category = MelonPreferences.CreateCategory("The Library Electric");
+        public static readonly MelonPreferences_Category GlobalCategory = MelonPreferences.CreateCategory("Global");
 
-        public static ModPref<LoggingMode> loggingMode;
+        public static MelonPreferences_Entry<int> loggingMode;
 
         public static void Setup()
         {
-            loggingMode = new ModPref<LoggingMode>(category, "LoggingMode", LoggingMode.NORMAL);
-
-            category.SaveToFile(false);
-            ModConsole.Msg("Finished preferences setup", LoggingMode.DEBUG);
+            loggingMode = GlobalCategory.CreateEntry("LoggingMode", 0, "Logging Mode", "The level of logging to use. 0 = Important Only, 1 = All");
+            GlobalCategory.SetFilePath(MelonUtils.UserDataDirectory+"/WeatherElectric.cfg");
+            GlobalCategory.SaveToFile(false);
+            ModConsole.Msg("Finished preferences setup for The Library Electric", 1);
         }
     }
 }

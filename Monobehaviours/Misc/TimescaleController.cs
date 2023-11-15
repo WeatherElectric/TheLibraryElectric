@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.Misc
 {
@@ -15,7 +16,7 @@ namespace TheLibraryElectric.Misc
             }
             else
             {
-                ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
+                ModConsole.Msg("Scale cannot be negative!", 1);
             }
         }
         private void FixedUpdate()
@@ -26,7 +27,7 @@ namespace TheLibraryElectric.Misc
         {
             var currentTimeScale = timeScale;
             timeScale = currentTimeScale + incrementValue;
-            ModConsole.Msg($"Increasing timeScale by {incrementValue}, now {timeScale}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Increasing timeScale by {incrementValue}, now {timeScale}", 1);
         }
         public void DecreaseTimeScale()
         {
@@ -35,11 +36,11 @@ namespace TheLibraryElectric.Misc
             if (currentTimeScale >= 0.1f)
             {
                 timeScale = newTimeScale;
-                ModConsole.Msg($"Decreasing timeScale by {incrementValue}, now {newTimeScale}", LoggingMode.DEBUG);
+                ModConsole.Msg($"Decreasing timeScale by {incrementValue}, now {newTimeScale}", 1);
             }
             else
             {
-                ModConsole.Msg("Scale cannot be negative!", LoggingMode.DEBUG);
+                ModConsole.Msg("Scale cannot be negative!", 1);
             }
         }
         private void OnDestroy()

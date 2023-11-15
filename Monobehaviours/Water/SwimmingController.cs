@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using SLZ.Rig;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.Water
 {
@@ -15,7 +16,7 @@ namespace TheLibraryElectric.Water
             rigManager = other.GetComponentInParent<RigManager>();
             if (rigManager != null)
             {
-                ModConsole.Msg("SwimmingController: RigManager found!", LoggingMode.DEBUG);
+                ModConsole.Msg("SwimmingController: RigManager found!", 1);
                 if (rigManager.physicsRig.leftHand.GetComponent<HandMonitor>() == null)
                 {
                     var handMonitor = rigManager.physicsRig.leftHand.gameObject.AddComponent<HandMonitor>();

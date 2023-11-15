@@ -1,4 +1,5 @@
 using System;
+using TheLibraryElectric.Melon;
 using UnityEngine;
 using UltEvents;
 
@@ -11,7 +12,7 @@ namespace TheLibraryElectric.Signals
         public string activationKey;
         private void Start()
         {
-            ModConsole.Msg($"SignalTrigger spawned, key is {activationKey}", LoggingMode.DEBUG);
+            ModConsole.Msg($"SignalTrigger spawned, key is {activationKey}", 1);
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -20,13 +21,13 @@ namespace TheLibraryElectric.Signals
             {
                 if (triggerer.activationKey == activationKey)
                 {
-                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
+                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", 1);
                     triggerEnterEvent.Invoke();
-                    ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
+                    ModConsole.Msg("Invoked event", 1);
                 }
                 else
                 {
-                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", LoggingMode.DEBUG);
+                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", 1);
                 }
             }
         }
@@ -37,13 +38,13 @@ namespace TheLibraryElectric.Signals
             {
                 if (triggerer.activationKey == activationKey)
                 {
-                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", LoggingMode.DEBUG);
+                    ModConsole.Msg($"Trigger's key is {activationKey}, triggerer's key is {triggerer.activationKey}", 1);
                     triggerExitEvent.Invoke();
-                    ModConsole.Msg("Invoked event", LoggingMode.DEBUG);
+                    ModConsole.Msg("Invoked event", 1);
                 }
                 else
                 {
-                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", LoggingMode.DEBUG);
+                    ModConsole.Msg("Object is not a triggerer, or is not the right key.", 1);
                 }
             }
         }
