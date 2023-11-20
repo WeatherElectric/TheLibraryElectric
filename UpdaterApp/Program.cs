@@ -9,7 +9,7 @@ namespace UpdaterApp
 {
     internal class Program
     {
-        private static readonly string releaseApi = "https://api.github.com/repos/CarrionAndOn/TheLibraryElectric/releases";
+        private static readonly string releaseApi = "https://api.github.com/repos/WeatherElectric/TheLibraryElectric/releases";
 
         static int Main(string[] args)
         {
