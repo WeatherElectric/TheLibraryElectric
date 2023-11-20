@@ -9,10 +9,10 @@ namespace TheLibraryElectric
     {
         internal const string Name = "The Library Electric";
         internal const string Description = "See how IL2CPP breaks the mod.";
-        internal const string Author = "CarrionAndOn + BugoBug";
+        internal const string Author = "SoulWithMae + BugoBug + EverythingOnArm";
         internal const string Company = "Weather Electric";
-        internal const string Version = "2.2.0";
-        internal const string DownloadLink = "https://bonelab.thunderstore.io/package/CarrionAndOn/TheLibraryElectric/";
+        internal const string Version = "2.2.1";
+        internal const string DownloadLink = "https://bonelab.thunderstore.io/package/SoulWithMae/TheLibraryElectric/";
         public override void OnInitializeMelon()
         {
             ModConsole.Setup(LoggerInstance);
