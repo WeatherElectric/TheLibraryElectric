@@ -3,6 +3,7 @@ using BoneLib;
 using SLZ.Bonelab;
 using SLZ.Rig;
 using UnityEngine;
+using TheLibraryElectric.Melon;
 
 namespace TheLibraryElectric.PlayerUtil
 { 
@@ -21,28 +22,28 @@ namespace TheLibraryElectric.PlayerUtil
         public void Apply()
         {
             _rigManager = Player.rigManager;
-            ModConsole.Msg($"Playerleash is {playerLeash}", LoggingMode.DEBUG);
-            ModConsole.Msg($"PlayerLaunchPad is {playerLaunchPad}", LoggingMode.DEBUG);
-            ModConsole.Msg($"ForceAvatar is {forceAvatar}", LoggingMode.DEBUG);
-            ModConsole.Msg($"RandomAvatar is {randomAvatar}", LoggingMode.DEBUG);
+            ModConsole.Msg($"Playerleash is {playerLeash}", 1);
+            ModConsole.Msg($"PlayerLaunchPad is {playerLaunchPad}", 1);
+            ModConsole.Msg($"ForceAvatar is {forceAvatar}", 1);
+            ModConsole.Msg($"RandomAvatar is {randomAvatar}", 1);
             if (playerLeash)
             {
-                ModConsole.Msg($"Executing PlayerLeash", LoggingMode.DEBUG);
+                ModConsole.Msg($"Executing PlayerLeash", 1);
                 PlayerLeash();
             }
             if (playerLaunchPad)
             {
-                ModConsole.Msg($"Executing PlayerLaunchPad", LoggingMode.DEBUG);
+                ModConsole.Msg($"Executing PlayerLaunchPad", 1);
                 PlayerLaunchPad();
             }
             if (forceAvatar)
             {
-                ModConsole.Msg($"Executing ForceAvatar", LoggingMode.DEBUG);
+                ModConsole.Msg($"Executing ForceAvatar", 1);
                 ForceAvatar();
             }
             if (randomAvatar)
             {
-                ModConsole.Msg($"Executing RandomAvatar", LoggingMode.DEBUG);
+                ModConsole.Msg($"Executing RandomAvatar", 1);
                 RandomAvatar();
             }
         }
@@ -50,7 +51,7 @@ namespace TheLibraryElectric.PlayerUtil
         public void PlayerLeash()
         {
             playerLeasher.rM = _rigManager;
-            ModConsole.Msg($"PlayerLeasher RM is {playerLeasher.rM}", LoggingMode.DEBUG);
+            ModConsole.Msg($"PlayerLeasher RM is {playerLeasher.rM}", 1);
             playerLeasher.gameObject.SetActive(true);
         }
         
@@ -59,7 +60,7 @@ namespace TheLibraryElectric.PlayerUtil
             foreach (var launchPad in playerLaunchPads)
             {
                 launchPad.rigManager = _rigManager;
-                ModConsole.Msg($"PlayerLaunchPad RM is {launchPad.rigManager}", LoggingMode.DEBUG);
+                ModConsole.Msg($"PlayerLaunchPad RM is {launchPad.rigManager}", 1);
                 launchPad.gameObject.SetActive(true);
             }
         }
@@ -68,7 +69,7 @@ namespace TheLibraryElectric.PlayerUtil
         {
             foreach (var avatar in forceAvatars)
             {
-                ModConsole.Msg($"ForceAvatar RM is {avatar.rm}", LoggingMode.DEBUG);
+                ModConsole.Msg($"ForceAvatar RM is {avatar.rm}", 1);
                 avatar.rm = _rigManager;
                 avatar.gameObject.SetActive(true);
             }
@@ -78,7 +79,7 @@ namespace TheLibraryElectric.PlayerUtil
         {
             foreach (var avatar in randomAvatars)
             {
-                ModConsole.Msg($"RandomAvatar RM is {avatar.rm}", LoggingMode.DEBUG);
+                ModConsole.Msg($"RandomAvatar RM is {avatar.rm}", 1);
                 avatar.rm = _rigManager;
                 avatar.gameObject.SetActive(true);
             }
