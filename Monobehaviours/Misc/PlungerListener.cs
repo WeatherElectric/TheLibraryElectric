@@ -19,5 +19,8 @@ namespace TheLibraryElectric.Misc
                 plunger.Break();
             }
         }
+#if !UNITY_EDITOR
+        public PlungerListener(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }

@@ -72,6 +72,9 @@
     <Compile Include="Monobehaviours\Misc\TimescaleController.cs" />
     <Compile Include="Monobehaviours\Misc\TLE_SimpleRaycast.cs" />
     <Compile Include="Monobehaviours\Misc\UpdateTMP.cs" />
+    <Compile Include="Monobehaviours\Misc\FindClosestRigManager.cs" />
+    <Compile Include="Monobehaviours\Misc\GetRigFromGrip.cs" />
+    <Compile Include="Monobehaviours\PlayerUtil\ApplyRigManager.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RagdollOnCollide.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RagdollZone.cs" />
     <Compile Include="Monobehaviours\PlayerUtil\RigManagerControl.cs" />
@@ -83,6 +86,13 @@
     <Compile Include="Monobehaviours\Signals\SendSignal.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTrigger.cs" />
     <Compile Include="Monobehaviours\Signals\SignalTriggerer.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\FloatHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\HandHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\IntHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\QuaternionHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\RigManagerHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\TransformHolder.cs" />
+    <Compile Include="Monobehaviours\VariableHolders\Vector3Holder.cs" />
     <Compile Include="Monobehaviours\Vehicles\Boat.cs" />
     <Compile Include="Monobehaviours\Vehicles\RbSpeedMeter.cs" />
     <Compile Include="Monobehaviours\Water\DrowningManager.cs" />

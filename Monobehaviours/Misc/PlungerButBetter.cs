@@ -112,5 +112,8 @@ namespace TheLibraryElectric.Misc
             connectedRigidbody = null;
             onDetach.Invoke();
         }
+#if !UNITY_EDITOR
+        public PlungerButBetter(IntPtr ptr) : base(ptr) { }
+#endif
     }
 }
