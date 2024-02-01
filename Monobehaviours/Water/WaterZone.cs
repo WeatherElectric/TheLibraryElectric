@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SLZ;
 using SLZ.Rig;
 using UnhollowerBaseLib.Attributes;
 using UnityEngine;
@@ -19,6 +20,14 @@ namespace TheLibraryElectric.Water
         private void OnTriggerEnter(Collider other)
         {
             var colliderRigidbody = other.attachedRigidbody;
+            RbBuoyancyManager managere = null;
+            if(colliderRigidbody != null) managere = colliderRigidbody.GetComponent<RbBuoyancyManager>();
+            if(managere != null && managere.isAnOverride)
+            {
+                managere.enabled = true;
+                inTriggerCol.Add(managere); // Add the colliding GameObject to the list
+                return;
+            }
             if (colliderRigidbody != null && colliderRigidbody.GetComponent<RbBuoyancyManager>() == null) // Check if the colliding GameObject has a Rigidbody and doesn't have the RBGravityManager component
             {
                 if (other.GetComponentInParent<RigManager>() != null && ignoreRigManager)
@@ -69,6 +78,12 @@ namespace TheLibraryElectric.Water
 
             if (inTriggerCol.Contains(manager)) // Check if the colliding GameObject is in the list
             {
+                if (manager.isAnOverride)
+                {
+                    manager.enabled = false;
+                    manager.onDestroyed.Invoke(manager);
+                    return;
+                }
                 colliderRigidbody.useGravity = true; // Enable gravity
                 UnityEngine.Object.Destroy(manager); // Destroy the RBGravityManager component
                 Rigidbody[] childRbs = colliderRigidbody.GetComponentsInChildren<Rigidbody>(true);
@@ -97,7 +112,7 @@ namespace TheLibraryElectric.Water
         {
             foreach(var rBBuoyancyManager in inTriggerCol) // Loop through the list
             {
-                if (rBBuoyancyManager != null)
+                if (rBBuoyancyManager != null && !rBBuoyancyManager.isAnOverride)
                 {
                     rBBuoyancyManager.buoyancyMultiplier = buoyancyMultiplier; // Get the RBGravityManager component & update the gravity amount
                     rBBuoyancyManager.dampening = dampening;

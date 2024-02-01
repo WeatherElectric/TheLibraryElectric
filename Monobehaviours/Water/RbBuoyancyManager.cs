@@ -11,6 +11,7 @@ namespace TheLibraryElectric.Water
         public bool midpointSink; // Will masses at the midpoint sink or float?
         public bool dampening; // If dampening is enabled, drag will increase as the object sinks.
         public float dampeningAmount; // Dampening multiplier
+        public bool isAnOverride; // If this is an override, it will not be destroyed or changed when entering water
 
         [NonSerialized]
         internal Action<RbBuoyancyManager> onDestroyed = null;
@@ -33,7 +34,8 @@ namespace TheLibraryElectric.Water
                 thisRb.useGravity = true;
             }
 
-            Destroy(this);
+            if(!isAnOverride) Destroy(this); 
+            else enabled = false;
         }
 
         private void OnDestroy()

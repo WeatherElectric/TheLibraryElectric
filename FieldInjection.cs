@@ -11,6 +11,7 @@ using TheLibraryElectric.Marrow;
 using TheLibraryElectric.Groups;
 using TheLibraryElectric.Melon;
 using TheLibraryElectric.Vehicles;
+using TheLibraryElectric.VariableHolders;
 
 namespace TheLibraryElectric
 {
@@ -93,6 +94,28 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected RealtimeAnalogClock", 1);
             SerialisationHandler.Inject<CoolerSpawnablePlacer>();
             ModConsole.Msg("Hopefully injected CoolerSpawnablePlacer", 1);
+            SerialisationHandler.Inject<PlungerButBetter>();
+            ModConsole.Msg("Hopefully injected PlungerButBetter", 1);
+            SerialisationHandler.Inject<PlungerListener>();
+            ModConsole.Msg("Hopefully injected PlungerListener", 1);
+            SerialisationHandler.Inject<HandHolder>();
+            ModConsole.Msg("Hopefully injected HandHolder", 1);
+            SerialisationHandler.Inject<Vector3Holder>();
+            ModConsole.Msg("Hopefully injected Vector3Holder", 1);
+            SerialisationHandler.Inject<QuaternionHolder>();
+            ModConsole.Msg("Hopefully injected QuaternionHolder", 1);
+            SerialisationHandler.Inject<FloatHolder>();
+            ModConsole.Msg("Hopefully injected FloatHolder", 1);
+            SerialisationHandler.Inject<IntHolder>();
+            ModConsole.Msg("Hopefully injected IntHolder", 1);
+            SerialisationHandler.Inject<RigManagerHolder>();
+            ModConsole.Msg("Hopefully injected RigManagerHolder", 1);
+            SerialisationHandler.Inject<ApplyRigManager>();
+            ModConsole.Msg("Hopefully injected ApplyRigManager", 1);
+            SerialisationHandler.Inject<FindClosestRigManager>();
+            ModConsole.Msg("Hopefully injected FindClosestRigManager", 1);
+            SerialisationHandler.Inject<TransformHolder>();
+            ModConsole.Msg("Hopefully injected TransformHolder", 1);
             // arm forgot to inject this and then wondered why it didnt work
             SerialisationHandler.Inject<Boat>();
             ModConsole.Msg("Hopefully injected Boat", 1);
