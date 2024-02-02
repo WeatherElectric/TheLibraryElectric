@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Quaternion Holder")]
+#endif
     public class QuaternionHolder : MonoBehaviour
     {
         public Quaternion variable;

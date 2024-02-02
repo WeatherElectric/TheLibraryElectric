@@ -11,7 +11,6 @@ namespace TheLibraryElectric.Misc
 {
     public class GetRigFromGrip : MonoBehaviour
     { 
-
         public RigManager GetRig(Grip grip)
         {
             return grip.GetHand().GetComponentInParent<RigManager>();

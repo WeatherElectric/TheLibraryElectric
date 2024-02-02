@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Vector3 Holder")]
+#endif
     public class Vector3Holder : MonoBehaviour
     {
         public Vector3 variable;

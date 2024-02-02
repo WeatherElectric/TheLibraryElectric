@@ -19,8 +19,5 @@ namespace TheLibraryElectric.VariableHolders
             get { return variable; }
             set { variable = value; }
         }
-#if !UNITY_EDITOR
-        public RigManagerHolder(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }

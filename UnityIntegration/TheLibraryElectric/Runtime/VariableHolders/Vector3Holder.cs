@@ -3,24 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SLZ.Rig;
 using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
 #if UNITY_EDITOR
-    [AddComponentMenu("The Library Electric/Variable Holders/RigManager Holder")]
+    [AddComponentMenu("The Library Electric/Variable Holders/Vector3 Holder")]
 #endif
-    public class RigManagerHolder : MonoBehaviour
+    public class Vector3Holder : MonoBehaviour
     {
-        public RigManager variable;
-        public RigManager Variable
+        public Vector3 variable;
+        public Vector3 Variable
         {
             get { return variable; }
             set { variable = value; }
         }
-#if !UNITY_EDITOR
-        public RigManagerHolder(IntPtr ptr) : base(ptr) { }
-#endif
     }
 }

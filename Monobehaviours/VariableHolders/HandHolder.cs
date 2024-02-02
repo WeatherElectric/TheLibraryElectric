@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Hand Holder")]
+#endif
     public class HandHolder : MonoBehaviour
     {
         public Hand variable;

@@ -19,6 +19,7 @@ namespace TheLibraryElectric.Water
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.isTrigger) return;
             var colliderRigidbody = other.attachedRigidbody;
             RbBuoyancyManager managere = null;
             if(colliderRigidbody != null) managere = colliderRigidbody.GetComponent<RbBuoyancyManager>();
@@ -70,6 +71,7 @@ namespace TheLibraryElectric.Water
 
         private void OnTriggerExit(Collider other) // When the GameObject exits the trigger collider
         {
+            if (other.isTrigger) return;
             var colliderRigidbody = other.attachedRigidbody;
             RbBuoyancyManager manager = null;
 

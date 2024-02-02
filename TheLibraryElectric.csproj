@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;MELONLOADER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -28,7 +28,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;MELONLOADER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
@@ -46,7 +46,6 @@
     <Compile Include="InternalHelpers\TimeProxy.cs" />
     <Compile Include="Logging\ModConsole.cs" />
     <Compile Include="Logging\Preferences.cs" />
-    <Compile Include="ModStats.cs" />
     <Compile Include="Monobehaviours\Environment\TimeCycleHandler.cs" />
     <Compile Include="Monobehaviours\Marrow\CoolerSpawnablePlacer.cs" />
     <Compile Include="Monobehaviours\Misc\PlungerButBetter.cs" />
@@ -54,6 +53,7 @@
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\RecordingEvents.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
+    <Compile Include="Monobehaviours\Misc\SetAudioMixer.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupProxy.cs" />
     <Compile Include="Monobehaviours\Internal\ElectricBehaviour.cs" />

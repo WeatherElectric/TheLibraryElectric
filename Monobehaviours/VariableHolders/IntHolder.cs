@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Int Holder")]
+#endif
     public class IntHolder : MonoBehaviour
     {
         public int variable;

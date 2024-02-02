@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Float Holder")]
+#endif
     public class FloatHolder : MonoBehaviour
     {
         public float variable;

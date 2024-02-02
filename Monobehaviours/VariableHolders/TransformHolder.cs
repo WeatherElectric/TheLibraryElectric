@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace TheLibraryElectric.VariableHolders
 {
+#if UNITY_EDITOR
+    [AddComponentMenu("The Library Electric/Variable Holders/Transform Holder")]
+#endif
     public class TransformHolder : MonoBehaviour
     {
         public Transform variable;
