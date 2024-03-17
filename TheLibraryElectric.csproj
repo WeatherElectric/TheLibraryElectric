@@ -52,6 +52,7 @@
     <Compile Include="Monobehaviours\Misc\PlungerListener.cs" />
     <Compile Include="Monobehaviours\Misc\RealtimeAnalogClock.cs" />
     <Compile Include="Monobehaviours\Misc\RecordingEvents.cs" />
+    <Compile Include="Monobehaviours\Misc\RenderTextureLights.cs" />
     <Compile Include="Monobehaviours\Misc\ScoreKeeper.cs" />
     <Compile Include="Monobehaviours\Misc\SetAudioMixer.cs" />
     <Compile Include="Monobehaviours\Signals\Grouping\GroupIdentifier.cs" />

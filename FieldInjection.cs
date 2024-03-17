@@ -123,6 +123,8 @@ namespace TheLibraryElectric
             ModConsole.Msg("Hopefully injected TimeCycleHandler", 1);
             SerialisationHandler.Inject<SetAudioMixer>();
             ModConsole.Msg("Hopefully injected SetAudioMixer", 1);
+            SerialisationHandler.Inject<RenderTextureLights>();
+            ModConsole.Msg("Hopefully injected RenderTextureLights", 1);
             ModConsole.Msg("All fields are probably injected. I can't tell since this isn't async so I can't slap a bool on it.", 1);
         }
     }
